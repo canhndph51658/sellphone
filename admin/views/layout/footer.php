@@ -2,7 +2,7 @@
     <div class="float-right d-none d-sm-block">
       By <b>THT</b>
     </div>
-    <strong>Website bán điện thoại của nhóm THT</strong>
+    <strong>Website bán điện thoại của ZPhone </strong>
   </footer>
 
   <!-- Control Sidebar -->

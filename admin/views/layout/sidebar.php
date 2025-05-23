@@ -13,7 +13,7 @@
                 <img src="./assets/dist/img/thtshop-removebg-preview.png" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">VDCB Shop</a>
+                <a href="#" class="d-block">ZPhone Shop</a>
             </div>
         </div>
 
