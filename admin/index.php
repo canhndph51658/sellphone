@@ -7,10 +7,11 @@ require_once '../commons/function.php';
 
 // Khai báo các controller
 require_once './controllers/AdminThongKeController.php';
+require_once './controllers/AdminTaikhoanControllers.php';
 
 
 // Khai báo các model
-
+require_once './models/AdminTaikhoan.php';
 
 // route
 $act = $_GET['act'] ?? '/';
@@ -19,4 +20,7 @@ $act = $_GET['act'] ?? '/';
 match ($act) {
      // Trang chủ
      '/' => (new AdminThongKeController())->home(),
+
+     // Tài khoản
+     'listtaikhoanquantri' => (new AdminTaikhoanController())->danhSachQuanTri(),
 };

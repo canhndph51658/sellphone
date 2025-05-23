@@ -53,7 +53,7 @@
 
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= BASE_URL_ADMIN . '?act=' ?>" class="nav-link">
+                            <a href="<?= BASE_URL_ADMIN . '?act=listtaikhoanquantri' ?>" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>Quản trị viên</p>
                             </a>
