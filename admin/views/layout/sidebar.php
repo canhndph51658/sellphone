@@ -44,25 +44,29 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="<?= BASE_URL_ADMIN . '?act=sanpham' ?>" class="nav-link">
-                        <i class="nav-icon fas fa-mobile"></i>
-                        <p>
-                            Sản phẩm
-                        </p>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa user"></i>
+                        <p>Quản lý tài khoản</p>
+                        <i class="fas fa-angle-left right"></i>
                     </a>
-                </li>
 
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= BASE_URL_ADMIN . '?act=' ?>" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Quản trị viên</p>
+                            </a>
+                        </li>
 
-                <li class="nav-item">
-                    <a href="<?= BASE_URL_ADMIN . '?act=danhmuc' ?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Danh mục
-                        </p>
-                    </a>
-                </li>
-
+                        <li class="nav-item">
+                            <a href="<?= BASE_URL_ADMIN . '?act=' ?>" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Khách hàng</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
