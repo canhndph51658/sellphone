@@ -95,7 +95,7 @@ class AdminTaikhoanController
                // var_dump($error);
                // die();
                if (empty($error)) {
-                    $this->modelTaikhoan->updateTaiKhoan($quantri_id, $hoten, $email, $dienthoai, $trng_thai);
+                    $this->modelTaikhoan->updateTaiKhoan($quantri_id, $hoten, $email, $dienthoai, $trang_thai);
 
                     header("Loccation: " . BASE_URL_ADMIN . "?act=listtaikhoanquantri");
                     exit();
