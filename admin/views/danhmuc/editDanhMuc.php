@@ -42,7 +42,7 @@
 
                     <div class="form-group">
                         <label for="">mô tả</label>
-                        <textarea name="mota" id="" class="form-control" placeholder="nhập mô tả" value="<?php $danhmuc['ten_loai']?> <?= $danhmuc['mota']?>"></textarea>
+                        <textarea name="mota" id="" class="form-control" placeholder="nhập mô tả" value="<?= $danhmuc['mota']?>"></textarea>
                     </div>
                 </div>
                     <div class="card-footer">
