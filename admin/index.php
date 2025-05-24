@@ -25,4 +25,8 @@ match ($act) {
      'listtaikhoanquantri' => (new AdminTaikhoanController())->danhSachQuanTri(),
      'formthemquantri' => (new AdminTaikhoanController())->formAddQuanTri(),
      'themquantri' => (new AdminTaikhoanController())->postAddQuanTri(),
+     'formsuaquantri' => (new AdminTaikhoanController())->formEditQuanTri(),
+     'suaquantri' => (new AdminTaikhoanController())->postEditQuanTri(),
+
+     'xoapassword' => (new AdminTaikhoanController())->deletePassword(),
 };

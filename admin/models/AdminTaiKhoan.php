@@ -42,4 +42,65 @@ class AdminTaikhoan
                echo "Loi " . $e->getMessage();
           }
      }
+
+     public function getDetailTaiKhoan($id)
+     {
+          try {
+               $sql = "SELECT * FROM tai_khoan WHERE id = :id";
+               $stmt = $this->conn->prepare($sql);
+               $stmt->execute([
+                    ':id' => $id
+               ]);
+               return $stmt->fetch();
+          } catch (Exception $e) {
+               echo "Loi " . $e->getMessage();
+          }
+     }
+
+     public function updateTaiKhoan($id, $hoten, $email, $dienthoai, $trang_thai)
+     {
+          try {
+               $sql = "UPDATE tai_khoan SET
+               hoten = :hoten, 
+               email = :email,
+               dienthoai = :dienthoai,
+               trang_thai = :trang_thai
+               WHERE id = :id";
+
+               $stmt = $this->conn->prepare($sql);
+
+               $stmt->execute([
+                    ':hoten' => $hoten,
+                    ':email' => $email,
+                    ':dienthoai' => $dienthoai,
+                    ':trang-thai' => $trang_thai,
+                    ':id' => $id
+               ]);
+
+               return true;
+          } catch (Exception $e) {
+               echo "Loi " . $e->getMessage();
+          }
+     }
+
+     public function deleteTaiKhoan($id, $mat_khau)
+     {
+          try {
+               $sql = "UPDATE tai_khoan 
+               SET
+               mat_khau = :mat_khau
+               WHERE id = :id";
+
+               $stmt = $this->conn->prepare($sql);
+               // var_dump($stmt);
+               // die();
+               $stmt->execute([
+                    ':mat_khau' => $mat_khau,
+                    ':id' => $id
+               ]);
+               return true;
+          } catch (Exception $e) {
+               echo "Loi " . $e->getMessage();
+          }
+     }
 }

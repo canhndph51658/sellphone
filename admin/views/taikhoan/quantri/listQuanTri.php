@@ -56,7 +56,9 @@
                                                        <td><?= $quantri['dienthoai'] ?></td>
                                                        <td><?= $quantri['trang_thai'] == 1 ? 'Hoạt động' : 'Không hoạt động' ?></td>
                                                        <td>
-                                                            <a href="">Sửa</a>
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=formsuaquantri&id_quantri=' . $quantri['id'] ?>">
+                                                                 <button class="btn btn-warning">Sửa</button>
+                                                            </a>
                                                             <a href="">Xóa</a>
                                                        </td>
                                                   </tr>
