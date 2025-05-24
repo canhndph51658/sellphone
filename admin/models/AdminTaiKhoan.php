@@ -22,4 +22,24 @@ class AdminTaikhoan
                echo "Loi " . $e->getMessage();
           }
      }
+
+     public function insertTaiKhoan($hoten, $email, $password, $role)
+     {
+          try {
+               $sql = "INSERT INTO tai_khoan (hoten, email, mat_khau, role)
+               VALUES (:hoten, :email, :matkhau, :role)";
+               $stmt = $this->conn->prepare($sql);
+               // var_dump($stmt);
+               // die();
+               $stmt->execute([
+                    ':hoten' => $hoten,
+                    ':email' => $email,
+                    ':matkhau' => $password,
+                    ':role' => $role
+               ]);
+               return true;
+          } catch (Exception $e) {
+               echo "Loi " . $e->getMessage();
+          }
+     }
 }

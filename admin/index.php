@@ -23,4 +23,6 @@ match ($act) {
 
      // Tài khoản
      'listtaikhoanquantri' => (new AdminTaikhoanController())->danhSachQuanTri(),
+     'formthemquantri' => (new AdminTaikhoanController())->formAddQuanTri(),
+     'themquantri' => (new AdminTaikhoanController())->postAddQuanTri(),
 };

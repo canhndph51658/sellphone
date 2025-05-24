@@ -25,6 +25,12 @@
                <div class="row">
                     <div class="col-12">
 
+                         <div class="card-header">
+                              <a href="<?= BASE_URL_ADMIN . '?act=formthemquantri' ?> ">
+                                   <button class="btn btn-success">Thêm tài khoản</button>
+                              </a>
+                         </div>
+
                          <div class="card">
                               <div class="card-header"></div>
 
