@@ -48,7 +48,7 @@ class AdminDanhMuc
     }
     public function updateDanhMuc($id,$ten_loai,$mota) 
     { try {
-        $sql = "SELECT * FROM danhmuc SET ten_loai = :ten_loai,mota = :mota WHERE id = :id";
+        $sql = "UPDATE danhmuc SET ten_loai = :ten_loai,mota = :mota WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             ':ten_loai' => $ten_loai,

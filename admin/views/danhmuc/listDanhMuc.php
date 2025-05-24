@@ -28,6 +28,7 @@
                     <div class="card">
                         <div class="card-header">
                             <a href="<?= BASE_URL_ADMIN . '?act=formthemdanhmuc' ?>">
+                                <button class="btn btn-success">thêm danh mục</button>
                             </a>
                         </div>
                         <div class="card-body">
@@ -47,6 +48,7 @@
                                             <td><?= $danhmuc['ten_loai'] ?></td>
                                             <td><?= $danhmuc['mota'] ?></td>
                                             <td> <a href="<?= BASE_URL_ADMIN . '?act=formsuadanhmuc&id_danhmuc=' . $danhmuc['id'] ?>">
+                                                <button class="btn btn-warning">sửa</button>
                                                 </a>
                                                 <a href="<?= BASE_URL_ADMIN . '?act=xoadanhmuc&id_danhmuc=' . $danhmuc['id'] . '&status=success' ?>"
                                                     onclick="return confirm('bạn có muốn xóa không ?')">
