@@ -83,7 +83,7 @@ class AdminTaikhoan
           }
      }
 
-     public function deleteTaiKhoan($id, $mat_khau)
+     public function deletePassword($id, $mat_khau)
      {
           try {
                $sql = "UPDATE tai_khoan 

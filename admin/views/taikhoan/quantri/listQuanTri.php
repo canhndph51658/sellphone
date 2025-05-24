@@ -59,7 +59,10 @@
                                                             <a href="<?= BASE_URL_ADMIN . '?act=formsuaquantri&id_quantri=' . $quantri['id'] ?>">
                                                                  <button class="btn btn-warning">Sửa</button>
                                                             </a>
-                                                            <a href="">Xóa</a>
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoapassword&id_quantri=' . $quantri['id'] ?>"
+                                                                 onclick="return confirm('Bạn có chắc muốn xóa tài khoản này không? ')">
+                                                                 <button class="btn btn-danger">Xóa</button>
+                                                            </a>
                                                        </td>
                                                   </tr>
                                              <?php endforeach; ?>

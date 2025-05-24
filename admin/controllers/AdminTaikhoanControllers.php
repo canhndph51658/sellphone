@@ -110,6 +110,21 @@ class AdminTaikhoanController
 
      public function deletePassword()
      {
-
+          $tai_khoan_id = $_GET['id_quantri'];
+          $tai_khoan = $this->modelTaikhoan->getDetailTaiKhoan($tai_khoan_id);
+          $password = password_hash('123456', PASSWORD_BCRYPT);
+          $status = $this->modelTaikhoan->deletePassword($tai_khoan_id, $password);
+          // var_dump($status);
+          // die();
+          if ($status && $tai_khoan['role'] ==  1) {
+               header("Location: " . BASE_URL_ADMIN . '?act=listtaikhoanquantri');
+               exit();
+          } elseif ($status && $tai_khoan['role'] == 0) {
+               header("Location: " . BASE_URL_ADMIN . '?act=listtaikhoankhachhang');
+               exit();
+          } else {
+               var_dump('Lỗi không xóa được tài khoản');
+               die();
+          }
      }
 }
