@@ -6,7 +6,10 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Quản lý sản phẩm</h1>
+                    <h1>sửa thông tin sản phẩm: <?= $sanPham['ten_sp'] ?></h1>
+                </div>
+                <div class="col-sm-1">
+                    <a href="<?= BASE_URL_ADMIN . '?act=sanpham' ?>" class="btn btn-secondary">cancel</a>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -27,21 +30,21 @@
 
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class=" card-title"> thêm điện thoại mới
+                            <h3 class=" card-title">thông tin sản phẩm
                             </h3>
                         </div>
-                        <form action="<?= BASE_URL_ADMIN . '?act=themsanpham' ?>" method="post" enctype="multipart/form-data">
+                        <form action="<?= BASE_URL_ADMIN . '?act=suasanpham' ?>" method="post" enctype="multipart/form-data">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="">tên Sản phẩm</label>
-                                    <input type="text" class="form-control" name="ten_sp" placeholder="nhập tên sản phẩm">
+                                    <input type="text" class="form-control" name="ten_sp" value="<?= $sanPham['ten_sp'] ?>" placeholder="nhập tên sản phẩm">
                                     <?php if (isset($error['ten_sp'])) { ?>
                                         <p class="text-danger"><?= $error['ten_sp'] ?></p>
                                     <?php } ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="">giá sản phẩm</label>
-                                    <input type="text" class="form-control" name="gia" placeholder="nhập giá sản phẩm">
+                                    <input type="text" class="form-control" name="gia" value="<?= $sanPham['ten_sp'] ?>" placeholder="nhập giá sản phẩm">
                                     <?php if (isset($error['gia'])) { ?>
                                         <p class="text-danger"><?= $error['gia'] ?></p>
                                     <?php } ?>
@@ -50,7 +53,7 @@
 
                                 <div class="form-group">
                                     <label for="">giá khuyến mãi</label>
-                                    <input type="text" class="form-control" name="giam_gia" placeholder="nhập giá khuyến mãi">
+                                    <input type="text" class="form-control" name="giam_gia" value="<?= $sanPham['ten_sp'] ?>" placeholder="nhập giá khuyến mãi">
                                     <?php if (isset($error['giam_gia'])) { ?>
                                         <p class="text-danger"><?= $error['giam_gia'] ?></p>
                                     <?php } ?>
@@ -64,14 +67,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">số lượng </label>
-                                    <input type="number" class="form-control" name="soluong" placeholder="nhập số lượng">
+                                    <input type="number" class="form-control" name="soluong" value="<?= $sanPham['ten_sp'] ?>" placeholder="nhập số lượng">
                                     <?php if (isset($error['soluong'])) { ?>
                                         <p class="text-danger"><?= $error['soluong'] ?></p>
                                     <?php } ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="">ngày nhập</label>
-                                    <input type="date" class="form-control" name="ngay_nhap" placeholder="nhập ngày nhập sản phẩm">
+                                    <input type="date" class="form-control" name="ngay_nhap" value="<?= $sanPham['ten_sp'] ?>" placeholder="nhập ngày nhập sản phẩm">
                                     <?php if (isset($error['ngay_nhap'])) { ?>
                                         <p class="text-danger"><?= $error['ngay_nhap'] ?></p>
                                     <?php } ?>
@@ -81,7 +84,7 @@
                                     <section>
                                         <select class="form-control" name="danh_muc_id" id="danhmucSelect">
                                             <?php foreach ($listDanhMuc as $danhmuc): ?>
-                                                <option value="<?= $danhmuc['id'] ?>"><?= $danhmuc['ten_loai'] ?></option>
+                                                <option <?= $danhmuc['id'] == $sanPham['danh_muc_id'] ? 'selected' : '' ?> value="<?= $danhmuc['id']; ?>"><?= $danhmuc['ten_loai'] ?></option>
                                             <?php endforeach ?>
                                         </select>
                                     </section>
@@ -92,23 +95,20 @@
                                 <div class="form-group">
                                     <label for="">trạng thái</label>
                                     <section>
-                                            <select class="form-control" name="trang_thai" id="trangthaiSelect">
-                                                <option selected disabled>chọn trạng thái sản phẩm</option>
-                                                <option value="1">còn hàng</option>
-                                                <option value="2">hết hàng</option>
-                                            </select>
+                                        <select class="form-control" name="trang_thai" id="trang_thai">
+                                            <option selected disabled>chọn trạng thái sản phẩm</option>
+                                            <option <?= $sanPham['trang_thai'] == 1 ? 'selected' : '' ?> value="1">còn hàng</option>
+                                            <option <?= $sanPham['trang_thai'] == 2 ? 'selected' : '' ?> value="2">hết hàng</option>
+                                        </select>
                                     </section>
-                                    <?php if (isset($_SESSION['error']['trang_thai'])): ?>
-                                        <p class="text-danger"><?= $_SESSION['error']['trang_thai'] ?></p>
-                                    <?php endif; ?>
                                 </div>
                                 <div class="form-group-12">
                                     <label for="">mô tả</label>
-                                    <textarea class="form-control" name="mo_ta" placeholder="nhập mô tả"></textarea>
+                                    <textarea class="form-control" name="mo_ta" rows="4" value="<?= $sanPham['mo_ta'] ?>" placeholder="nhập mô tả"></textarea>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">submit</button>
+                                <button type="submit" class="btn btn-primary">sửa thông tiin</button>
                             </div>
                         </form>
                     </div>
