@@ -51,7 +51,7 @@
                                             <td><?= $key + 1 ?></td>
                                             <td><?= $sanPham['ten_sp'] ?></td>
                                             <td><?= $sanPham['gia'] ?></td>
-                                            <td> <img src="https://th.bing.com/th/id/OIP.K_53vg76iyG2ZoqyQZkMXAHaI3?w=153&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7';" alt=""></td>
+                                            <td> <img src="https://th.bing.com/th/id/OIP.K_53vg76iyG2ZoqyQZkMXAHaI3?w=153&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7;" alt=""></td>
                                             <td><?= $sanPham['soluong'] ?></td>
                                             <td><?= $sanPham['ten_loai'] ?></td>
                                             <td><?= $sanPham['trang_thai'] == 1?'còn bán':'hết hàng' ?></td>

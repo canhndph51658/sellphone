@@ -17,6 +17,7 @@ class AdminSanPhamController
     }
     public function formAddSanPham()
     {
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         require_once './views/sanpham/addSanPham.php';
         deleteSessionError();
     }
@@ -76,7 +77,7 @@ class AdminSanPhamController
                         'size' => $img_array['size'][$key],
                     ];
                     $link_hinh_anh = uploadFile($file,'./uploads/');
-                    $this->modelSanPham->insertAlbumHinhAnh($san_pham_id,$link_hinh_anh);
+                    $this->modelSanPham->insertAlbumAnhHinhAnh($san_pham_id,$link_hinh_anh);
                 }
             }
                 header("Location:" . BASE_URL_ADMIN . "?act=sanpham");
@@ -90,7 +91,7 @@ class AdminSanPhamController
     }
     public function formEditSanPham()
     { 
-            $id = $_GET['id_danhmuc'];
+            $id = $_GET['id_sanpham'];
             $sanPham = $this->modelSanPham->getDetailSanPham($id);
             $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
             $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
@@ -182,7 +183,7 @@ class AdminSanPhamController
                 $this->modelSanPham->destroyAnhSanPham($anhSp['id']);
             }
         }
-        header("Location:" . BASE_URL_ADMIN . "?act=sanpham&status=success");
+        header("Location: " . BASE_URL_ADMIN . "?act=sanpham&status=success");
         exit();
     }
     public function detailSanPham()
