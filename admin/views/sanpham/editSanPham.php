@@ -38,45 +38,45 @@
                                 <div class="form-group">
                                     <label for="">tên Sản phẩm</label>
                                     <input type="text" class="form-control" name="ten_sp" value="<?= $sanPham['ten_sp'] ?>" placeholder="nhập tên sản phẩm">
-                                    <?php if (isset($error['ten_sp'])) { ?>
-                                        <p class="text-danger"><?= $error['ten_sp'] ?></p>
+                                    <?php if (isset($_SESSION['error']['ten_sp'])) { ?>
+                                        <p class="text-danger"><?= $_SESSION['error']['ten_sp'] ?></p>
                                     <?php } ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="">giá sản phẩm</label>
-                                    <input type="text" class="form-control" name="gia" value="<?= $sanPham['ten_sp'] ?>" placeholder="nhập giá sản phẩm">
-                                    <?php if (isset($error['gia'])) { ?>
-                                        <p class="text-danger"><?= $error['gia'] ?></p>
+                                    <input type="text" class="form-control" name="gia" value="<?= $sanPham['gia'] ?>" placeholder="nhập giá sản phẩm">
+                                    <?php if (isset($_SESSION['error']['gia'])) { ?>
+                                        <p class="text-danger"><?= $_SESSION['error']['gia'] ?></p>
                                     <?php } ?>
                                 </div>
 
 
                                 <div class="form-group">
                                     <label for="">giá khuyến mãi</label>
-                                    <input type="text" class="form-control" name="giam_gia" value="<?= $sanPham['ten_sp'] ?>" placeholder="nhập giá khuyến mãi">
-                                    <?php if (isset($error['giam_gia'])) { ?>
-                                        <p class="text-danger"><?= $error['giam_gia'] ?></p>
+                                    <input type="text" class="form-control" name="giam_gia" value="<?= $sanPham['giam_gia'] ?>" placeholder="nhập giá khuyến mãi">
+                                    <?php if (isset($_SESSION['error']['giam_gia'])) { ?>
+                                        <p class="text-danger"><?= $_SESSION['error']['giam_gia'] ?></p>
                                     <?php } ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="">hình ảnh</label>
                                     <input type="file" class="form-control" name="hinh" placeholder="chọn hình ảnh">
-                                    <?php if (isset($error['hinh'])) { ?>
-                                        <p class="text-danger"><?= $error['hinh'] ?></p>
+                                    <?php if (isset($_SESSION['error']['hinh'])) { ?>
+                                        <p class="text-danger"><?= $_SESSION['error']['hinh'] ?></p>
                                     <?php } ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="">số lượng </label>
-                                    <input type="number" class="form-control" name="soluong" value="<?= $sanPham['ten_sp'] ?>" placeholder="nhập số lượng">
-                                    <?php if (isset($error['soluong'])) { ?>
-                                        <p class="text-danger"><?= $error['soluong'] ?></p>
+                                    <input type="number" class="form-control" name="soluong" value="<?= $sanPham['soluong'] ?>" placeholder="nhập số lượng">
+                                    <?php if (isset($_SESSION['error']['soluong'] )) { ?>
+                                        <p class="text-danger"><?= $_SESSION['error']['soluong'] ?></p>
                                     <?php } ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="">ngày nhập</label>
-                                    <input type="date" class="form-control" name="ngay_nhap" value="<?= $sanPham['ten_sp'] ?>" placeholder="nhập ngày nhập sản phẩm">
-                                    <?php if (isset($error['ngay_nhap'])) { ?>
-                                        <p class="text-danger"><?= $error['ngay_nhap'] ?></p>
+                                    <input type="date" class="form-control" name="ngay_nhap" value="<?= $sanPham['ngay_nhap'] ?>" placeholder="nhập ngày nhập sản phẩm">
+                                    <?php if (isset( $_SESSION['error']['ngay_nhap'] )) { ?>
+                                        <p class="text-danger"><?= $_SESSION['error']['ngay_nhap'] ?></p>
                                     <?php } ?>
                                 </div>
                                 <div class="form-group">
@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="form-group-12">
                                     <label for="">mô tả</label>
-                                    <textarea class="form-control" name="mo_ta" rows="4" value="<?= $sanPham['mo_ta'] ?>" placeholder="nhập mô tả"></textarea>
+                                    <textarea class="form-control" name="mo_ta" rows="4"> <?= $sanPham['mo_ta'] ?></textarea>
                                 </div>
                             </div>
                             <div class="card-footer">
