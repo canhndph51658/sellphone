@@ -1,4 +1,5 @@
 <footer class="main-footer">
+<<<<<<< HEAD
   <div class="float-right d-none d-sm-block">
     By <b>THT</b>
   </div>
@@ -10,6 +11,19 @@
   <!-- Control sidebar content goes here -->
 </aside>
 <!-- /.control-sidebar -->
+=======
+    <div class="float-right d-none d-sm-block">
+      By <b>THT</b>
+    </div>
+    <strong>Website bán điện thoại của ZPhone </strong>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+>>>>>>> origin/feature/canh
 </div>
 <!-- ./wrapper -->
 
