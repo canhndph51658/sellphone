@@ -59,7 +59,7 @@ class AdminSanPham
             echo "loi" . $e->getMessage();
         }
     }
-    public function updateSanpham($ten_sp, $gia, $giam_gia, $soluong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $hinh)
+    public function updateSanpham($san_pham_id,$ten_sp, $gia, $giam_gia, $soluong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $new_file)
     {
         try {
             $sql = "UPDATE sanpham SET
@@ -70,9 +70,11 @@ class AdminSanPham
             ngay_nhap = :ngay_nhap,
             danh_muc_id = :danh_muc_id,
             trang_thai = :trang_thai,
-            mo_ta = :mo_ta,
-            hinh = :hinh
-        WHERE id = :id";
+            mo_ta = :mo_ta";
+            if($new_file!=''){
+                $sql.= ",hinh = :new_file";
+            }
+            $sql.=" WHERE id = :san_pham_id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
                 ':ten_sp' => $ten_sp,
@@ -83,7 +85,8 @@ class AdminSanPham
                 ':danh_muc_id' => $danh_muc_id,
                 ':trang_thai' => $trang_thai,
                 ':mo_ta' => $mo_ta,
-                ':hinh' => $hinh
+                ':san_pham_id'=>$san_pham_id,
+                ':new_file' => $new_file
             ]);
             return true;
         } catch (Exception $e) {
@@ -126,7 +129,7 @@ class AdminSanPham
             $stmt->execute([
                 ':id' => $id
             ]);
-            return true;
+            return $stmt->fetchAll();
         } catch (Exception $e) {
             echo "loi" . $e->getMessage();
         }
@@ -139,7 +142,7 @@ class AdminSanPham
             $stmt->execute([
                 ':id' => $id
             ]);
-            return true;
+            return $stmt->fetch();
         } catch (Exception $e) {
             echo "loi" . $e->getMessage();
         }
