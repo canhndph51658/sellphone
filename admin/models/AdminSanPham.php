@@ -129,7 +129,7 @@ class AdminSanPham
             $stmt->execute([
                 ':id' => $id
             ]);
-            return true;
+            return $stmt->fetchAll();
         } catch (Exception $e) {
             echo "loi" . $e->getMessage();
         }
@@ -142,7 +142,7 @@ class AdminSanPham
             $stmt->execute([
                 ':id' => $id
             ]);
-            return true;
+            return $stmt->fetch();
         } catch (Exception $e) {
             echo "loi" . $e->getMessage();
         }
