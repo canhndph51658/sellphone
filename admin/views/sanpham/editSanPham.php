@@ -36,17 +36,18 @@
                         <form action="<?= BASE_URL_ADMIN . '?act=suasanpham' ?>" method="post" enctype="multipart/form-data">
                             <div class="card-body">
                                 <div class="form-group">
+                                    <input type="hidden" name="san_pham_id" value="<?= $sanPham['id'] ?>">
                                     <label for="">tên Sản phẩm</label>
                                     <input type="text" class="form-control" name="ten_sp" value="<?= $sanPham['ten_sp'] ?>" placeholder="nhập tên sản phẩm">
-                                    <?php if (isset($_SESSION['error']['ten_sp'])) { ?>
-                                        <p class="text-danger"><?= $_SESSION['error']['ten_sp'] ?></p>
+                                    <?php if (isset($error['ten_sp'])) { ?>
+                                        <p class="text-danger"><?= $error['ten_sp'] ?></p>
                                     <?php } ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="">giá sản phẩm</label>
                                     <input type="text" class="form-control" name="gia" value="<?= $sanPham['gia'] ?>" placeholder="nhập giá sản phẩm">
-                                    <?php if (isset($_SESSION['error']['gia'])) { ?>
-                                        <p class="text-danger"><?= $_SESSION['error']['gia'] ?></p>
+                                    <?php if (isset($error['gia'])) { ?>
+                                        <p class="text-danger"><?= $error['gia'] ?></p>
                                     <?php } ?>
                                 </div>
 
@@ -54,29 +55,26 @@
                                 <div class="form-group">
                                     <label for="">giá khuyến mãi</label>
                                     <input type="text" class="form-control" name="giam_gia" value="<?= $sanPham['giam_gia'] ?>" placeholder="nhập giá khuyến mãi">
-                                    <?php if (isset($_SESSION['error']['giam_gia'])) { ?>
-                                        <p class="text-danger"><?= $_SESSION['error']['giam_gia'] ?></p>
+                                    <?php if (isset($error['giam_gia'])) { ?>
+                                        <p class="text-danger"><?= $error['giam_gia'] ?></p>
                                     <?php } ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="">hình ảnh</label>
                                     <input type="file" class="form-control" name="hinh" placeholder="chọn hình ảnh">
-                                    <?php if (isset($_SESSION['error']['hinh'])) { ?>
-                                        <p class="text-danger"><?= $_SESSION['error']['hinh'] ?></p>
-                                    <?php } ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="">số lượng </label>
                                     <input type="number" class="form-control" name="soluong" value="<?= $sanPham['soluong'] ?>" placeholder="nhập số lượng">
-                                    <?php if (isset($_SESSION['error']['soluong'] )) { ?>
-                                        <p class="text-danger"><?= $_SESSION['error']['soluong'] ?></p>
+                                    <?php if (isset($error['soluong'])) { ?>
+                                        <p class="text-danger"><?= $error['soluong'] ?></p>
                                     <?php } ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="">ngày nhập</label>
                                     <input type="date" class="form-control" name="ngay_nhap" value="<?= $sanPham['ngay_nhap'] ?>" placeholder="nhập ngày nhập sản phẩm">
-                                    <?php if (isset( $_SESSION['error']['ngay_nhap'] )) { ?>
-                                        <p class="text-danger"><?= $_SESSION['error']['ngay_nhap'] ?></p>
+                                    <?php if (isset($error['ngay_nhap'])) { ?>
+                                        <p class="text-danger"><?= $error['ngay_nhap'] ?></p>
                                     <?php } ?>
                                 </div>
                                 <div class="form-group">
@@ -97,18 +95,18 @@
                                     <section>
                                         <select class="form-control" name="trang_thai" id="trang_thai">
                                             <option selected disabled>chọn trạng thái sản phẩm</option>
-                                            <option <?= $sanPham['trang_thai'] == 1 ? 'selected' : '' ?> value="1">còn hàng</option>
+                                            <option <?= $sanPham['trang_thai'] == 1 ? 'selected' : '' ?> value="1">còn bán</option>
                                             <option <?= $sanPham['trang_thai'] == 2 ? 'selected' : '' ?> value="2">hết hàng</option>
                                         </select>
                                     </section>
                                 </div>
                                 <div class="form-group-12">
                                     <label for="">mô tả</label>
-                                    <textarea class="form-control" name="mo_ta" rows="4"> <?= $sanPham['mo_ta'] ?></textarea>
+                                    <textarea class="form-control" name="mo_ta" rows="4" placeholder="nhập mô tả"><?= $sanPham['mo_ta'] ?></textarea>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">sửa thông tiin</button>
+                                <button type="submit" class="btn btn-primary">sửa thông tin</button>
                             </div>
                         </form>
                     </div>
