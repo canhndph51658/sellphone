@@ -8,9 +8,9 @@ class AdminDonHang {
     }
     public function getAllDonhang(){
         try {
-            $sql = "SELECT don_hangs.*,trang_thai_don_hangs.ten_trang_thai
-                    FROM don_hangs 
-                    INNER JOIN trang_thai_don_hangs ON don_hangs.trang_thai_id = trang_thai_don_hang.id";
+            $sql = "SELECT don_hang.*,trang_thai_don_hang.ten_trang_thai
+                    FROM don_hang 
+                    INNER JOIN trang_thai_don_hang ON don_hang.trang_thai_id = trang_thai_don_hang.id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();
@@ -18,38 +18,38 @@ class AdminDonHang {
             echo "loi" . $e->getMessage();
         }
     }
-    public function getDetailDonHang($id)
-    {
-        try {
-            $sql = "SELECT don_hangs.*, trang_thai_don_hangs.ten_trang_thai
-                    FROM don_hangs 
-                    INNER JOIN trang_thai_don_hangs ON don_hangs.trang_thai_id = trang_thai_don_hangs.id
-             WHERE don_hang.id = :id";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute([
-                ':id' => $id
-            ]);
-            return $stmt->fetch();
-        } catch (Exception $e) {
-            echo "loi" . $e->getMessage();
-        }
-    }
-    public function getListSpDonHang($id)
-    {
-        try {
-            $sql = "SELECT * FROM chi_tiet_don_hangs
-             WHERE don_hang_id = :id";
+    // public function getDetailDonHang($id)
+    // {
+    //     try {
+    //         $sql = "SELECT don_hangs.*, trang_thai_don_hangs.ten_trang_thai
+    //                 FROM don_hangs 
+    //                 INNER JOIN trang_thai_don_hangs ON don_hangs.trang_thai_id = trang_thai_don_hangs.id
+    //          WHERE don_hang.id = :id";
+    //         $stmt = $this->conn->prepare($sql);
+    //         $stmt->execute([
+    //             ':id' => $id
+    //         ]);
+    //         return $stmt->fetch();
+    //     } catch (Exception $e) {
+    //         echo "loi" . $e->getMessage();
+    //     }
+    // }
+    // public function getListSpDonHang($id)
+    // {
+    //     try {
+    //         $sql = "SELECT * FROM chi_tiet_don_hangs
+    //          WHERE don_hang_id = :id";
 
-            $stmt = $this->conn->prepare($sql);
-            
-            $stmt->execute([
-                ':id' => $id
-            ]);
-            return $stmt->fetch();
-        } catch (Exception $e) {
-            echo "loi" . $e->getMessage();
-        }
-    }
+    //         $stmt = $this->conn->prepare($sql);
+
+    //         $stmt->execute([
+    //             ':id' => $id
+    //         ]);
+    //         return $stmt->fetch();
+    //     } catch (Exception $e) {
+    //         echo "loi" . $e->getMessage();
+    //     }
+    // }
     // public function insertSanPham($ten_sp, $gia, $giam_gia, $soluong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $hinh)
     // {
     //     try {

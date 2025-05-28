@@ -15,18 +15,18 @@
         }
         
 
-        public function detailDonHang(){
-            $don_hang_id = $_GET['id_don_hang'];
+        // public function detailDonHang(){
+        //     $don_hang_id = $_GET['id_don_hang'];
 
-            //lấy thông tin đơn hàng ở bảng don_hangs
-            $donHang = $this->modelDonHang->getDetailDonHang($don_hang_id);
+        //     //lấy thông tin đơn hàng ở bảng don_hang
+        //     $donHang = $this->modelDonHang->getDetailDonHang($don_hang_id);
 
-            //lấy danh sách sản phẩm đã đặt của đơn hàng ở bảng chi_tiet_don_hangs
+        //     //lấy danh sách sản phẩm đã đặt của đơn hàng ở bảng chi_tiet_don_hang
 
-            $sanPhamDonHang = $this->modelDonHang->getListSpDonHang($don_hang_id);
+        //     $sanPhamDonHang = $this->modelDonHang->getListSpDonHang($don_hang_id);
 
-            require_once './views/donhang/detailDonHang.php';
-        }
+        //     require_once './views/donhang/detailDonHang.php';
+        // }
         // public function formEditSanPham()
         // { 
         //         $id = $_GET['id_sanpham'];
