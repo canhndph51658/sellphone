@@ -73,80 +73,36 @@ class AdminDonHang {
             echo "loi" . $e->getMessage();
         }
     }
-    // public function insertSanPham($ten_sp, $gia, $giam_gia, $soluong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $hinh)
-    // {
-    //     try {
-    //         $sql = "INSERT INTO sanpham (
-    //                 ten_sp, gia, giam_gia, soluong, ngay_nhap, danh_muc_id, trang_thai, mo_ta, hinh
-    //             ) VALUES (
-    //                 :ten_sp, :gia, :giam_gia, :soluong, :ngay_nhap, :danh_muc_id, :trang_thai, :mo_ta, :hinh
-    //             )";
-    //         $stmt = $this->conn->prepare($sql);
-    //         $stmt->execute([
-    //             ':ten_sp' => $ten_sp,
-    //             ':gia' => $gia,
-    //             ':giam_gia' => $giam_gia,
-    //             ':soluong' => $soluong,
-    //             ':ngay_nhap' => $ngay_nhap,
-    //             ':danh_muc_id' => $danh_muc_id,
-    //             ':trang_thai' => $trang_thai,
-    //             ':mo_ta' => $mo_ta,
-    //             ':hinh' => $hinh
-    //         ]);
-    //         return $this->conn->lastInsertId();
-    //     } catch (Exception $e) {
-    //         echo "loi" . $e->getMessage();
-    //     }
-    // }
-    // public function getDetailSanPham($id)
-    // {
-    //     try {
-    //         $sql = "SELECT sanpham.*,danhmuc.ten_loai
-    //          FROM sanpham INNER JOIN danhmuc ON sanpham.danh_muc_id = danhmuc.id
-    //          WHERE sanpham.id = :id";
-    //         $stmt = $this->conn->prepare($sql);
-    //         $stmt->execute([
-    //             ':id' => $id
-    //         ]);
-    //         return $stmt->fetch();
-    //     } catch (Exception $e) {
-    //         echo "loi" . $e->getMessage();
-    //     }
-    // }
-    // public function updateSanpham($san_pham_id,$ten_sp, $gia, $giam_gia, $soluong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $new_file)
-    // {
-    //     try {
-    //         $sql = "UPDATE sanpham SET
-    //         ten_sp = :ten_sp,
-    //         gia = :gia,
-    //         giam_gia = :giam_gia,
-    //         soluong = :soluong,
-    //         ngay_nhap = :ngay_nhap,
-    //         danh_muc_id = :danh_muc_id,
-    //         trang_thai = :trang_thai,
-    //         mo_ta = :mo_ta";
-    //         if($new_file!=''){
-    //             $sql.= ",hinh = :new_file";
-    //         }
-    //         $sql.=" WHERE id = :san_pham_id";
-    //         $stmt = $this->conn->prepare($sql);
-    //         $stmt->execute([
-    //             ':ten_sp' => $ten_sp,
-    //             ':gia' => $gia,
-    //             ':giam_gia' => $giam_gia,
-    //             ':soluong' => $soluong,
-    //             ':ngay_nhap' => $ngay_nhap,
-    //             ':danh_muc_id' => $danh_muc_id,
-    //             ':trang_thai' => $trang_thai,
-    //             ':mo_ta' => $mo_ta,
-    //             ':san_pham_id'=>$san_pham_id,
-    //             ':new_file' => $new_file
-    //         ]);
-    //         return true;
-    //     } catch (Exception $e) {
-    //         echo "loi" . $e->getMessage();
-    //     }
-    // }
+    
+    public function updateDonHang($id, $ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan, $ghi_chu, $trang_thai_id)
+    {
+        try {
+            $sql = "UPDATE don_hang 
+            SET
+                ten_nguoi_nhan = :ten_nguoi_nhan,
+                sdt_nguoi_nhan = :sdt_nguoi_nhan,
+                email_nguoi_nhan = :email_nguoi_nhan,
+                dia_chi_nguoi_nhan = :dia_chi_nguoi_nhan,
+                ghi_chu = :ghi_chu,
+                trang_thai_id = :trang_thai_id
+            WHERE id = :id";
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':ten_nguoi_nhan' => $ten_nguoi_nhan,
+                ':sdt_nguoi_nhan' => $sdt_nguoi_nhan,
+                ':email_nguoi_nhan' => $email_nguoi_nhan,
+                ':dia_chi_nguoi_nhan' => $dia_chi_nguoi_nhan,
+                ':ghi_chu' => $ghi_chu,
+                ':trang_thai_id' => $trang_thai_id,
+                ':id' => $id
+            ]);
+            return true;
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
     // public function destroySanPham($id)
     // {
     //     try {
