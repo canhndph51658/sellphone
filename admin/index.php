@@ -35,6 +35,7 @@ match ($act) {
     'xoapassword' => (new AdminTaikhoanController())->deletePassword(),
 
     'listtaikhoankhachhang' => (new AdminTaikhoanController())->danhSachKhachHang(),
+    'chitietkhachhang' => (new AdminTaikhoanController())->detailKhachHang(),
     default => 'không tìm thấy trang này',
 
 

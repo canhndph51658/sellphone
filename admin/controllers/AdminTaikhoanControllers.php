@@ -137,4 +137,12 @@ class AdminTaikhoanController
           // die();
           require_once './views/taikhoan/khachhang/listKhachHang.php';
      }
+
+     public function detailKhachHang()
+     {
+          $id_khachhang = $_GET['id_khachhang'];
+          $khachHang  =  $this->modelTaikhoan->getDetailTaiKhoan($id_khachhang);
+
+          require_once './views/taikhoan/khachhang/detailKhachHang.php';
+     }
 }
