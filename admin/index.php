@@ -8,14 +8,11 @@ require_once '../commons/function.php';
 // Khai báo các controller
 require_once './controllers/AdminThongKeController.php';
 require_once './controllers/AdminTaikhoanControllers.php';
-require_once './controllers/AdminDanhMucController.php';
-require_once './controllers/AdminSanPhamController.php';
+
 
 
 // Khai báo các model
 require_once './models/AdminTaikhoan.php';
-require_once './models/AdminSanPham.php';
-require_once './models/AdminDanhMuc.php';
 
 // route
 $act = $_GET['act'] ?? '/';
@@ -37,22 +34,4 @@ match ($act) {
     'listtaikhoankhachhang' => (new AdminTaikhoanController())->danhSachKhachHang(),
     'chitietkhachhang' => (new AdminTaikhoanController())->detailKhachHang(),
     default => 'không tìm thấy trang này',
-
-
-    // Danh mục
-    'danhmuc' => (new AdminDanhMucController())->danhSachDanhMuc(),
-    'formthemdanhmuc' => (new AdminDanhMucController())->formAddDanhMuc(),
-    'themdanhmuc' => (new AdminDanhMucController())->postAddDanhMuc(),
-    'formsuadanhmuc' => (new AdminDanhMucController())->formEditDanhMuc(),
-    'suadanhmuc' => (new AdminDanhMucController())->postEditDanhMuc(),
-    'xoadanhmuc' => (new AdminDanhMucController())->deleteDanhMuc(),
-
-    // Sản phẩm
-    'sanpham' => (new AdminSanPhamController())->danhSachSanPham(),
-    'formthemsanpham' => (new AdminSanPhamController())->formAddSanPham(),
-    'themsanpham' => (new AdminSanPhamController())->postAddSanPham(),
-    'formsuasanpham' => (new AdminSanPhamController())->formEditSanPham(),
-    'suasanpham' => (new AdminSanPhamController())->postEditSanPham(),
-    'xoasanpham' => (new AdminSanPhamController())->deleteSanPham(),
-    'chitietsanpham' => (new AdminSanPhamController())->detailSanPham(),
 };

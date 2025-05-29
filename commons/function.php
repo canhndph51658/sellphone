@@ -49,22 +49,19 @@ function deleteSessionError()
     }
 }
 
-function uploadFileAlbum($file, $folderUpload, $key)
-{
-    $pathStrorage = $folderUpload . time() . $file['name'][$key];
-    $from = $file['tmp_name'][$key];
-    $to = PATH_ROOT . $pathStrorage;
+    function uploadFileAlbum($file,$folderUpload,$key){
+        $pathStrorage = $folderUpload . time() . $file['name'][$key];
+         $from = $file['tmp_name'][$key];
+        $to = PATH_ROOT . $pathStrorage;
 
-    if (move_uploaded_file($from, $to)) {
-        return $pathStrorage;
+        if(move_uploaded_file($from,$to)){
+            return $pathStrorage;
+        }
+        return null;
     }
-    return null;
-}
-function formatDate($date)
-{
-    return date('d-m-Y', strtotime($date));
-}
-function formatNumber($number)
-{
-    return number_format($number, 0, '.', '.');
-}
+    function formatDate($date){
+        return date('d-m-Y',strtotime($date));
+    }
+    function formatNumber($number){
+        return number_format($number, 0,'.','.');
+    }
