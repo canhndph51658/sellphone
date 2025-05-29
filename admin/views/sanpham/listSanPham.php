@@ -54,12 +54,12 @@
                                             <td> <img src="https://th.bing.com/th/id/OIP.K_53vg76iyG2ZoqyQZkMXAHaI3?w=153&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7;" alt=""></td>
                                             <td><?= $sanPham['soluong'] ?></td>
                                             <td><?= $sanPham['ten_loai'] ?></td>
-                                            <td><?= $sanPham['trang_thai'] == 1?'còn bán':'hết hàng' ?></td>
+                                            <td><?= $sanPham['trang_thai'] == 1 ? 'còn bán' : 'hết hàng' ?></td>
                                             <td> <a href="<?= BASE_URL_ADMIN . '?act=chitietsanpham&id_sanpham=' . $sanPham['id'] ?>">
-                                                <button class="btn btn-primary"><i class="fas fa-eye"></i></button>
+                                                    <button class="btn btn-primary"><i class="fas fa-eye"></i></button>
                                                 </a>
                                                 <a href="<?= BASE_URL_ADMIN . '?act=formsuasanpham&id_sanpham=' . $sanPham['id'] ?>">
-                                                <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                                                    <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
                                                 </a>
                                                 <a href="<?= BASE_URL_ADMIN . '?act=xoasanpham&id_sanpham=' . $sanPham['id'] . '&status=success' ?>"
                                                     onclick="return confirm('bạn có muốn xóa không ?')">
@@ -70,7 +70,7 @@
                                     <?php endforeach; ?>
                                 </tbody>
                                 <tfoot>
-                                      <tr>
+                                    <tr>
                                         <th>STT</th>
                                         <th>Tên sản phẩm</th>
                                         <th>Giá tiền</th>

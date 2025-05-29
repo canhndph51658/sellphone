@@ -1,7 +1,8 @@
 <?php
 
 // Kết nối CSDL qua PDO
-function connectDB() {
+function connectDB()
+{
     // Kết nối CSDL
     $host = DB_HOST;
     $port = DB_PORT;
@@ -15,55 +16,55 @@ function connectDB() {
 
         // cài đặt chế độ trả dữ liệu
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    
+
         return $conn;
     } catch (PDOException $e) {
         echo ("Connection failed: " . $e->getMessage());
     }
-<<<<<<< HEAD
 }
-=======
-  
+function uploadFile($file, $folderUpload)
+{
+    $pathStrorage = $folderUpload . time() . $file['name'];
+    $from = $file['tmp_name'];
+    $to = PATH_ROOT . $pathStrorage;
+
+    if (move_uploaded_file($from, $to)) {
+        return $pathStrorage;
+    }
+    return null;
 }
-  function uploadFile($file,$folderUpload){
-        $pathStrorage = $folderUpload .time() . $file['name'];
-        $from = $file['tmp_name'];
-        $to = PATH_ROOT . $pathStrorage;
+function deleteFile($file)
+{
+    $pathDelete = PATH_ROOT . $file;
+    if (file_exists($pathDelete)) {
+        unlink($pathDelete);
+    }
+}
+function deleteSessionError()
+{
+    if (isset($_SESSION['flash'])) {
+        unset($_SESSION['flash']);
+        session_unset();
+        session_destroy();
+    }
+}
 
-        if(move_uploaded_file($from,$to)){
-            return $pathStrorage;
-        }
-        return null;
-    }
-    function deleteFile($file){
-        $pathDelete = PATH_ROOT . $file;
-        if(file_exists($pathDelete)){
-            unlink($pathDelete);
-        }
-    }
-    function deleteSessionError(){
-        if(isset($_SESSION['flash'])){
-            unset($_SESSION['flash']);
-            session_unset();
-            session_destroy();
-        }
+function uploadFileAlbum($file, $folderUpload, $key)
+{
+    $pathStrorage = $folderUpload . time() . $file['name'][$key];
+    $from = $file['tmp_name'][$key];
+    $to = PATH_ROOT . $pathStrorage;
 
+    if (move_uploaded_file($from, $to)) {
+        return $pathStrorage;
     }
-
-    function uploadFileAlbum($file,$folderUpload,$key){
-        $pathStrorage = $folderUpload . time() . $file['name'][$key];
-         $from = $file['tmp_name'][$key];
-        $to = PATH_ROOT . $pathStrorage;
-
-        if(move_uploaded_file($from,$to)){
-            return $pathStrorage;
-        }
-        return null;
-    }
-    function formatDate($date){
-        return date('d-m-Y',strtotime($date));
-    }
-    function formatNumber($number){
-        return number_format($number, 0,'.','.');
-    }
->>>>>>> origin/feature/canh
+    return null;
+}
+function formatDate($date)
+{
+    return date('d-m-Y', strtotime($date));
+}
+function formatNumber($number)
+{
+    return number_format($number, 0, '.', '.');
+}

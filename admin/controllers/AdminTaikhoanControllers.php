@@ -127,4 +127,14 @@ class AdminTaikhoanController
                die();
           }
      }
+
+     // khách hàng 
+
+     public function danhSachKhachHang()
+     {
+          $listKhachHang = $this->modelTaikhoan->getAllTaiKhoan(0);
+          // var_dump($listKhachHang);
+          // die();
+          require_once './views/taikhoan/khachhang/listKhachHang.php';
+     }
 }

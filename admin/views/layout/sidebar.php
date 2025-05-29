@@ -44,7 +44,6 @@
                     </a>
                 </li>
 
-<<<<<<< HEAD
                 <div class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa user"></i>
@@ -61,14 +60,13 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?= BASE_URL_ADMIN . '?act=' ?>" class="nav-link">
+                            <a href="<?= BASE_URL_ADMIN . '?act=listtaikhoankhachhang' ?>" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>Khách hàng</p>
                             </a>
                         </li>
                     </ul>
                 </div>
-=======
                 <li class="nav-item">
                     <a href="<?= BASE_URL_ADMIN . '?act=sanpham' ?>" class="nav-link">
                         <i class="nav-icon fas fa-mobile"></i>
@@ -88,7 +86,6 @@
                     </a>
                 </li>
 
->>>>>>> origin/feature/canh
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

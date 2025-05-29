@@ -66,20 +66,19 @@ class AdminSanPhamController
             $_SESSION['error'] = $error;
             if (empty($error)) {
                 $san_pham_id = $this->modelSanPham->insertSanPham($ten_sp, $gia, $giam_gia, $soluong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $file_thumb);
-            if(!empty($img_array['name'])){
-                foreach($img_array['name'] as $key => $value)
-                {
-                    $file = [
-                        'name' => $img_array['name'][$key],
-                        'type' => $img_array['type'][$key],
-                        'tmp_name' => $img_array['tmp_name'][$key],
-                        'error' => $img_array['error'][$key],
-                        'size' => $img_array['size'][$key],
-                    ];
-                    $link_hinh_anh = uploadFile($file,'./uploads/');
-                    $this->modelSanPham->insertAlbumAnhHinhAnh($san_pham_id,$link_hinh_anh);
+                if (!empty($img_array['name'])) {
+                    foreach ($img_array['name'] as $key => $value) {
+                        $file = [
+                            'name' => $img_array['name'][$key],
+                            'type' => $img_array['type'][$key],
+                            'tmp_name' => $img_array['tmp_name'][$key],
+                            'error' => $img_array['error'][$key],
+                            'size' => $img_array['size'][$key],
+                        ];
+                        $link_hinh_anh = uploadFile($file, './uploads/');
+                        $this->modelSanPham->insertAlbumAnhHinhAnh($san_pham_id, $link_hinh_anh);
+                    }
                 }
-            }
                 header("Location:" . BASE_URL_ADMIN . "?act=sanpham");
                 exit();
             } else {
@@ -90,19 +89,18 @@ class AdminSanPhamController
         }
     }
     public function formEditSanPham()
-    { 
-            $id = $_GET['id_sanpham'];
-            $sanPham = $this->modelSanPham->getDetailSanPham($id);
-            $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
-            $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
-            if ($sanPham) {
-                require_once './views/sanpham/editSanPham.php';
-                deleteSessionError();
-            } else {
-                header("Location:" . BASE_URL_ADMIN . "?act=sanpham");
-                exit();
-            }
-        
+    {
+        $id = $_GET['id_sanpham'];
+        $sanPham = $this->modelSanPham->getDetailSanPham($id);
+        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+        if ($sanPham) {
+            require_once './views/sanpham/editSanPham.php';
+            deleteSessionError();
+        } else {
+            header("Location:" . BASE_URL_ADMIN . "?act=sanpham");
+            exit();
+        }
     }
     public function postEditSanPham()
     {
@@ -112,14 +110,14 @@ class AdminSanPhamController
             $sanPhamOld = $this->modelSanPham->getDetailSanPham($san_pham_id);
             $old_file = $sanPhamOld['hinh'];
 
-            $ten_sp = $_POST['ten_sp'] ??  '';
-            $gia = $_POST['gia'] ??  '';
-            $giam_gia = $_POST['giam_gia'] ??  '';
-            $soluong = $_POST['soluong'] ??  '';
-            $ngay_nhap = $_POST['ngay_nhap'] ??  '';
-            $danh_muc_id = $_POST['danh_muc_id'] ??  '';
-            $trang_thai = $_POST['trang_thai'] ??  '';
-            $mo_ta = $_POST['mo_ta'] ??  '';
+            $ten_sp = $_POST['ten_sp'] ?? '';
+            $gia = $_POST['gia'] ?? '';
+            $giam_gia = $_POST['giam_gia'] ?? '';
+            $soluong = $_POST['soluong'] ?? '';
+            $ngay_nhap = $_POST['ngay_nhap'] ?? '';
+            $danh_muc_id = $_POST['danh_muc_id'] ?? '';
+            $trang_thai = $_POST['trang_thai'] ?? '';
+            $mo_ta = $_POST['mo_ta'] ?? '';
             $hinh = $_FILES['hinh'] ?? null;
 
 
@@ -157,7 +155,7 @@ class AdminSanPhamController
                 $new_file = $old_file;
             }
             if (empty($error)) {
-                $san_pham_id = $this->modelSanPham->updateSanpham($san_pham_id,$ten_sp, $gia, $giam_gia, $soluong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $new_file);
+                $san_pham_id = $this->modelSanPham->updateSanpham($san_pham_id, $ten_sp, $gia, $giam_gia, $soluong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $new_file);
                 header("Location:" . BASE_URL_ADMIN . "?act=sanpham");
                 exit();
             } else {
@@ -177,8 +175,8 @@ class AdminSanPhamController
             deleteFile($sanPham['hinh']);
             $this->modelSanPham->destroySanPham($id);
         }
-        if($listAnhSanPham){
-            foreach($listAnhSanPham as $key =>$anhSp){
+        if ($listAnhSanPham) {
+            foreach ($listAnhSanPham as $key => $anhSp) {
                 deleteFile($anhSp['link_hinh_anh']);
                 $this->modelSanPham->destroyAnhSanPham($anhSp['id']);
             }

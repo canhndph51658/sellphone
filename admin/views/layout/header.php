@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/feature/canh
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,11 +17,6 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="./assets/dist/css/adminlte.min.css">
 </head>
-<<<<<<< HEAD
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
-=======
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
->>>>>>> origin/feature/canh
