@@ -13,4 +13,5 @@ match ($act) {
 
    '/' => (new HomeController())->home(),
    'sanpham' => (new HomeController())->SanPham(),
+   'chi-tiet-san-pham' => (new HomeController())->ChiTietSanPham(),
 };
