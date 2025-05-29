@@ -2,16 +2,16 @@
 
 class AdminTaikhoanController
 {
-     public $modelTaikhoan;
+     public $modelTaiKhoan;
 
      public function __construct()
      {
-          $this->modelTaikhoan = new AdminTaikhoan();
+          $this->modelTaiKhoan = new AdminTaikhoan();
      }
 
      public function danhSachQuanTri()
      {
-          $listQuanTri = $this->modelTaikhoan->getAllTaiKhoan(1);
+          $listQuanTri = $this->modelTaiKhoan->getAllTaiKhoan(1);
           // var_dump($listQuanTri);
           // die();
           require_once './views/taikhoan/quantri/listQuanTri.php';
@@ -44,7 +44,7 @@ class AdminTaikhoanController
 
                     $role = 1;
 
-                    $this->modelTaikhoan->insertTaiKhoan($hoten, $email, $password, $role);
+                    $this->modelTaiKhoan->insertTaiKhoan($hoten, $email, $password, $role);
 
 
                     header("Location: " . BASE_URL_ADMIN . "?act=listtaikhoanquantri");
@@ -60,7 +60,7 @@ class AdminTaikhoanController
      public function formEditQuanTri()
      {
           $id_quantri = $_GET['id_quantri'];
-          $quantri = $this->modelTaikhoan->getDetailTaiKhoan($id_quantri);
+          $quantri = $this->modelTaiKhoan->getDetailTaiKhoan($id_quantri);
           // var_dump($quantri);
           // die();
           require_once './views/taikhoan/quantri/editQuantri.php';
@@ -95,7 +95,7 @@ class AdminTaikhoanController
                // var_dump($error);
                // die();
                if (empty($error)) {
-                    $this->modelTaikhoan->updateTaiKhoan($quantri_id, $hoten, $email, $dienthoai, $trang_thai);
+                    $this->modelTaiKhoan->updateTaiKhoan($quantri_id, $hoten, $email, $dienthoai, $trang_thai);
 
                     header("Loccation: " . BASE_URL_ADMIN . "?act=listtaikhoanquantri");
                     exit();
@@ -111,9 +111,9 @@ class AdminTaikhoanController
      public function deletePassword()
      {
           $tai_khoan_id = $_GET['id_quantri'];
-          $tai_khoan = $this->modelTaikhoan->getDetailTaiKhoan($tai_khoan_id);
+          $tai_khoan = $this->modelTaiKhoan->getDetailTaiKhoan($tai_khoan_id);
           $password = password_hash('123456', PASSWORD_BCRYPT);
-          $status = $this->modelTaikhoan->deletePassword($tai_khoan_id, $password);
+          $status = $this->modelTaiKhoan->deletePassword($tai_khoan_id, $password);
           // var_dump($status);
           // die();
           if ($status && $tai_khoan['role'] ==  1) {
@@ -132,7 +132,7 @@ class AdminTaikhoanController
 
      public function danhSachKhachHang()
      {
-          $listKhachHang = $this->modelTaikhoan->getAllTaiKhoan(0);
+          $listKhachHang = $this->modelTaiKhoan->getAllTaiKhoan(0);
           // var_dump($listKhachHang);
           // die();
           require_once './views/taikhoan/khachhang/listKhachHang.php';
@@ -141,7 +141,7 @@ class AdminTaikhoanController
      public function detailKhachHang()
      {
           $id_khachhang = $_GET['id_khachhang'];
-          $khachHang  =  $this->modelTaikhoan->getDetailTaiKhoan($id_khachhang);
+          $khachHang  =  $this->modelTaiKhoan->getDetailTaiKhoan($id_khachhang);
 
           require_once './views/taikhoan/khachhang/detailKhachHang.php';
      }

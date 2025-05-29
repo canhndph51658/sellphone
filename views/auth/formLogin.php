@@ -46,7 +46,25 @@
                <form action="<?= BASE_URL . '?act=' ?> " method="post" class="sing-up-form"></form>
           </div>
 
+          <div class="panels-container">
+               <div class="panel left-panel">
+                    <div class="content">
+                         <h3>Thành viên của thương hiệu?</h3>
+                         <p>Chào mừng đến với ZPhone</p>
+                         <button class="btn" id="sing-in-btn">Sing in</button>
+                    </div>
+                    <img src="" alt="" class="image">
+               </div>
 
+               <div class="panel right-panel">
+                    <div class="content">
+                         <h3>Mới đến với thương hiệu?</h3>
+                         <p>Chào mừng đến với ZPhone</p>
+                         <button class="btn" id="sing-in-btn">Sing in</button>
+                    </div>
+                    <img src="" alt="" class="image">
+               </div>
+          </div>
      </div>
 
 
