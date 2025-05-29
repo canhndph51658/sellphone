@@ -18,38 +18,61 @@ class AdminDonHang {
             echo "loi" . $e->getMessage();
         }
     }
-    // public function getDetailDonHang($id)
-    // {
-    //     try {
-    //         $sql = "SELECT don_hangs.*, trang_thai_don_hangs.ten_trang_thai
-    //                 FROM don_hangs 
-    //                 INNER JOIN trang_thai_don_hangs ON don_hangs.trang_thai_id = trang_thai_don_hangs.id
-    //          WHERE don_hang.id = :id";
-    //         $stmt = $this->conn->prepare($sql);
-    //         $stmt->execute([
-    //             ':id' => $id
-    //         ]);
-    //         return $stmt->fetch();
-    //     } catch (Exception $e) {
-    //         echo "loi" . $e->getMessage();
-    //     }
-    // }
-    // public function getListSpDonHang($id)
-    // {
-    //     try {
-    //         $sql = "SELECT * FROM chi_tiet_don_hangs
-    //          WHERE don_hang_id = :id";
 
-    //         $stmt = $this->conn->prepare($sql);
+    public function getAllTrangThaiDonHang(){
+        try {
+            $sql = "SELECT * FROM trang_thai_don_hang";
 
-    //         $stmt->execute([
-    //             ':id' => $id
-    //         ]);
-    //         return $stmt->fetch();
-    //     } catch (Exception $e) {
-    //         echo "loi" . $e->getMessage();
-    //     }
-    // }
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
+    public function getDetailDonHang($id)
+    {
+        try {
+            $sql = "SELECT don_hang.*, 
+                            trang_thai_don_hang.ten_trang_thai, 
+                            tai_khoan.hoten, 
+                            tai_khoan.email, 
+                            tai_khoan.dienthoai,
+                            phuong_thuc_thanh_toan.ten_phuong_thuc
+                    FROM don_hang
+                    INNER JOIN trang_thai_don_hang ON don_hang.trang_thai_id = trang_thai_don_hang.id
+                    INNER JOIN tai_khoan ON don_hang.tai_khoan_id = tai_khoan.id
+                    INNER JOIN phuong_thuc_thanh_toan ON don_hang.phuong_thuc_thanh_toan_id = phuong_thuc_thanh_toan.id
+             WHERE don_hang.id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id' => $id
+            ]);
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
+    public function getListSpDonHang($id)
+    {
+        try {
+            $sql = "SELECT chi_tiet_don_hang.*, sanpham.ten_sp
+                FROM chi_tiet_don_hang
+                INNER JOIN sanpham ON chi_tiet_don_hang.id = sanpham.id
+                WHERE chi_tiet_don_hang.don_hang_id = :id";
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':id' => $id
+            ]);
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
     // public function insertSanPham($ten_sp, $gia, $giam_gia, $soluong, $ngay_nhap, $danh_muc_id, $trang_thai, $mo_ta, $hinh)
     // {
     //     try {
