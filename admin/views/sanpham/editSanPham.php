@@ -171,25 +171,28 @@
 </div>
 <?php include_once('./views/layout/footer.php'); ?>
 </body>
-                                           
+
 <script>
     var faqs_row = <?= count($listAnhSanPham); ?>;
-    function addfaqs(){
-        var html = '<tr id="faqs-row'+ faqs_row +'">';
+
+    function addfaqs() {
+        var html = '<tr id="faqs-row' + faqs_row + '">';
         html += '<td><img src="https://th.bing.com/th/id/OIP.K_53vg76iyG2ZoqyQZkMXAHaI3?w=153&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7" style="width: 50px; height: 50px;" alt=""></td>';
         html += '<td><input type="file" name="img_array[]" class="form-control"></td>';
-        html += '<td class="mt-10">  <button class="badge badge-danger" type="button" onclick="removeRow('+ faqs_row +', null)"><i class="fa fa-trash"></i> Delete</button></td>';
+        html += '<td class="mt-10">  <button class="badge badge-danger" type="button" onclick="removeRow(' + faqs_row + ', null)"><i class="fa fa-trash"></i> Delete</button></td>';
         html += '</tr>';
         $('#faqs tbody').append(html);
         faqs_row++;
     }
-    function removeRow(rowId , imgId){
-        $('#faqs-row'+ rowId).remove();
-        if(imgId != null){
+
+    function removeRow(rowId, imgId) {
+        $('#faqs-row' + rowId).remove();
+        if (imgId != null) {
             var imgDeleteInput = document.getElementById('img_delete');
             var currentValue = imgDeleteInput.value;
             imgDeleteInput.value = currentValue ? currentValue + ',' + imgId : imgId;
         }
     }
-</script>     
+</script>
+
 </html>

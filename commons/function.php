@@ -47,13 +47,21 @@ function connectDB() {
 
     }
 
-    function uploadFileAlbum($file,$folderUpload,$key){
-        $pathStrorage = $folderUpload . time() . $file['name'][$key];
-         $from = $file['tmp_name'][$key];
-        $to = PATH_ROOT . $pathStrorage;
+    function uploadFileAlbum($file,$folderUpload,$key){ 
+        $originalName  = basename($file['name'][$key]);
+         $filename  =time() . '_' . $originalName;
+        $folderUpload  =rtrim($folderUpload,'/') . '/';
+        
+        $relativePath = $folderUpload . $filename;
 
-        if(move_uploaded_file($from,$to)){
-            return $pathStrorage;
+        $to = PATH_ROOT . '/' . $relativePath;
+
+        if (!is_dir(PATH_ROOT . '/' . $folderUpload))
+         {
+            mkdir(PATH_ROOT . '/' . $folderUpload,0777,true);
+         }
+        if(move_uploaded_file($file['tmp_name'][$key],$to)){
+            return $relativePath;
         }
         return null;
     }
