@@ -13,6 +13,7 @@ require_once './controllers/HomeController.php';
 //Models
 require_once './models/TaiKhoan.php';
 require_once './models/SanPham.php';
+require_once './models/GioHang.php';
 
 
 $act = $_GET['act'] ?? '/';
@@ -23,6 +24,7 @@ match ($act) {
    '/' => (new HomeController())->home(),
    'trangchu' => (new HomeController())->trangchu(),
    'sanpham' => (new HomeController())->SanPham(),
+   'gio-hang' => (new HomeController())->gioHang(),
 
 
 
@@ -31,4 +33,8 @@ match ($act) {
    'login' => (new HomeController())->formLogin(),
    'check-login' => (new HomeController())->postLogin(),
    'logout' => (new HomeController())->logout(),
+
+   //singup
+   'form-signup' => (new HomeController())->formSignup(),
+   'check-signup' => (new HomeController())->postSignup(),
 };
