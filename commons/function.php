@@ -1,7 +1,8 @@
 <?php
 
 // Kết nối CSDL qua PDO
-function connectDB() {
+function connectDB()
+{
     // Kết nối CSDL
     $host = DB_HOST;
     $port = DB_PORT;
@@ -15,37 +16,38 @@ function connectDB() {
 
         // cài đặt chế độ trả dữ liệu
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    
+
         return $conn;
     } catch (PDOException $e) {
         echo ("Connection failed: " . $e->getMessage());
     }
-  
 }
-  function uploadFile($file,$folderUpload){
-        $pathStrorage = $folderUpload .time() . $file['name'];
-        $from = $file['tmp_name'];
-        $to = PATH_ROOT . $pathStrorage;
+function uploadFile($file, $folderUpload)
+{
+    $pathStrorage = $folderUpload . time() . $file['name'];
+    $from = $file['tmp_name'];
+    $to = PATH_ROOT . $pathStrorage;
 
-        if(move_uploaded_file($from,$to)){
-            return $pathStrorage;
-        }
-        return null;
+    if (move_uploaded_file($from, $to)) {
+        return $pathStrorage;
     }
-    function deleteFile($file){
-        $pathDelete = PATH_ROOT . $file;
-        if(file_exists($pathDelete)){
-            unlink($pathDelete);
-        }
+    return null;
+}
+function deleteFile($file)
+{
+    $pathDelete = PATH_ROOT . $file;
+    if (file_exists($pathDelete)) {
+        unlink($pathDelete);
     }
-    function deleteSessionError(){
-        if(isset($_SESSION['flash'])){
-            unset($_SESSION['flash']);
-            session_unset();
-            session_destroy();
-        }
-
+}
+function deleteSessionError()
+{
+    if (isset($_SESSION['flash'])) {
+        unset($_SESSION['flash']);
+        session_unset();
+        session_destroy();
     }
+}
 
     function uploadFileAlbum($file,$folderUpload,$key){ 
         $originalName  = basename($file['name'][$key]);
