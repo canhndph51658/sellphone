@@ -47,36 +47,24 @@
         </ul>
     </div>
     <div class="product-list">
-        <?php foreach ($listSanPham as $sanPham): ?>
-            <div class="product">
-                <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>">
-                    <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="<?= $sanPham['ten_sp']; ?>">
-                    <h4><?= $sanPham['ten_sp']; ?></h4>
-                </a>
-                <p class="price">
-                    <?php if ($sanPham['giam_gia'] > 0): ?>
-                        <span class="giamgia"><?= number_format($sanPham['gia'] - $sanPham['giam_gia'], 0, ',', '.') . 'đ' ?></span>
-                        <span class="gia"><?= number_format($sanPham['gia'], 0, ',', '.') . 'đ' ?></span>
-                    <?php else : ?>
-                        <?= number_format($sanPham['gia'], 0, ',', '.') . 'đ' ?>
-                    <?php endif; ?>
-                </p>
-            </div>
-            <form action="<?= BASE_URL . '?act=them-gio-hang' ?>" method="post">
-                <div class="quantity-cart-box d-flex align-items-center">
-                    <h6 class="option-title">Số lượng:</h6>
-                    <div class="quantity">
-                        <input type="hidden" name="san_pham_id" value="<?= $sanPham['id']; ?>">
-                        <div class="='pro-qty"><input type="text" value="1" name="so_luong"></div>
-                    </div>
-                    <div class="action_link">
-                        <button class="btn-btn-cart2">Thêm giỏ hàng</button>
-                    </div>
 
+            <?php foreach ($listSanPham as $sanPham): ?>
+                <div class="product">
+               <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>">
+                 <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="<?= $sanPham['ten_sp']; ?>">
+                 <h4><?= $sanPham['ten_sp']; ?></h4>
+               </a>
+               <p class="price">
+                 <?php if($sanPham['giam_gia']> 0): ?>
+                    <span class="giamgia"><?= number_format($sanPham['gia'] - $sanPham['giam_gia'],0,',','.').'đ' ?></span>
+                    <span class="gia"><?= number_format($sanPham['gia'],0,',','.').'đ' ?></span>
+                    <?php else :?>
+                        <?= number_format($sanPham['gia'],0,',','.').'đ' ?>
+                        <?php endif;?>
+               </p>
                 </div>
+            <?php endforeach; ?>
 
-            </form>
-        <?php endforeach; ?>
     </div>
 </div>
 

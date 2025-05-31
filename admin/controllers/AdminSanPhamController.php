@@ -148,7 +148,7 @@
                 }
 
                 $_SESSION['error'] = $error;
-                if (isset($hinh) && $hinh['error'] == UPLOAD_ERR_OK) {
+                if (isset($hinh) && $hinh['error'] == UPLOAD_ERR_OK) {  
                     $new_file = uploadFile($hinh, './uploads/');
                     if (!empty($old_file)) {
                         deleteFile($old_file);
@@ -180,7 +180,7 @@
             
                 foreach ($img_array['name'] as $key => $value){
                     if  ($img_array['error'][$key] == UPLOAD_ERR_OK){
-                        $new_file = uploadFileAlbum($img_array, '/uploads',$key);
+                        $new_file = uploadFileAlbum($img_array, './uploads',$key);
                         if ($new_file) {
                             $upload_files[] = [
                                 'id' =>$current_img_ids[$key] ?? null ,

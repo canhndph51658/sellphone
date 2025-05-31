@@ -62,6 +62,10 @@
                                         <p class="text-danger"><?= $error['hinh'] ?></p>
                                     <?php } ?>
                                 </div>
+                                <div>
+                                    <label for="">album ảnh</label>
+                                    <input type="file" class="form-control" name="img_array[]" multiple>
+                                </div>
                                 <div class="form-group">
                                     <label for="">số lượng </label>
                                     <input type="number" class="form-control" name="soluong" placeholder="nhập số lượng">
