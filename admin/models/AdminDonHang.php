@@ -74,35 +74,24 @@ class AdminDonHang {
         }
     }
     
-    public function updateDonHang($id, $ten_nguoi_nhan, $sdt_nguoi_nhan, $email_nguoi_nhan, $dia_chi_nguoi_nhan, $ghi_chu, $trang_thai_id)
-    {
-        try {
-            $sql = "UPDATE don_hang 
-            SET
-                ten_nguoi_nhan = :ten_nguoi_nhan,
-                sdt_nguoi_nhan = :sdt_nguoi_nhan,
-                email_nguoi_nhan = :email_nguoi_nhan,
-                dia_chi_nguoi_nhan = :dia_chi_nguoi_nhan,
-                ghi_chu = :ghi_chu,
-                trang_thai_id = :trang_thai_id
-            WHERE id = :id";
+    public function updateDonHang($id, $trang_thai_id)
+{
+    try {
+        $sql = "UPDATE don_hang 
+                SET trang_thai_id = :trang_thai_id
+                WHERE id = :id";
 
-            $stmt = $this->conn->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
 
-            $stmt->execute([
-                ':ten_nguoi_nhan' => $ten_nguoi_nhan,
-                ':sdt_nguoi_nhan' => $sdt_nguoi_nhan,
-                ':email_nguoi_nhan' => $email_nguoi_nhan,
-                ':dia_chi_nguoi_nhan' => $dia_chi_nguoi_nhan,
-                ':ghi_chu' => $ghi_chu,
-                ':trang_thai_id' => $trang_thai_id,
-                ':id' => $id
-            ]);
-            return true;
-        } catch (Exception $e) {
-            echo "loi" . $e->getMessage();
-        }
+        $stmt->execute([
+            ':trang_thai_id' => $trang_thai_id,
+            ':id' => $id
+        ]);
+        return true;
+    } catch (Exception $e) {
+        echo "Lỗi: " . $e->getMessage();
     }
+}
     // public function destroySanPham($id)
     // {
     //     try {

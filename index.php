@@ -35,5 +35,7 @@ match ($act) {
    //singup
    'form-signup' => (new HomeController())->formSignup(),
    'check-signup' => (new HomeController())->postSignup(),
-
+   //giới thiệu và liên hệ
+   'gioi-thieu' => (new HomeController())->gioiThieu(),
+   'lien-he' => (new HomeController())->lienHe(),
 };

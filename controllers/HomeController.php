@@ -177,5 +177,12 @@ class HomeController
             header("location:" . BASE_URL . '?act=login');
         }
     }
+    public function gioiThieu() {
+        include_once './views/gioithieu.php';
+    }
+
+    public function lienHe() {
+        include_once './views/lienhe.php';
+    }
 };
 

@@ -3,9 +3,9 @@
     <nav>
         <ul>
             <li><a href="">trang chủ</a></li>
-            <li><a href="">sản phẩm</a></li>
-            <li><a href="">giới thiệu</a></li>
-            <li><a href="">liên hệ</a></li>    
+            <li><a href="<?= BASE_URL .'?act=sanpham' ?>">sản phẩm</a></li>
+            <li><a href="<?= BASE_URL .'?act=gioi-thieu' ?>">giới thiệu</a></li>
+            <li><a href="<?= BASE_URL .'?act=lien-he' ?>">liên hệ</a></li>    
         </ul>
     </nav>
     <div class="icon1"> 
