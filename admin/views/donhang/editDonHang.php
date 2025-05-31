@@ -34,28 +34,28 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="">tên người nhận</label>
-                        <input type="text" class="form-control" name="ten_nguoi_nhan" value="<?= $donHang['ten_nguoi_nhan']?>" placeholder="nhập tên người nhận">
+                        <input type="text" class="form-control" name="ten_nguoi_nhan" value="<?= $donHang['ten_nguoi_nhan']?>" placeholder="nhập tên người nhận" disabled>
                       <?php if(isset($error['ten_nguoi_nhan'])) { ?>
                             <p class="text-danger"><?=$error['ten_nguoi_nhan']?></p>
                        <?php }?>
                     </div>
                     <div class="form-group">
                         <label for="">Số điện thoại</label>
-                        <input type="text" class="form-control" name="sdt_nguoi_nhan" value="<?= $donHang['sdt_nguoi_nhan']?>" placeholder="nhập số điện thoại">
+                        <input type="text" class="form-control" name="sdt_nguoi_nhan" value="<?= $donHang['sdt_nguoi_nhan']?>" placeholder="nhập số điện thoại" disabled>
                       <?php if(isset($error['sdt_nguoi_nhan'])) { ?>
                             <p class="text-danger"><?=$error['sdt_nguoi_nhan']?></p>
                        <?php }?>
                     </div>
                     <div class="form-group">
                         <label for="">Email</label>
-                        <input type="email" class="form-control" name="email_nguoi_nhan" value="<?= $donHang['email_nguoi_nhan']?>" placeholder="nhập email">
+                        <input type="email" class="form-control" name="email_nguoi_nhan" value="<?= $donHang['email_nguoi_nhan']?>" placeholder="nhập email" disabled>
                       <?php if(isset($error['email_nguoi_nhan'])) { ?>
                             <p class="text-danger"><?=$error['email_nguoi_nhan']?></p>
                        <?php }?>
                     </div>
                     <div class="form-group">
                         <label for="">Địa chỉ</label>
-                        <input type="text" class="form-control" name="dia_chi_nguoi_nhan" value="<?= $donHang['dia_chi_nguoi_nhan']?>" placeholder="nhập dia chỉ ">
+                        <input type="text" class="form-control" name="dia_chi_nguoi_nhan" value="<?= $donHang['dia_chi_nguoi_nhan']?>" placeholder="nhập dia chỉ " disabled>
                       <?php if(isset($error['dia_chi_nguoi_nhan'])) { ?>
                             <p class="text-danger"><?=$error['dia_chi_nguoi_nhan']?></p>
                        <?php }?>
@@ -63,7 +63,7 @@
 
                     <div class="form-group">
                         <label for="">Ghi chú</label>
-                        <textarea name="ghi_chu" id="" class="form-control" placeholder="ghi chú" ><?= $donHang['ghi_chu']?></textarea>
+                        <textarea name="ghi_chu" id="" class="form-control" placeholder="ghi chú" disabled><?= $donHang['ghi_chu']?></textarea>
                     </div>
                     <div class="form-group">
                                     <label for="inputStatus">Trạng thái đơn hàng</label>                                    
