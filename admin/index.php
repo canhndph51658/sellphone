@@ -30,6 +30,7 @@ match ($act) {
     'suasanpham' => (new AdminSanPhamController())->postEditSanPham(),
     'xoasanpham' => (new AdminSanPhamController())->deleteSanPham(),
     'chitietsanpham' => (new AdminSanPhamController())->detailSanPham(),
+    'suaalbumanhsanpham' => (new AdminSanPhamController())->postEditAnhSanPham(),
 
 
     // router quản lý đơn hàng 
@@ -37,8 +38,7 @@ match ($act) {
     'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
     'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
     'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
-
-    'suaalbumanhsanpham' => (new AdminSanPhamController())->postEditAnhSanPham(),
+    
 
     
 };
