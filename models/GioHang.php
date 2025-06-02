@@ -26,7 +26,7 @@ class GioHang
      public function getDetailGioHang($id)
      {
           try {
-               $sql = "SELECT * FROM chi_tiet_gio_hang.*, sanpham.ten_sp, sanpham.gia, sanpham.giam_gia, sanpham.hinh
+               $sql = "SELECT chi_tiet_gio_hang.*, sanpham.ten_sp, sanpham.gia, sanpham.giam_gia, sanpham.hinh
                     FROM chi_tiet_gio_hang
                     INNER JOIN sanpham ON chi_tiet_gio_hang.san_pham_id = sanpham.id
                     WHERE chi_tiet_gio_hang.gio_hang_id = :gio_hang_id";
@@ -49,6 +49,8 @@ class GioHang
                $stmt = $this->conn->prepare($sql);
 
                $stmt->execute([':id' => $id]);
+
+               return $this->conn->lastInsertId();
           } catch (Exception $e) {
                echo "Lỗi kết nối: " . $e->getMessage();
           }

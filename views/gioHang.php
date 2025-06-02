@@ -8,7 +8,7 @@
 <?php require_once 'views/layout/menu.php' ?>
 
 <main>
-     <div class="cart-comtainer">
+     <div class="cart-container">
           <table class="cart-table">
                <thead>
                     <tr>
@@ -22,7 +22,7 @@
                <tbody>
                     <?php
                     $tongGioHang = 0;
-                    foreach ($chiTietGioHang as $sanPham): ?>
+                    foreach ($chiTietGioHang as $key => $sanPham): ?>
                          <tr>
                               <td class="product-info">
                                    <input type="checkbox" name="" id="">
@@ -41,7 +41,7 @@
                               <td class="product-quantity">
                                    <div class="pro-qty">
                                         <button class="qty-btn decrement">-</button>
-                                        <input type="text" style="width: 25px" value="<?= $sanPham['so_loung'] ?>" class="qty-input">
+                                        <input type="text" style="width: 25px" value="<?= $sanPham['so_luong'] ?>" class="qty-input">
                                         <button class="qty-btn increment">+</button>
 
                                    </div>
@@ -55,7 +55,7 @@
                                         $tongTien = $sanPham['gia'] * $sanPham['so_luong'];
                                    }
                                    $tongGioHang += $tongTien;
-                                   echo formatNumber($tongTien) . 'đ';
+                                   echo formatNumber($tongTien) . ' đ';
                                    ?>
                               </td>
                               <td>
@@ -70,7 +70,7 @@
                <h3>Tổng đơn hàng</h3>
                <div class="summary-item">
                     <span>Tổng tiền sản phẩm</span>
-                    <span><?= formatNumber($tongGioHang) . 'đ' ?></span>
+                    <span><?= formatNumber($tongGioHang) . ' đ' ?></span>
                </div>
                <div class="summary-item">
                     <span>Vận chuyển</span>
