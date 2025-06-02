@@ -24,9 +24,11 @@ match ($act) {
    '/' => (new HomeController())->home(),
    'trangchu' => (new HomeController())->trangchu(),
    'sanpham' => (new HomeController())->SanPham(),
+   'chi-tiet-san-pham' => (new HomeController())->ChiTietSanPham(),
+
+   //
    'gio-hang' => (new HomeController())->gioHang(),
-
-
+   'them-gio-hang' => (new HomeController())->addGioHang(),
 
 
    //login

@@ -61,7 +61,7 @@ class HomeController
         if (isset($_SESSION['user_client'])) {
             unset($_SESSION['user_client']);
             unset($_SESSION['tai_khoan_id']);
-            header('Location:' . BASE_URL . '?act=trangchu;');
+            header('Location:' . BASE_URL . '?act=trangchu');
         }
     }
 
@@ -154,6 +154,24 @@ class HomeController
             require_once './views/gioHang.php';
         } else {
             header("location:" . BASE_URL . '?act=login');
+        }
+    }
+
+    public function ChiTietSanPham()
+    {
+
+        $id = $_GET['id_sanpham'];
+        $sanPham = $this->modelSanPham->getDetailSanPham($id);
+        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+
+        $listSanPhamCungDanhMuc = $this->modelSanPham->getListSanPhamDanhMuc($sanPham['danh_muc_id']);
+        if ($sanPham) {
+            require_once './views/detailSanPham.php';
+        } else if ($listSanPhamCungDanhMuc) {
+            require_once './views/productSanPham.php';
+        } else {
+            header("Location: " . BASE_URL);
+            exit();
         }
     }
 };
