@@ -54,6 +54,10 @@
                     <a href="#"><?= $sanPham['ten_loai'] ?></a>
                 </div>
                 <h1><?= $sanPham['ten_sp'] ?></h1>
+                <p class="series-info">
+                        <?php $countComment = count($listBinhLuan); ?>
+                        <span><?= $countComment . 'bình luận' ?></span>
+                </p>
                 <div class="availability">
                     <i class="fa fa-check-circle"></i>
                     <span><?= $sanPham['soluong'] > 0 ? $sanPham['soluong'] . 'còn hàng ' : 'hết hàng ' ?></span>
@@ -106,9 +110,62 @@
         </div>
     </div>
 
+
+    <div class="product-details-reviews section-padding pb-0">
+        <div class="">
+            <div class="col-lg-12">
+                <div class="product-review-info">
+                    <ul class="nav review-tab">
+                        <li> <a data-bs-toggle="tab" href="#tab_three">Bình luận (<?= $countComment ?>)</a></li>
+                    </ul>
+                    <div class="tab-content reviews-tab">
+                        <div class="tab-pane fade show active" id="tab_three">
+                            <?php foreach ($listBinhLuan as $binhLuan): ?>
+                                <div class="total-reviews">
+                                    <div class="rev-avatar">
+                                        <img src="<?= $binhLuan['hinh'] ?>" alt="">
+                                    </div>
+                                    <div class="review-box">
+                                        <div class="post-author">
+                                            <p><span><?= $binhLuan['hoten'] ?> -</span><?= $binhLuan['ngay_bl'] ?></p>
+                                        </div>
+                                        <p><?= $binhLuan['noi_dung'] ?></p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                                 <?php
+                            if (isset($_SESSION['user_client'])) {
+                                $tai_khoan_id = $_SESSION['user_client'];
+
+                            ?>
+                            <form action="<?= BASE_URL . '?act=binh-luan&id_sanpham=' . $sanPham['id'] ?>" method="post" class="review-form">
+                                <input type="hidden" name="san_pham_id" value="<?= $sanPham['id']; ?>">
+                                <input type="hidden" name="tai_khoan_id" value="<?= $tai_khoan_id; ?>">
+                                <div class="form-group row">
+                                    <div class="col"> 
+                                        <label class="col-form-label" for=""><span class="text-danger">*</span>
+                                    nội dung bình luận</label>
+                                    <textarea class="form-control" required placeholder="nhập nội dung để bình luận sản phẩm" name="noi_dung" id=""></textarea>
+                                    </div >
+                                    <div class="buttons">
+                                        <button class="btn btn-sqr" type="submit">bình luận</button> </div>
+                                </div>
+                            </form>
+                             <?php  
+                            } else {
+                                echo '<p class="alert alert-warning">Bạn cần đăng nhập thì mới có thể bình luận. <a href="' . BASE_URL . '?act=login">Đăng nhập tại đây</a></p>';
+                            }
+                            ?>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="./LayoutClient/js/trangchu.js"></script>
     <script src="./LayoutClient/js/details.js"></script>
-        <?php require_once 'views/layout/footer.php' ?>
+    <?php require_once 'views/layout/footer.php' ?>
 </body>
 
 </html>
