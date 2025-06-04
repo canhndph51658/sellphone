@@ -10,6 +10,7 @@ require_once './controllers/AdminThongKeController.php';
 require_once './controllers/AdminTaikhoanControllers.php';
 require_once './controllers/AdminSanPhamController.php';
 require_once './controllers/AdminDanhMucController.php';
+require_once './controllers/AdminDonHangController.php';
 
 
 
@@ -17,6 +18,7 @@ require_once './controllers/AdminDanhMucController.php';
 require_once './models/AdminTaikhoan.php';
 require_once './models/AdminSanPham.php';
 require_once './models/AdminDanhMuc.php';
+require_once './models/AdminDonHang.php';
 
 // route
 $act = $_GET['act'] ?? '/';
@@ -54,5 +56,11 @@ match ($act) {
     'suasanpham' => (new AdminSanPhamController())->postEditSanPham(),
     'xoasanpham' => (new AdminSanPhamController())->deleteSanPham(),
     'chitietsanpham' => (new AdminSanPhamController())->detailSanPham(),
-    'suaalbumanhsanpham' => (new AdminSanPhamController())->postEditAnhSanPham(),
+
+    // router quản lý đơn hàng 
+    'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
+    // 'from-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
+    // 'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
+    // 'xoa-don-hang' => (new AdminDonHangController())->deleteDonHang(),
+    // 'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
 };
