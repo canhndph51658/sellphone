@@ -24,6 +24,8 @@
             <p><strong>Sứ mệnh:</strong> Cellphone đặt ra sứ mệnh phát triển vượt bậc, mang những sản phẩm công nghệ độc đáo tới tay người tiêu dùng nhanh nhất, giúp tạo ra cuộc sống hiện đại, nơi con người kết nối với công nghệ và công nghệ phục vụ con người.</p>
 
             <p><strong>Định hướng:</strong> Lấy con người và công nghệ làm cốt lõi cho định hướng phát triển doanh nghiệp, xoay quanh khách hàng làm trung tâm, Cellphone xây dựng hệ sinh thái cung cấp sản phẩm, dịch vụ công nghệ cao, định hướng mở rộng chi nhánh ở tất cả các tỉnh trên toàn quốc.</p>
+            <h3>Những hoạt động của Cellphone</h3>
+            <img src="uploads/shop4.png" alt="Hình ảnh cửa hàng" style="display: block; margin: 20px auto; max-width: 100%; height: auto;">
         </div>
     </section>
 </div>
