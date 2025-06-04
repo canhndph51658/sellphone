@@ -17,6 +17,7 @@ require_once './models/GioHang.php';
 require_once './models/DonHang.php';
 
 
+require_once './models/BinhLuan.php';
 $act = $_GET['act'] ?? '/';
 
 match ($act) {
@@ -42,4 +43,5 @@ match ($act) {
    //singup
    'form-signup' => (new HomeController())->formSignup(),
    'check-signup' => (new HomeController())->postSignup(),
+   'binh-luan' => (new HomeController())->binhLuan(),
 };

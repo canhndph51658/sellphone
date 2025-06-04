@@ -33,7 +33,7 @@
                                     <div class="mb-3 text-center">
                                         <img style="width: 200px; height: 200px" src="<?= BASE_URL . $sanPham['hinh'] ?>" class="product-image" alt="product Image">
                                     </div>
-                                <div class="d-flex justify-content-start" style="overflow-x: auto;">
+                                    <div class="d-flex justify-content-start" style="overflow-x: auto;">
                                         <?php foreach ($listAnhSanPham as $key => $anhSP): ?>
                                             <div style="width: 200px; height: 200px" class="product-image-thumbs <?= $anhSP[$key] == 0 ? 'active' : '' ?>"><img src="<?= BASE_URL . $anhSP['link_hinh_anh'] ?>" alt="product Image"></div>
                                         <?php endforeach; ?>
@@ -55,6 +55,47 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <hr>
+                <h1>Bình luận của sản phẩm</h1>
+                <div>
+                    <table id="example2" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Người bình luận</th>
+                                <th>nội dung</th>
+                                <th>ngày bình luận</th>
+                                <th>trạng thái</th>
+                                <th>thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($listBinhLuan as $key => $binhLuan): ?>
+                                <tr>
+                                    <td><?= $key + 1 ?></td>
+                                    <td> <a target="_blank" href="<?= BASE_URL_ADMIN . '?act=chitietkhachhang&id_khachhang=' . $binhLuan['tai_khoan_id'] ?>">
+                                            <?= $binhLuan['hoten'] ?></a>
+                                    </td>
+                                    <td><?= $binhLuan['noi_dung'] ?></td>
+                                    <td><?= $binhLuan['ngay_bl'] ?></td>
+                                    <td><?= $binhLuan['trang_thai'] == 1 ? 'hiển thị ' : 'bị ẩn' ?></td>
+                                    <td>
+                                        <form action="<?= BASE_URL_ADMIN . '?act=updatetrangthaibinhluan&id_binhluan=' . $binhLuan['id'] ?>" method="POST">
+                                            <input type="hidden" name="id_binhluan" value="<?= $binhLuan['id'] ?>">
+                                            <input type="hidden" name="name_view" value="detail_sanpham">
+
+                                            <button onclick="return confirm('bạn có chắc muốn ẩn bình luận này không ?')" class="btn btn-warning">
+                                                <?= $binhLuan['trang_thai'] == 1 ? 'ẩn ' : 'bỏ ẩn' ?>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

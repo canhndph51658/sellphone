@@ -8,6 +8,7 @@ class HomeController
     public $modelGioHang;
     public $modelDonHang;
 
+    public $modelBinhLuan;
 
     public function __construct()
     {
@@ -15,6 +16,7 @@ class HomeController
         $this->modelTaiKhoan = new TaiKhoan();
         $this->modelGioHang = new GioHang();
         $this->modelDonHang = new DonHang();
+        $this->modelBinhLuan = new BinhLuan();
     }
     public function home()
     {
@@ -248,6 +250,7 @@ class HomeController
         $id = $_GET['id_sanpham'];
         $sanPham = $this->modelSanPham->getDetailSanPham($id);
         $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        $listBinhLuan = $this->modelSanPham->getBinhLuanFromSanPham($id);
 
         $listSanPhamCungDanhMuc = $this->modelSanPham->getListSanPhamDanhMuc($sanPham['danh_muc_id']);
         if ($sanPham) {
@@ -257,6 +260,27 @@ class HomeController
         } else {
             header("Location: " . BASE_URL);
             exit();
+        }
+    }
+
+    public function binhLuan()
+    {
+        if (isset($_POST['san_pham_id']) && isset($_POST['noi_dung']) && isset($_POST['tai_khoan_id'])) {
+            $san_pham_id = $_POST['san_pham_id'];
+            $noi_dung = $_POST['noi_dung'];
+            $tai_khoan_id = $_POST['tai_khoan_id'];
+            $ngay_bl = date('Y-m-d H:i:s');
+            $tai_khoan_id = $_SESSION['tai_khoan_id']  ?? null;
+
+            if ($san_pham_id && $noi_dung && $tai_khoan_id) {
+                $binhLuan1 = $this->modelBinhLuan->addBinhLuan($san_pham_id, $tai_khoan_id, $noi_dung,  $ngay_bl);
+                header("Location: " . BASE_URL . "?act=chi-tiet-san-pham&id_sanpham=" . $san_pham_id);
+                exit();
+            } else {
+                echo " vui lòng đăng nhập để điền đầy đủ thông tin";
+            }
+        } else {
+            echo "dữ liệu không hợp lệ";
         }
     }
 };

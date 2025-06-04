@@ -97,5 +97,20 @@ class SanPham{
             echo "loi" . $e->getMessage();
         }
     }
+          public function getBinhLuanFromSanPham($id)
+    {
+        try {
+            $sql = "SELECT binhluan.*,tai_khoan.hoten ,tai_khoan.hinh
+             FROM binhluan INNER JOIN tai_khoan ON binhluan.tai_khoan_id = tai_khoan.id
+             WHERE binhluan.san_pham_id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id' => $id
+            ]);
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
 }
 ?>
