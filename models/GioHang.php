@@ -96,14 +96,15 @@ class GioHang
           }
      }
 
-     public function clearDetailGioHang($gio_hang_id)
+     public function clearDetailGioHang($gio_hang_id, $san_pham_id)
      {
           try {
                $sql = "DELETE FROM chi_tiet_gio_hang
-               WHERE gio_hang_id = :gio_hang_id";
+               WHERE gio_hang_id = :gio_hang_id AND san_pham_id = :san_pham_id";
                $stmt = $this->conn->prepare($sql);
                $stmt->execute([
-                    ':gio_hang_id' => $gio_hang_id
+                    ':gio_hang_id' => $gio_hang_id,
+                    ':san_pham_id' => $san_pham_id,
                ]);
 
                return true;

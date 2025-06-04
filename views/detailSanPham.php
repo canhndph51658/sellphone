@@ -75,7 +75,7 @@
                             <input type="hidden" name="san_pham_id" value="<?= $sanPham['id']; ?>">
                             <label for="product-quantity">số lượng:</label>
                             <div class="quantity">
-                                <input type="number" id="product-quantity" value="1" min="1" name="soluong">
+                                <input type="number" id="product-quantity" value="1" min="1" name="so_luong">
                             </div>
                         </div>
                         <div id="error-message" style="color:red; display:none ;"></div>

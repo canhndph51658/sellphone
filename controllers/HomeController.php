@@ -227,9 +227,10 @@ class HomeController
                         $item['so_luong'],
                         $donGia * $item['so_luong']
                     );
+                    $this->modelGioHang->clearDetailGioHang($gioHang['id'], $item['san_pham_id']);
                 }
 
-                $this->modelGioHang->clearDetailGioHang($gioHang['id']);
+
                 $this->modelGioHang->clearGioHang($tai_khoan_id);
 
                 header("Location: " . BASE_URL . '?act=thanh-toan-thanh-cong');

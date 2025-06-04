@@ -59,7 +59,11 @@
                                    ?>
                               </td>
                               <td>
-                                   <button class="delete-btn" style="color: D3D3D3;"><i class="fas fa-trash"></i></button>
+                                   <a href="?act=gio-hang&action=delete&product_id=<?= $sanPham['san_pham_id'] ?>" onclick="return confirm('Bạn có chắc muốn xoá sản phẩm này?')">
+                                        <i class="fas fa-trash" style="color: #D3D3D3;"></i>
+                                   </a>
+
+
                               </td>
                          </tr>
                     <?php endforeach; ?>
@@ -74,13 +78,13 @@
                </div>
                <div class="summary-item">
                     <span>Vận chuyển</span>
-                    <span>30.000đ</span>
+                    <span>30.000 đ</span>
                </div>
                <div class="summary-item">
                     <span>Tổng than toán</span>
                     <span class="total"><?= formatNumber($tongGioHang + 30000) . ' đ' ?></span>
                </div>
-               <button class="checkout-btn"> Tiển hành đặt hàng</button>
+               <button class="checkout-btn"> Tiến hành đặt hàng</button>
           </div>
      </div>
 </main>
