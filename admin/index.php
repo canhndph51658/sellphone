@@ -30,4 +30,5 @@ match ($act) {
     'chitietsanpham' => (new AdminSanPhamController())->detailSanPham(),
     'suaalbumanhsanpham' => (new AdminSanPhamController())->postEditAnhSanPham(),
     
+    'updatetrangthaibinhluan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
 };
