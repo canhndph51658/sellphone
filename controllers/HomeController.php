@@ -7,7 +7,6 @@ class HomeController
     public $modelTaiKhoan;
     public $modelGioHang;
     public $modelDonHang;
-
     public $modelBinhLuan;
 
     public function __construct()
@@ -75,6 +74,7 @@ class HomeController
     public function formSignup()
     {
         require_once './views/auth/formLogin.php';
+        deleteSessionError();
         exit();
     }
 
@@ -232,7 +232,7 @@ class HomeController
                         $item['so_luong'],
                         $donGia * $item['so_luong']
                     );
-                    $this->modelGioHang->clearDetailGioHang($gioHang['id'], $item['san_pham_id']);
+                    $this->modelGioHang->clearDetailGioHang($gioHang['id']);
                 }
 
 
@@ -290,6 +290,30 @@ class HomeController
     public function thanhToanThanhCong()
     {
         require_once "./views/thanhToanThanhCong.php";
+    }
+
+    public function huyDonHang()
+    {
+        if (isset($_GET['user_client'])) {
+            $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
+            $tai_khoan_id = $user['id'];
+
+            $donHangId = $_GET['id'];
+            $donHang = $this->modelDonHang->getDonHangById($donHangId);
+
+            if ($donHang['tai_khoan_id'] != $tai_khoan_id) {
+                echo "Bạn không có quyền hủy đơn này";
+                exit();
+            }
+
+            if ($donHang['trang_thai_id'] != 1) {
+                echo "Chỉ đơn hàng ở trạng thái 'Chưa xác nhận' mới có thể hủy";
+                exit();
+            }
+        } else {
+            var_dump("Bạn chưa đăng nhập");
+            exit();
+        }
     }
 };
     // public function gioiThieu() {

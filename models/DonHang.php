@@ -12,7 +12,7 @@ class DonHang
      {
           try {
                $sql = "INSERT INTO don_hang (tai_khoan_id, ten_nguoi_nhan, email_nguoi_nhan, sdt_nguoi_nhan, dia_chi_nguoi_nhan, ghi_chu, tong_tien, phuong_thuc_thanh_toan_id, ngay_dat, ma_don_hang, trang_thai_id)
-               VALUES (:tai_khoan_id, :ten_nguoi_nhan, :email_nguoi_nhan, :sdt_nguoi_nhan, :dia_chi_nguoi_nhan, :ghi_chu, :tong_tien, :phuong_thuc_thanh_toan_id, :ngay_dat, :ma_don_hang, :trang_thai_id";
+               VALUES (:tai_khoan_id, :ten_nguoi_nhan, :email_nguoi_nhan, :sdt_nguoi_nhan, :dia_chi_nguoi_nhan, :ghi_chu, :tong_tien, :phuong_thuc_thanh_toan_id, :ngay_dat, :ma_don_hang, :trang_thai_id)";
 
                $stmt = $this->conn->prepare($sql);
                $stmt->execute([
@@ -51,6 +51,19 @@ class DonHang
                ]);
 
                return true;
+          } catch (Exception $e) {
+               echo "Lỗi kết nối: " . $e->getMessage();
+          }
+     }
+
+     public function getDonHangById($donHangId)
+     {
+          try {
+               $sql = "SELECT * FROM don_hang WHERE  id = :id";
+               $stmt = $this->conn->prepare($sql);
+               $stmt->execute();
+
+               return $stmt->fetchAll();
           } catch (Exception $e) {
                echo "Lỗi kết nối: " . $e->getMessage();
           }

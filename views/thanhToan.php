@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="single-input-item">
-                    <label for="dia_chi_nguoi_nhan" class="required">Tên người nhận: </label>
+                    <label for="dia_chi_nguoi_nhan" class="required">Địa chỉ người nhận: </label>
                     <input type="text" id="dia_chi_nguoi_nhan" name="dia_chi_nguoi_nhan" value="<?= $user['diachi'] ?>" placeholder="Địa chỉ người nhận" required>
                 </div>
                 <div class="single-input-item">
@@ -46,12 +46,12 @@
 
             <h2>Thanh toán: </h2>
             <div class="payment-method">
-                <label for="">
+                <label>
                     <input type="radio" name="phuong_thuc_thanh_toan_id" value="1" checked>
-                    Thanh toán khi nhạn hàng (COD)
+                    Thanh toán khi nhận hàng (COD)
                 </label>
-                <label for="">
-                    <input type="radio" name="phuong_thuc_thanh_toan_id" value="2" checked>
+                <label>
+                    <input type="radio" name="phuong_thuc_thanh_toan_id" value="2">
                     Thanh toán qua ngân hàng (ATM)
                 </label>
             </div>
@@ -94,7 +94,7 @@
                     </div>
                 <?php endforeach; ?>
                 <hr>
-                <div class="vocher">
+                <div class="voucher">
                     <input type="text" placeholder="Nhập mã giảm giá">
                     <button>Áp dụng</button>
                 </div>
@@ -119,7 +119,7 @@
                     <span class="total"><?= formatNumber($tongGioHang + 30000) . ' đ' ?></span>
                 </div>
 
-                <button type="submmit" class="checkout-btn">Tiến hàng đặt hàng</button>
+                <button type="submit" class="checkout-btn">Tiến hàng đặt hàng</button>
             </div>
             </form>
         </div>

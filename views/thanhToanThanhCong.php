@@ -19,7 +19,7 @@
           </div>
           <h1>Thanh toán thành công!</h1>
           <p>Cảm ơn bạn đã mua sắm với chúng tôi></p>
-          <a href="<?= BASE_URL . '?act=trangchu' ?> " id="back-home">
+          <a href="<?= BASE_URL . '?act=/' ?> " id="back-home">
                <button>Về trang chủ</button>
           </a>
      </div>

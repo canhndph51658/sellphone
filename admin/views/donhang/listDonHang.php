@@ -6,7 +6,7 @@
         <div class="container_fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Quản lý  danh sách Đơn Hàng</h1>
+                    <h1>Quản lý danh sách Đơn Hàng</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb-float-sm-right">
@@ -53,18 +53,18 @@
                                             <td><?= $donHang['tong_tien'] ?></td>
                                             <td><?= $donHang['ten_trang_thai'] ?></td>
                                             <td> <a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-don-hang&id_don_hang=' . $donHang['id'] ?>">
-                                                <button class="btn btn-primary"><i class="fas fa-eye"></i></button>
+                                                    <button class="btn btn-primary"><i class="fas fa-eye"></i></button>
                                                 </a>
                                                 <a href="<?= BASE_URL_ADMIN . '?act=form-sua-don-hang&id_don_hang=' . $donHang['id'] ?>">
-                                                <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                                                    <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
                                                 </a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                                 <tfoot>
-                                      <tr>
-                                         <th>STT</th>
+                                    <tr>
+                                        <th>STT</th>
                                         <th>Mã đơn hàng</th>
                                         <th>Tên người nhận</th>
                                         <th>Số điện thoại</th>
@@ -83,3 +83,28 @@
     </section>
 </div>
 <?php include_once('./views/layout/footer.php'); ?>
+
+<script>
+    $(function() {
+        $("#example1").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
+</script>
+<!-- Code injected by live-server -->
+
+</body>
+
+</html>
