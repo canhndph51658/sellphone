@@ -47,6 +47,7 @@
         </ul>
     </div>
     <div class="product-list">
+
             <?php foreach ($listSanPham as $sanPham): ?>
                 <div class="product">
                <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>">
@@ -63,6 +64,7 @@
                </p>
                 </div>
             <?php endforeach; ?>
+
     </div>
 </div>
 

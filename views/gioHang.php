@@ -1,10 +1,8 @@
 <head>
-     <link rel="stylesheet" href="./LayoutClient/css/cart.css">
+    <link rel="stylesheet" href="./LayoutClient/css/cart.css">
 </head>
 
 <?php require_once 'views/layout/header.php' ?>
-
-
 <?php require_once 'views/layout/menu.php' ?>
 
 <main>
@@ -43,7 +41,6 @@
                                         <button class="qty-btn decrement">-</button>
                                         <input type="text" style="width: 25px" value="<?= $sanPham['so_luong'] ?>" class="qty-input">
                                         <button class="qty-btn increment">+</button>
-
                                    </div>
                               </td>
                               <td>
@@ -81,7 +78,7 @@
                     <span>30.000 đ</span>
                </div>
                <div class="summary-item">
-                    <span>Tổng than toán</span>
+                    <span>Tổng thanh toán</span>
                     <span class="total"><?= formatNumber($tongGioHang + 30000) . ' đ' ?></span>
                </div>
                <button class="checkout-btn"> Tiến hành đặt hàng</button>
@@ -90,7 +87,5 @@
 </main>
 
 <script src="./LayoutClient/js/cart.js"></script>
-
-
 
 <?php require_once 'views/layout/footer.php' ?>

@@ -31,6 +31,9 @@ class HomeController
     }
 
 
+
+
+
     public function formLogin()
     {
         require_once './views/auth/formLogin.php';
@@ -283,4 +286,16 @@ class HomeController
             echo "dữ liệu không hợp lệ";
         }
     }
+
+    public function thanhToanThanhCong()
+    {
+        require_once "./views/thanhToanThanhCong.php";
+    }
 };
+    // public function gioiThieu() {
+    //     include_once './views/gioithieu.php';
+    // }
+
+    // public function lienHe() {
+    //     include_once './views/lienhe.php';
+    // }

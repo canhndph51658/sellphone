@@ -15,8 +15,6 @@ require_once './models/TaiKhoan.php';
 require_once './models/SanPham.php';
 require_once './models/GioHang.php';
 require_once './models/DonHang.php';
-
-
 require_once './models/BinhLuan.php';
 $act = $_GET['act'] ?? '/';
 
@@ -33,7 +31,7 @@ match ($act) {
    'them-gio-hang' => (new HomeController())->addGioHang(),
    'thanh-toan' => (new HomeController())->thanhToan(),
    'xu-ly-thanh-toan' => (new HomeController())->postThanhToan(),
-
+   'thanh-toan-thanh-cong' => (new HomeController())->thanhToanThanhCong(),
 
    //login
    'login' => (new HomeController())->formLogin(),

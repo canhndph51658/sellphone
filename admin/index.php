@@ -9,8 +9,10 @@ require_once '../commons/function.php';
 require_once './controllers/AdminThongKeController.php';
 require_once './controllers/AdminTaikhoanControllers.php';
 require_once './controllers/AdminSanPhamController.php';
-require_once './controllers/AdminDanhMucController.php';
 require_once './controllers/AdminDonHangController.php';
+
+require_once './controllers/AdminDanhMucController.php';
+
 
 
 
@@ -58,8 +60,14 @@ match ($act) {
     'chitietsanpham' => (new AdminSanPhamController())->detailSanPham(),
     'suaalbumanhsanpham' => (new AdminSanPhamController())->postEditAnhSanPham(),
 
+
+
     'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
     'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
     'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
     'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
+    
+
+    
+
 };
