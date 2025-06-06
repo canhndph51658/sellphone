@@ -46,6 +46,12 @@ function connectDB() {
         }
 
     }
+    function checkLoginAdmin(){
+        if(!isset($_SESSION['user_admin'])){
+            header("location:" . BASE_URL_ADMIN . '?act=login-admin');
+            exit();
+        }
+    }
 
     function uploadFileAlbum($file,$folderUpload,$key){ 
         $originalName  = basename($file['name'][$key]);

@@ -12,6 +12,9 @@ require_once './models/AdminSanPham.php';
 require_once './models/AdminDanhMuc.php';
 
 $act = $_GET['act'] ?? '/';
+    if  ($act !== 'login-admin' && $act !== 'check-login-admin'&& $act!=='logout-admin'){
+        checkLoginAdmin();
+    }
 
 match ($act) {
       '/' => (new AdminThongKeController())->home(),
@@ -33,4 +36,8 @@ match ($act) {
     'suaalbumanhsanpham' => (new AdminSanPhamController())->postEditAnhSanPham(),
     
     'updatetrangthaibinhluan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
+
+    'login-admin' => (new AdminTaiKhoanController())->formLogin(),
+    'check-login-admin' => (new AdminTaiKhoanController())->login(),
+    'logout-admin' => (new AdminTaiKhoanController())->logout(),
 };
