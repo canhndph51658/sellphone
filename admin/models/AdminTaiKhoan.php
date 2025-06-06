@@ -6,7 +6,7 @@ class AdminTaiKhoan{
         $this->conn = connectDB();
     }
 
-    public function checkLogin($email,$mat_khau){
+    public function checkLogin($email, $mat_khau){
         try
         {
             $sql="SELECT * FROM tai_khoan WHERE email = :email";

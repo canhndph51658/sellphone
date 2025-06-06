@@ -3,7 +3,7 @@
     <nav>
         <ul>
             <li><a href="<?= BASE_URL . '?act=/' ?>">trang chủ</a></li>
-            <li><a href="">sản phẩm</a></li>
+            <li><a href="<?= BASE_URL . '?act=sanpham' ?>">sản phẩm</a></li>
             <li><a href="">giới thiệu</a></li>
             <li><a href="">liên hệ</a></li>    
         </ul>

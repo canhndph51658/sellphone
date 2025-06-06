@@ -82,7 +82,7 @@ class SanPham{
         } catch (Exception $e) {
             echo "loi" . $e->getMessage();
         }
-    }  public function SanPhamTheoDanhMuc($idDanhMuc)
+    }  public function getSanPhamTheoDanhMuc($idDanhMuc)
     {
         try {
             $sql = "SELECT sanpham.*,danhmuc.ten_loai

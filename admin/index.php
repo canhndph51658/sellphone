@@ -13,9 +13,9 @@ require_once './models/AdminSanPham.php';
 require_once './models/AdminDanhMuc.php';
 require_once './models/AdminTaiKhoan.php';
 $act = $_GET['act'] ?? '/';
-    if  ($act !== 'login-admin' && $act !== 'check-login-admin'&& $act!=='logout-admin'){
-        checkLoginAdmin();
-    }
+    // if  ($act !== 'login-admin' && $act !== 'check-login-admin'&& $act!=='logout-admin'){
+    //     checkLoginAdmin();
+    // }
 
 match ($act) {
       '/' => (new AdminThongKeController())->home(),
