@@ -68,10 +68,35 @@
                         <div class="ten"><?= $sanPham['ten_sp'] ?></div>
                         <div class="giamgia"><?= formatNumber($sanPham['giam_gia'])  ?> đ</div>
                         <div class="gia"><?= formatNumber($sanPham['gia']) ?> đ</div>
+                         <button class="btn1" onclick="location.href= '<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>'">xem chi tiết</button>
                     </div>
                 <?php endforeach; ?>
             </div>
             <button class="next-btn">></button>
+        </div>
+
+    </div>
+     <div class="container">
+        <h2>sản phẩm Hot </h2>
+        <button class="btn2">
+            view All
+        </button>
+        <div class="product-container-hot">
+            <button class="prev-btn-hot"><</button>
+              <div class="product-wrapper-hot">
+                <?php foreach ($listSanPhamHot as $key => $sanPham): ?>
+                    <div class="pro-item hidden" >
+                        <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id']; ?>">
+                            <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="" >
+                        </a>                        
+                        <div class="ten"><?= $sanPham['ten_sp'] ?></div>
+                        <div class="giamgia"><?= formatNumber($sanPham['giam_gia'])  ?> đ</div>
+                        <div class="gia"><?= formatNumber($sanPham['gia']) ?> đ</div>
+                         <button class="btn1" onclick="location.href= '<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id']; ?>'">xem chi tiết</button>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <button class="next-btn-hot">></button>
         </div>
 
     </div>

@@ -15,16 +15,21 @@ class HomeController
     public function home()
     {
         $listSanPham = $this->modelSanPham->getAllSanPham();
+         $listSanPhamHot = $this->modelSanPham->getSanPhamHot();
         require_once './views/home.php';
     }
     public function SanPham()
     {
         $listSanPham = $this->modelSanPham->getAllProduct();
-         $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         require_once './views/productSanPham.php';
         return $listSanPham;
     }
-    
+    public function getSanPhamHot()
+    {
+        $listSanPhamHot = $this->modelSanPham->getSanPhamHot();
+        return $listSanPhamHot;
+    }
     public function ChiTietSanPham()
     {
 
