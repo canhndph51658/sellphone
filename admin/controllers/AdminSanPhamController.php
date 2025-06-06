@@ -236,11 +236,36 @@
             $id = $_GET['id_sanpham'];
             $sanPham = $this->modelSanPham->getDetailSanPham($id);
             $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+            $listBinhLuan = $this->modelSanPham->getBinhLuanFromSanPham($id);
             if ($sanPham) {
                 require_once './views/sanpham/detailSanPham.php';
             } else {
                 header("Location:" . BASE_URL_ADMIN . "?act=sanpham");
                 exit();
             }
+        }
+        public function updateTrangThaiBinhLuan()
+         {
+                $id_binhluan=$_POST['id_binhluan'];
+                $name_view=$_POST['name_view'] ;
+                $binhluan = $this->modelSanPham->getDetailBinhLuan($id_binhluan);
+
+                if($binhluan){
+                    $trang_thai_update = '';
+                    if($binhluan['trang_thai'] == 1){
+                        $trang_thai_update = 0;
+                    }
+                    else{
+                        $trang_thai_update = 1;
+                    }
+                    $status = $this->modelSanPham->updateTrangThaiBinhLuan($id_binhluan,$trang_thai_update);
+                    if($status){
+                        if($name_view == 'detail_khach'){
+                            header("Location: ". BASE_URL_ADMIN ."?act=chitietkhachhang&id_khachhang=". $binhluan['tai_khoan_id'] );
+                        }else{
+                             header("Location: ". BASE_URL_ADMIN ."?act=chitietsanpham&id_sanpham=". $binhluan['san_pham_id'] );
+                        }
+                    }
+                }
         }
     }

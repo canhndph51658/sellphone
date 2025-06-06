@@ -190,4 +190,62 @@ class AdminSanPham
             echo "loi" . $e->getMessage();
         }
     }
+       public function getBinhLuanFromKhachHang($id)
+    {
+        try {
+            $sql = "SELECT binhluan.*,sanpham.ten_sp
+             FROM binhluan INNER JOIN sanpham ON binhluan.san_pham_id = sanpham.id
+             WHERE binhluan.tai_khoan_id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id' => $id
+            ]);
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
+     public function getDetailBinhLuan($id)
+    {
+        try {
+            $sql = "SELECT * FROM binhluan WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id' => $id
+            ]);
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
+     public function updateTrangThaiBinhLuan($id,$trang_thai)
+    {
+        try {
+            $sql = "UPDATE binhluan SET trang_thai = :trang_thai
+            WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':trang_thai' => $trang_thai,
+                ':id' => $id
+            ]);
+            return true;
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
+      public function getBinhLuanFromSanPham($id)
+    {
+        try {
+            $sql = "SELECT binhluan.*,tai_khoan.hoten
+             FROM binhluan INNER JOIN tai_khoan ON binhluan.tai_khoan_id = tai_khoan.id
+             WHERE binhluan.san_pham_id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id' => $id
+            ]);
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
 }

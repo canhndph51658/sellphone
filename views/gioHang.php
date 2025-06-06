@@ -6,7 +6,7 @@
 <?php require_once 'views/layout/menu.php' ?>
 
 <main>
-     <div class="cart-comtainer">
+     <div class="cart-container">
           <table class="cart-table">
                <thead>
                     <tr>
@@ -20,7 +20,7 @@
                <tbody>
                     <?php
                     $tongGioHang = 0;
-                    foreach ($chiTietGioHang as $sanPham): ?>
+                    foreach ($chiTietGioHang as $key => $sanPham): ?>
                          <tr>
                               <td class="product-info">
                                    <input type="checkbox" name="" id="">
@@ -39,7 +39,7 @@
                               <td class="product-quantity">
                                    <div class="pro-qty">
                                         <button class="qty-btn decrement">-</button>
-                                        <input type="text" style="width: 25px" value="<?= $sanPham['so_loung'] ?>" class="qty-input">
+                                        <input type="text" style="width: 25px" value="<?= $sanPham['so_luong'] ?>" class="qty-input">
                                         <button class="qty-btn increment">+</button>
                                    </div>
                               </td>
@@ -52,11 +52,15 @@
                                         $tongTien = $sanPham['gia'] * $sanPham['so_luong'];
                                    }
                                    $tongGioHang += $tongTien;
-                                   echo formatNumber($tongTien) . 'đ';
+                                   echo formatNumber($tongTien) . ' đ';
                                    ?>
                               </td>
                               <td>
-                                   <button class="delete-btn" style="color: D3D3D3;"><i class="fas fa-trash"></i></button>
+                                   <a href="?act=gio-hang&action=delete&product_id=<?= $sanPham['san_pham_id'] ?>" onclick="return confirm('Bạn có chắc muốn xoá sản phẩm này?')">
+                                        <i class="fas fa-trash" style="color: #D3D3D3;"></i>
+                                   </a>
+
+
                               </td>
                          </tr>
                     <?php endforeach; ?>
@@ -67,17 +71,17 @@
                <h3>Tổng đơn hàng</h3>
                <div class="summary-item">
                     <span>Tổng tiền sản phẩm</span>
-                    <span><?= formatNumber($tongGioHang) . 'đ' ?></span>
+                    <span><?= formatNumber($tongGioHang) . ' đ' ?></span>
                </div>
                <div class="summary-item">
                     <span>Vận chuyển</span>
-                    <span>30.000đ</span>
+                    <span>30.000 đ</span>
                </div>
                <div class="summary-item">
                     <span>Tổng thanh toán</span>
                     <span class="total"><?= formatNumber($tongGioHang + 30000) . ' đ' ?></span>
                </div>
-               <button class="checkout-btn">Tiến hành đặt hàng</button>
+               <button class="checkout-btn"> Tiến hành đặt hàng</button>
           </div>
      </div>
 </main>
