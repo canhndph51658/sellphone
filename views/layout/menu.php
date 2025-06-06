@@ -1,8 +1,8 @@
 <header>
-    <img src="" alt="">
+    <img  src="./LayoutClient/img/logo.png" alt="">
     <nav>
         <ul>
-            <li><a href="">trang chủ</a></li>
+            <li><a href="<?= BASE_URL . '?act=/' ?>">trang chủ</a></li>
             <li><a href="">sản phẩm</a></li>
             <li><a href="">giới thiệu</a></li>
             <li><a href="">liên hệ</a></li>    

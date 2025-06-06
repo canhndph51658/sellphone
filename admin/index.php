@@ -5,6 +5,7 @@ require_once '../commons/function.php';
 
 require_once './controllers/AdminDanhMucController.php';
 require_once './controllers/AdminSanPhamController.php';
+require_once './controllers/AdminThongKeController.php';
 
 
 require_once './models/AdminSanPham.php';
@@ -13,6 +14,7 @@ require_once './models/AdminDanhMuc.php';
 $act = $_GET['act'] ?? '/';
 
 match ($act) {
+      '/' => (new AdminThongKeController())->home(),
 
     'danhmuc' => (new AdminDanhMucController())->danhSachDanhMuc(),
     'formthemdanhmuc' => (new AdminDanhMucController())->formAddDanhMuc(),
