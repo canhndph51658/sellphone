@@ -32,17 +32,17 @@
         </div>
     </div>
     <div class="container">
-        <h2>sản phẩm mới </h2>
+        <h2>Sản phẩm mới </h2>
         <button class="btn2">
             view All
         </button>
         <div class="product-container">
-            <button class="prev-btn"><</button>
-              <div class="product-wrapper">
+            <button class="prev-btn"></button>
+            <div class="product-wrapper">
                 <?php foreach ($listSanPham as $key => $sanPham): ?>
-                    <div class="pro-item hidden" >
+                    <div class="pro-item hidden">
                         <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>">
-                            <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="" >
+                            <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="">
                         </a>
                         <?php
                         if (!empty($sanPham['ngay_nhap']) && strtotime($sanPham['ngay_nhap'])) {
@@ -76,7 +76,7 @@
 
     </div>
 
-  <script src="./LayoutClient/js/trangchu.js"></script>
+    <script src="./LayoutClient/js/trangchu.js"></script>
     <?php require_once 'views/layout/footer.php' ?>
     <script>
         let slideIndex = 0;
@@ -110,4 +110,4 @@
         next.addEventListener('click', nextSlide);
     </script>
 
-</body>  
+</body>
