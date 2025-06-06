@@ -315,6 +315,38 @@ class HomeController
             exit();
         }
     }
+
+    public function lichSuMuaHang (){
+        if (isset($_SESSION['user_client'])){
+            //lấy ra thông tin tài khoản đăng nhập
+            $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
+            $tai_khoan_id = $user['id'];
+
+            //lấy ra danh sách trạng thái đơn hàng
+            $arrTrangThaiDonHang = $this->modelDonHang->getTrangThaiDonHang();
+            $trangThaiDonHang = array_column($arrTrangThaiDonHang, 'ten_trang_thai', 'id');
+
+            //lấy ra danh sách trạng thái thanh toán
+            $arrPhuongThucThanhToan = $this->modelDonHang->getPhuongThucThanhToan();
+            $phuongThucThanhToan = array_column($arrPhuongThucThanhToan, 'ten_phuong_thuc', 'id');
+
+            //lấy ra danh sách tất cả đơn hàng của tài khoản
+            $donHang = $this->modelDonHang->getDonHangFromUser($tai_khoan_id);
+            require_once "./views/lichSuMuaHang.php";
+        }else {
+            var_dump('Bạn chưa đăng nhập');
+            die;
+        }
+    } 
+    public function chiTietMuaHang (){
+        
+    }
+
+
+
+
+
+
     public function gioiThieu() {
         include_once './views/gioithieu.php';
     }
@@ -322,4 +354,7 @@ class HomeController
     public function lienHe() {
         include_once './views/lienhe.php';
     }
+
+
+
 };

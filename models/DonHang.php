@@ -55,6 +55,47 @@ class DonHang
                echo "Lỗi kết nối: " . $e->getMessage();
           }
      }
+     public function getDonHangFromUser($tai_khoan_id)
+     {
+          try {
+               $sql = "SELECT * FROM don_hang WHERE tai_khoan_id =:tai_khoan_id";
+
+               $stmt = $this->conn->prepare($sql);
+               $stmt->execute([
+                    ':tai_khoan_id' => $tai_khoan_id
+               ]);
+
+               return $stmt-> fetchAll(PDO::FETCH_ASSOC);
+          } catch (Exception $e) {
+               echo "Lỗi kết nối: " . $e->getMessage();
+          }
+     }
+     public function getTrangThaiDonHang()
+     {
+          try {
+               $sql = "SELECT * FROM trang_thai_don_hang ";
+
+               $stmt = $this->conn->prepare($sql);
+               $stmt->execute();
+
+               return $stmt-> fetchAll(PDO::FETCH_ASSOC);
+          } catch (Exception $e) {
+               echo "Lỗi kết nối: " . $e->getMessage();
+          }
+     }public function getPhuongThucThanhToan()
+     {
+          try {
+               $sql = "SELECT * FROM phuong_thuc_thanh_toan ";
+
+               $stmt = $this->conn->prepare($sql);
+               $stmt->execute();
+
+               return $stmt-> fetchAll(PDO::FETCH_ASSOC);
+          } catch (Exception $e) {
+               echo "Lỗi kết nối: " . $e->getMessage();
+          }
+     }
+
 
      public function getDonHangById($donHangId)
      {
