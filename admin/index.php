@@ -1,16 +1,17 @@
 <?php
-
+session_start();
 require_once '../commons/env.php';
 require_once '../commons/function.php';
 
 require_once './controllers/AdminDanhMucController.php';
 require_once './controllers/AdminSanPhamController.php';
 require_once './controllers/AdminThongKeController.php';
+require_once './controllers/AdminTaikhoanController.php';
 
 
 require_once './models/AdminSanPham.php';
 require_once './models/AdminDanhMuc.php';
-
+require_once './models/AdminTaiKhoan.php';
 $act = $_GET['act'] ?? '/';
     if  ($act !== 'login-admin' && $act !== 'check-login-admin'&& $act!=='logout-admin'){
         checkLoginAdmin();

@@ -36,7 +36,7 @@ class AdminTaiKhoanController
     {
         if (isset($_SESSION['user_admin'])) {
             unset($_SESSION['user_admin']);
-            header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+            header("location: " . BASE_URL_ADMIN . '?act=login-admin');
         }
     }
 }
