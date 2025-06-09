@@ -1,12 +1,14 @@
 <?php
 
-class AdminDonHang {
+class AdminDonHang
+{
     public $conn;
     public function __construct()
     {
         $this->conn = connectDB();
     }
-    public function getAllDonhang(){
+    public function getAllDonhang()
+    {
         try {
             $sql = "SELECT don_hang.*,trang_thai_don_hang.ten_trang_thai
                     FROM don_hang 

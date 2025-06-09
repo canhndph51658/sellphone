@@ -15,6 +15,8 @@ require_once './models/TaiKhoan.php';
 require_once './models/SanPham.php';
 require_once './models/GioHang.php';
 require_once './models/DonHang.php';
+
+
 require_once './models/BinhLuan.php';
 $act = $_GET['act'] ?? '/';
 
@@ -37,6 +39,7 @@ match ($act) {
    'lich-su-mua-hang' => (new HomeController())->lichSuMuaHang(),
    'chi-tiet-mua-hang' => (new HomeController())->chiTietMuaHang(),
 
+
    //login
    'login' => (new HomeController())->formLogin(),
    'check-login' => (new HomeController())->postLogin(),
@@ -48,4 +51,5 @@ match ($act) {
    //giới thiệu và liên hệ
    'gioi-thieu' => (new HomeController())->gioiThieu(),
    'lien-he' => (new HomeController())->lienHe(),
+   'binh-luan' => (new HomeController())->binhLuan(),
 };

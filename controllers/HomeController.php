@@ -30,9 +30,6 @@ class HomeController
     }
 
 
-
-
-
     public function formLogin()
     {
         require_once './views/auth/formLogin.php';
