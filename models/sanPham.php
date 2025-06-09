@@ -1,20 +1,17 @@
 <?php
-class SanPham
-{
+class SanPham{
     public $conn;
 
-    public function __construct()
-    {
-        $this->conn = connectDB();
+    public function __construct() {
+        $this-> conn = connectDB();
     }
-    public function getAllProduct()
-    {
-        try {
+    public function getAllProduct(){
+        try{
             $sql = "SELECT * FROM sanpham";
             $stmt = $this->conn->prepare($sql);
-            $stmt->execute();
-            return $stmt->fetchAll();
-        } catch (Exception $e) {
+             $stmt->execute();
+              return $stmt->fetchAll();
+        }catch(Exception $e){
             echo "loi" . $e->getMessage();
         }
     }
@@ -30,7 +27,7 @@ class SanPham
             echo "loi" . $e->getMessage();
         }
     }
-    public function getDetailSanPham($id)
+     public function getDetailSanPham($id)
     {
         try {
             $sql = "SELECT sanpham.*,danhmuc.ten_loai
@@ -51,8 +48,8 @@ class SanPham
             $sql = "SELECT sanpham.*,danhmuc.ten_loai
              FROM sanpham 
              INNER JOIN danhmuc ON sanpham.danh_muc_id = danhmuc.id
-             WHERE sanpham.is_hot=1";
-
+             WHERE sanpham.is_hot=1" ;
+            
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();
@@ -60,7 +57,7 @@ class SanPham
             echo "loi" . $e->getMessage();
         }
     }
-    public function getListAnhSanPham($id)
+      public function getListAnhSanPham($id)
     {
         try {
             $sql = "SELECT * FROM hinh_anh_san_pham WHERE san_pham_id = :id";
@@ -72,7 +69,7 @@ class SanPham
         } catch (Exception $e) {
             echo "loi" . $e->getMessage();
         }
-    }
+    } 
     public function getListSanPhamDanhMuc($danh_muc_id)
     {
         try {
@@ -85,8 +82,7 @@ class SanPham
         } catch (Exception $e) {
             echo "loi" . $e->getMessage();
         }
-    }
-    public function SanPhamTheoDanhMuc($idDanhMuc)
+    }  public function SanPhamTheoDanhMuc($idDanhMuc)
     {
         try {
             $sql = "SELECT sanpham.*,danhmuc.ten_loai
@@ -101,8 +97,7 @@ class SanPham
             echo "loi" . $e->getMessage();
         }
     }
-
-    public function getBinhLuanFromSanPham($id)
+          public function getBinhLuanFromSanPham($id)
     {
         try {
             $sql = "SELECT binhluan.*,tai_khoan.hoten ,tai_khoan.hinh
@@ -118,3 +113,4 @@ class SanPham
         }
     }
 }
+?>
