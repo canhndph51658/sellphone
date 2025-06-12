@@ -13,12 +13,12 @@ require_once './models/AdminSanPham.php';
 require_once './models/AdminDanhMuc.php';
 require_once './models/AdminTaiKhoan.php';
 $act = $_GET['act'] ?? '/';
-    // if  ($act !== 'login-admin' && $act !== 'check-login-admin'&& $act!=='logout-admin'){
-    //     checkLoginAdmin();
-    // }
+if ($act !== 'login-admin' && $act !== 'check-login-admin' && $act !== 'logout-admin') {
+    checkLoginAdmin();
+}
 
 match ($act) {
-      '/' => (new AdminThongKeController())->home(),
+    '/' => (new AdminThongKeController())->home(),
 
     'danhmuc' => (new AdminDanhMucController())->danhSachDanhMuc(),
     'formthemdanhmuc' => (new AdminDanhMucController())->formAddDanhMuc(),
@@ -35,10 +35,11 @@ match ($act) {
     'xoasanpham' => (new AdminSanPhamController())->deleteSanPham(),
     'chitietsanpham' => (new AdminSanPhamController())->detailSanPham(),
     'suaalbumanhsanpham' => (new AdminSanPhamController())->postEditAnhSanPham(),
-    
+
     'updatetrangthaibinhluan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
 
     'login-admin' => (new AdminTaiKhoanController())->formLogin(),
     'check-login-admin' => (new AdminTaiKhoanController())->login(),
     'logout-admin' => (new AdminTaiKhoanController())->logout(),
+    'generate-hash' => (new AdminTaiKhoanController())->generateHash(),
 };

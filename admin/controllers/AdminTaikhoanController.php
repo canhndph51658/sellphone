@@ -14,6 +14,11 @@ class AdminTaiKhoanController
         deleteSessionError();
         exit();
     }
+     public function generateHash(){
+          $hash = password_hash('123456', PASSWORD_DEFAULT);
+           echo "Hash của mật khẩu '123456' là: <br>" . $hash;
+             exit();
+     }
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
