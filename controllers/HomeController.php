@@ -29,6 +29,16 @@ class HomeController
         return $listSanPham;
     }
 
+    public function gioiThieu()
+    {
+        include_once './views/gioiThieu.php';
+    }
+
+    public function lienHe()
+    {
+        include_once './views/lienHe.php';
+    }
+
 
     public function formLogin()
     {
@@ -338,20 +348,4 @@ class HomeController
     public function chiTietMuaHang (){
         
     }
-
-
-
-
-
-
-    public function gioiThieu() {
-        include_once './views/gioithieu.php';
-    }
-
-    public function lienHe() {
-        include_once './views/lienhe.php';
-    }
-
-
-
 };

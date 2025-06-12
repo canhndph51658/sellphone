@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="./LayoutClient/css/cart.css">
+     <link rel="stylesheet" href="./LayoutClient/css/cart.css">
 </head>
 
 <?php require_once 'views/layout/header.php' ?>
@@ -32,7 +32,7 @@
                                         <?php if ($sanPham['giam_gia']) { ?>
                                              <?= formatNumber($sanPham['giam_gia']) . 'đ' ?>
                                         <?php } else { ?>
-                                             <?= formatNumber($sanPham['gia']) . 'đ' ?>
+                                             <?= formatNumber($sanPham['giam_gia']) . 'đ' ?>
                                         <?php } ?>
                                    </span>
                               </td>
@@ -75,13 +75,14 @@
                </div>
                <div class="summary-item">
                     <span>Vận chuyển</span>
-                    <span>30.000 đ</span>
+                    <span>10.000 đ</span>
                </div>
                <div class="summary-item">
                     <span>Tổng thanh toán</span>
-                    <span class="total"><?= formatNumber($tongGioHang + 30000) . ' đ' ?></span>
+                    <span class="total"><?= formatNumber($tongGioHang + 10000) . ' đ' ?></span>
                </div>
-               <button class="checkout-btn"> Tiến hành đặt hàng</button>
+               <button class="checkout-btn">Tiến hành đặt hàng</button>
+
           </div>
      </div>
 </main>

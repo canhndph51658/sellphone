@@ -110,13 +110,13 @@
 
                 <div class="summary-item">
                     <span>Vận chuyển</span>
-                    <span>30.000 đ</span>
+                    <span>10.000 đ</span>
                 </div>
 
                 <div class="summary-item">
                     <span>Tổng thanh toán</span>
-                    <input type="hidden" name="tong_tien" value="<?= $tongGioHang + 30000 ?>">
-                    <span class="total"><?= formatNumber($tongGioHang + 30000) . ' đ' ?></span>
+                    <input type="hidden" name="tong_tien" value="<?= $tongGioHang + 10000 ?>">
+                    <span class="total"><?= formatNumber($tongGioHang + 10000) . ' đ' ?></span>
                 </div>
 
                 <button type="submit" class="checkout-btn">Tiến hàng đặt hàng</button>

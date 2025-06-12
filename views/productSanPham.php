@@ -37,7 +37,7 @@
 </div>
 <div class="container">
     <div class="categories">
-        <h3> sản phẩm</h3>
+        <h3> Sản phẩm</h3>
         <ul> <?php foreach ($listDanhMuc as $danhmuc): ?>
                 <li><a href="<?= BASE_URL . '?act=sua-san-pham-theo-danh-muc&id=' . $danhmuc['id']; ?>">
                         <?= $danhmuc['ten_loai']; ?>

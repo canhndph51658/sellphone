@@ -12,7 +12,8 @@ class AdminDonHang
         try {
             $sql = "SELECT don_hang.*,trang_thai_don_hang.ten_trang_thai
                     FROM don_hang 
-                    INNER JOIN trang_thai_don_hang ON don_hang.trang_thai_id = trang_thai_don_hang.id";
+                    INNER JOIN trang_thai_don_hang ON don_hang.trang_thai_id = trang_thai_don_hang.id
+                    ORDER BY don_hang.ngay_dat DESC don_hang.id DESC"; // Thêm dòng này để sắp xếp
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();
@@ -62,7 +63,7 @@ class AdminDonHang
         try {
             $sql = "SELECT chi_tiet_don_hang.*, sanpham.ten_sp
                 FROM chi_tiet_don_hang
-                INNER JOIN sanpham ON chi_tiet_don_hang.id = sanpham.id
+                INNER JOIN sanpham ON chi_tiet_don_hang.san_pham_id = sanpham.id
                 WHERE chi_tiet_don_hang.don_hang_id = :id";
 
             $stmt = $this->conn->prepare($sql);

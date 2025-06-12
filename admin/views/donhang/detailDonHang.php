@@ -143,11 +143,11 @@
                       </tr>
                       <tr>
                         <th>Vận chuyển:</th>
-                        <td>200</td>
+                        <td>10000</td>
                       </tr>
                       <tr>
                         <th>Tổng tiền:</th>
-                        <td><?= $tong_tien+200 ?></td>
+                        <td><?= $tong_tien+10000 ?></td>
                       </tr>
                     </table>
                   </div>
