@@ -14,7 +14,6 @@
                          <th>Giá tiền</th>
                          <th>Số lượng</th>
                          <th>Tổng tiền</th>
-                         <th></th>
                     </tr>
                </thead>
                <tbody>
@@ -55,13 +54,13 @@
                                    echo formatNumber($tongTien) . ' đ';
                                    ?>
                               </td>
-                              <td>
+                              <!-- <td>
                                    <a href="?act=gio-hang&action=delete&product_id=<?= $sanPham['san_pham_id'] ?>" onclick="return confirm('Bạn có chắc muốn xoá sản phẩm này?')">
                                         <i class="fas fa-trash" style="color: #D3D3D3;"></i>
                                    </a>
 
 
-                              </td>
+                              </td> -->
                          </tr>
                     <?php endforeach; ?>
                </tbody>

@@ -50,13 +50,13 @@
                     <input type="radio" name="phuong_thuc_thanh_toan_id" value="1" checked>
                     Thanh toán khi nhận hàng (COD)
                 </label>
-                <label>
+                <!-- <label>
                     <input type="radio" name="phuong_thuc_thanh_toan_id" value="2">
                     Thanh toán qua ngân hàng (ATM)
-                </label>
+                </label> -->
             </div>
 
-            <div id="atm-qr-code" style="display: none;">
+            <!-- <div id="atm-qr-code" style="display: none;">
                 <h3>Thanh toán quan ngân hàng</h3>
                 <div id="qr-code">
                     <img src="./LayoutClient/img/maqr.jpg" alt="">
@@ -64,7 +64,7 @@
                 <p>Ngân hàng: MBbank</p>
                 <p>Chủ tài khoản: Nguyễn Đình Cảnh</p>
                 <p>Số tài khoản: 0399439520</p>
-            </div>
+            </div> -->
         </div>
 
         <div class="checkout-sidebar">
@@ -93,11 +93,11 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
-                <hr>
+                <!-- <hr>
                 <div class="voucher">
                     <input type="text" placeholder="Nhập mã giảm giá">
                     <button>Áp dụng</button>
-                </div>
+                </div> -->
                 <hr>
             </div>
 
