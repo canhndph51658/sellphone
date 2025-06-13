@@ -83,7 +83,8 @@
                                    </thead>
                               </table>
 
-                              <tbody></tbody>
+                              <tbody>
+                              </tbody>
                          </div>
                     </div>
 
