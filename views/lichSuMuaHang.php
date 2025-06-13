@@ -35,4 +35,4 @@
      </div>
 </main>
 <script src="./LayoutClient/js/cart.js"></script>
-<?php require_once 'views/layout/footer.php' ?>
+<?php require_once 'views/layout/footer.php' ?>o-=

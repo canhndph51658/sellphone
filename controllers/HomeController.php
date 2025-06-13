@@ -345,7 +345,4 @@ class HomeController
             die;
         }
     } 
-    public function chiTietMuaHang (){
-        
-    }
 };

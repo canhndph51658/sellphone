@@ -43,7 +43,7 @@
                   $colorAlerts = 'danger';
                 }
             ?>
-            <div class="alert alert-<?= $colorAlerts; ?>" role="alert">
+            <div class="alert alert<?= $colorAlerts; ?>" role="alert">
                 Đơn hàng: <?= $donHang['ten_trang_thai'] ?>
             </div>
 
