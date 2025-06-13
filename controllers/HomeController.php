@@ -174,16 +174,28 @@ class HomeController
     public function thanhToan()
     {
         if ($_SESSION['user_client']) {
+            // post dữ liệu từ giỏ hàng nếu có 
+            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['chon_san_pham'])) {
+                $_SESSION['gio_hang_chon'] == $_POST['chon_san_pham'];
+                header("Location:" . BASE_URL . "?act=thanh-toan");
+                exit();
+            }
+
             $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
-
             $gioHang = $this->modelGioHang->getGioHangFromUser($user['id']);
+            $chiTietGioHang = [];
 
-            if (!$gioHang) {
-                $gioHangId = $this->modelGioHang->addGioHang($user['id']);
-                $gioHang = ['id' => $gioHangId];
-                $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
-            } else {
-                $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+            if ($gioHang) {
+                $tatCaSanPham = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+                if (isset($_SESSION['gio_hang_chon'])) {
+                    foreach ($tatCaSanPham as $sp) {
+                        if (in_array($sp['san_pham_id'], $_SESSION['gio_hang_chon'])) {
+                            $chiTietGioHang[] = $sp;
+                        }
+                    }
+                } else {
+                    $chiTietGioHang = $tatCaSanPham;
+                }
             }
             require_once './views/thanhToan.php';
         } else {
@@ -244,8 +256,8 @@ class HomeController
 
 
                 $this->modelGioHang->clearGioHang($tai_khoan_id);
-
-                header("Location: " . BASE_URL . '?act=thanh-toan-thanh-cong');
+                unset($_SESSION['gio_hang_chon']);
+                header("Location:" . BASE_URL . '?act=thanh-toan-thanh-cong');
                 exit();
             } else {
                 var_dump('Thêm đơn hàng thất bại');
