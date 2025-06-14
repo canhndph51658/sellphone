@@ -344,5 +344,39 @@ class HomeController
             var_dump('Bạn chưa đăng nhập');
             die;
         }
-    } 
+    }
+    public function chiTietMuahang(){
+        if (isset($_GET['user_client'])) {
+            //lấy ra thông tin tk đăng nhập
+            $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
+            $tai_khoan_id = $user['id'];
+            //lấy id truyền từ url
+            $donHangId = $_GET['id'];
+            //lấy ra danh sách trạng thái đơn hàng
+            $arrTrangThaiDonHang = $this->modelDonHang->getTrangThaiDonHang();
+            $trangThaiDonHang = array_column($arrTrangThaiDonHang, 'ten_trang_thai', 'id');
+
+            //lấy ra danh sách trạng thái thanh toán
+            $arrPhuongThucThanhToan = $this->modelDonHang->getPhuongThucThanhToan();
+            $phuongThucThanhToan = array_column($arrPhuongThucThanhToan, 'ten_phuong_thuc', 'id');
+
+            // lấy ra thông tin đơn hàng theo id 
+            $donHang = $this->modelDonHang->getDonHangById($donHangId);
+
+            // lấy thông tin sản phẩm của đơn hàng trong bảng chi tiết đơn hàng 
+            $chiTietDonHang = $this->modelDonHang->getChiTietDonHangByDonHangId($donHangId);
+
+            if ($donHang['tai_khoan_id'] != $tai_khoan_id){
+                echo "bạn không có quyền truy cập đơn hàng này.";
+                exit;
+            }
+
+            require_once "./views/chiTietMuaHang.php";
+        } else {
+            var_dump("Bạn chưa đăng nhập");
+            exit();
+        }
+    }
+    
+
 };

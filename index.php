@@ -37,7 +37,7 @@ match ($act) {
    'huy-don-hang' => (new HomeController())->huyDonHang(),
    
    'lich-su-mua-hang' => (new HomeController())->lichSuMuaHang(),
-   // 'chi-tiet-mua-hang' => (new HomeController())->chiTietMuaHang(),
+   'chi-tiet-mua-hang' => (new HomeController())->chiTietMuaHang(),
 
 
    //login
