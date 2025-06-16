@@ -29,6 +29,11 @@ body{
     background-color: #fff;
     
 }
+.cart.container{
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
 header {
     display: flex;
     align-items: center;
@@ -232,6 +237,9 @@ nav ul li a:hover{
 }
 
 .cart-summary {
+    max-width: 300px;
+    margin-top: 20px;
+    margin-left: auto;
     width: 25%;
     padding: 20px;
     background-color: #f9f9f9;

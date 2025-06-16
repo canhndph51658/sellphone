@@ -133,38 +133,42 @@
                 <div class="col-6">
                   <p class="lead">Ngày đặt hàng: <?= $donHang['ngay_dat'] ?></p>
 
-                  <div class="table-responsive">
-                    <table class="table">
-                      <tr>
-                        <th style="width:50%">Thành tiền:</th>
-                        <td>
-                          <?= $tong_tien ?>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>Vận chuyển:</th>
-                        <td>10000</td>
-                      </tr>
-                      <tr>
-                        <th>Tổng tiền:</th>
-                        <td><?= $tong_tien+10000 ?></td>
-                      </tr>
-                    </table>
-                  </div>
+                <div class="table-responsive">
+                  <table class="table">
+                    <tr>
+                      <th style="width:50%">Thành tiền:</th>
+                      <td>
+                        <?= $tong_tien ?>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Vận chuyển:</th>
+                      <td>10000</td>
+                    </tr>
+                    <tr>
+                      <th>Tổng tiền:</th>
+                      <td><?= $tong_tien + 10000 ?></td>
+                    </tr>
+                  </table>
                 </div>
-                <!-- /.col -->
               </div>
-              <!-- /.row -->
-
-              <!-- this row will not appear when printing -->
+              <!-- /.col -->
             </div>
-            <!-- /.invoice -->
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
-    
+            <!-- /.row -->
+
+            <!-- this row will not appear when printing -->
+          </div>
+          <!-- /.invoice -->
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+
 
 
 </div>
 <?php include_once('./views/layout/footer.php'); ?>
+
+</body>
+
+</html>
