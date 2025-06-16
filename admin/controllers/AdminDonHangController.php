@@ -17,7 +17,7 @@
 
             public function detailDonHang()
             {
-                $don_hang_id = $_GET['id_don_hang'];
+                $don_hang_id = $_GET['id_donhang'];
 
                 //lấy thông tin đơn hàng ở bảng don_hang
                 $donHang = $this->modelDonHang->getDetailDonHang($don_hang_id);
@@ -33,7 +33,7 @@
 
             public function formEditDonHang()
             {
-                $id = $_GET['id_don_hang'];
+                $id = $_GET['id_donhang'];
                 $donHang = $this->modelDonHang->getDetailDonHang($id);
                 $listTrangThaiDonHang = $this->modelDonHang->getAllTrangThaiDonHang();
                 if ($donHang) {
@@ -67,7 +67,7 @@
                         exit();
                     } else {
                         $_SESSION['flash'] = true;
-                        header("Location:" . BASE_URL_ADMIN . '?act=form-sua-don-hang&id_don_hang=' . $don_hang_id);
+                        header("Location:" . BASE_URL_ADMIN . '?act=form-sua-don-hang&id_donhang=' . $don_hang_id);
                         exit();
                     }
                 }

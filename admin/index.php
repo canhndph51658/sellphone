@@ -41,7 +41,7 @@ match ($act) {
     'chitietkhachhang' => (new AdminTaikhoanController())->detailKhachHang(),
     default => 'không tìm thấy trang này',
 
-
+    // DANH MỤC
     'danhmuc' => (new AdminDanhMucController())->danhSachDanhMuc(),
     'formthemdanhmuc' => (new AdminDanhMucController())->formAddDanhMuc(),
     'themdanhmuc' => (new AdminDanhMucController())->postAddDanhMuc(),
@@ -49,6 +49,7 @@ match ($act) {
     'suadanhmuc' => (new AdminDanhMucController())->postEditDanhMuc(),
     'xoadanhmuc' => (new AdminDanhMucController())->deleteDanhMuc(),
 
+    // SẢN PHẨM
     'sanpham' => (new AdminSanPhamController())->danhSachSanPham(),
     'formthemsanpham' => (new AdminSanPhamController())->formAddSanPham(),
     'themsanpham' => (new AdminSanPhamController())->postAddSanPham(),
@@ -57,9 +58,21 @@ match ($act) {
     'xoasanpham' => (new AdminSanPhamController())->deleteSanPham(),
     'chitietsanpham' => (new AdminSanPhamController())->detailSanPham(),
     'suaalbumanhsanpham' => (new AdminSanPhamController())->postEditAnhSanPham(),
+    'updatetrangthaibinhluan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
 
+
+    // ĐƠN HÀNG
     'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
     'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
     'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
     'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
+    
+
+    
+
+    // ĐĂNG NHẬP / ĐĂNG XUẤT
+    'login-admin' => (new AdminTaiKhoanController())->formLogin(),
+    'check-login-admin' => (new AdminTaiKhoanController())->login(),
+    'logout-admin' => (new AdminTaiKhoanController())->logout(),
+    'generate-hash' => (new AdminTaiKhoanController())->generateHash(),
 };
