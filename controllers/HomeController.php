@@ -345,7 +345,7 @@ class HomeController
             die;
         }
     }
-    public function chiTietMuahang(){
+    public function chiTietMuaHang(){
         if (isset($_GET['user_client'])) {
             //lấy ra thông tin tk đăng nhập
             $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);

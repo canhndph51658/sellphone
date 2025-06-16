@@ -33,7 +33,7 @@
 
                          <?php if($donHang['trang_thai_id'] == 1) : ?>
                               <a href="<?= BASE_URL ?>?act=huy-don-hang&id=<?= $donHang['id'] ?>" class="btn btn-sqr"
-                                   onclick="return confirm ('Xác nhận hủy đơn hàng') ">
+                                   onclick="return confirm ('Xác nhận hủy đơn hàng')">
                                    Hủy
                               </a>
                          <?php endif; ?>
