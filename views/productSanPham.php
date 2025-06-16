@@ -48,22 +48,22 @@
     </div>
     <div class="product-list">
 
-            <?php foreach ($listSanPham as $sanPham): ?>
-                <div class="product">
-               <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>">
-                 <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="<?= $sanPham['ten_sp']; ?>">
-                 <h4><?= $sanPham['ten_sp']; ?></h4>
-               </a>
-               <p class="price">
-                 <?php if($sanPham['giam_gia']> 0): ?>
-                    <span class="giamgia"><?= number_format($sanPham['gia'] - $sanPham['giam_gia'],0,',','.').'đ' ?></span>
-                    <span class="gia"><?= number_format($sanPham['gia'],0,',','.').'đ' ?></span>
-                    <?php else :?>
-                        <?= number_format($sanPham['gia'],0,',','.').'đ' ?>
-                        <?php endif;?>
-               </p>
-                </div>
-            <?php endforeach; ?>
+        <?php foreach ($listSanPham as $sanPham): ?>
+            <div class="product">
+                <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>">
+                    <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="<?= $sanPham['ten_sp']; ?>">
+                    <h4><?= $sanPham['ten_sp']; ?></h4>
+                </a>
+                <p class="price">
+                    <?php if ($sanPham['giam_gia'] > 0): ?>
+                        <span class="giamgia"><?= number_format($sanPham['gia'] - $sanPham['giam_gia'], 0, ',', '.') . 'đ' ?></span>
+                        <span class="gia"><?= number_format($sanPham['gia'], 0, ',', '.') . 'đ' ?></span>
+                    <?php else : ?>
+                        <?= number_format($sanPham['gia'], 0, ',', '.') . 'đ' ?>
+                    <?php endif; ?>
+                </p>
+            </div>
+        <?php endforeach; ?>
 
     </div>
 </div>
