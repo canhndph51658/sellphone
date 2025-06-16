@@ -37,7 +37,7 @@
                                         </tr>
                                         <tr>
                                              <th>Giới tính: </th>
-                                             <td><?= $khachHang['gioi_tinh'] == 1 ? 'Nam' : 'Nữ' ?></td>
+                                             <td><?= $khachHang['gioi_tinh'] == 0 ? 'Nam' : 'Nữ' ?></td>
                                         </tr>
                                         <tr>
                                              <th>Ngày sinh: </th>
@@ -81,9 +81,29 @@
                                              <th>Thao tác</th>
                                         </tr>
                                    </thead>
-                              </table>
 
-                              <tbody></tbody>
+
+                                   <tbody>
+                                        <?php foreach ($listDonHang as $key => $donHang): ?>
+                                             <tr>
+                                                  <td><?= $key + 1 ?></td>
+                                                  <td><?= $donHang['ma_don_hang'] ?></td>
+                                                  <td><?= $donHang['ten_nguoi_nhan'] ?></td>
+                                                  <td><?= $donHang['sdt_nguoi_nhan'] ?></td>
+                                                  <td><?= $donHang['ngay_dat'] ?></td>
+                                                  <td><?= $donHang['tong_tien'] ?></td>
+                                                  <td><?= $donHang['ten_trang_thai'] ?></td>
+                                                  <td>
+                                                       <div class="btn-group">
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-don-hang&id_donhang=' . $donHang['id'] ?>">
+                                                                 <button class="btn btn-primary"><i class="far fa-eye"></i></button>
+                                                            </a>
+                                                       </div>
+                                                  </td>
+                                             </tr>
+                                        <?php endforeach; ?>
+                                   </tbody>
+                              </table>
                          </div>
                     </div>
 
@@ -102,6 +122,31 @@
                                              <th>Thao tác</th>
                                         </tr>
                                    </thead>
+
+                                   <tbody>
+                                        <?php foreach ($listBinhLuan as $key => $binhluan): ?>
+                                             <tr>
+                                                  <td><?= $key + 1 ?></td>
+                                                  <td>
+                                                       <a target="_blank" href="<?= BASE_URL_ADMIN . '?act=chitietsanpham&id_sanpham=' . $binhluan['san_pham_id'] ?>">
+                                                            <?= $binhluan['ten_sp'] ?>
+                                                       </a>
+                                                  </td>
+                                                  <td><?= $binhluan['noi_dung'] ?></td>
+                                                  <td><?= $binhluan['ngay_bl'] ?></td>
+                                                  <td><?= $binhluan['trang_thai'] == 1 ? 'Hiển thị' : 'Bị ẩn' ?></td>
+                                                  <td>
+                                                       <form action="<?= BASE_URL_ADMIN . '?act=updatetrangthaibinhluan&id_binhluan=' . $binhluan['id'] ?>" method="post">
+                                                            <input type="hidden" name="id_binhluan" value="<?= $binhluan['id'] ?>">
+                                                            <input type="hidden" name="name_view" value="detail_khachhang">
+                                                            <button onclick="return confirm('Bạn có chắc muốn ẩn bình luận này không?')" class="btn bt-warning">
+                                                                 <?= $binhluan['trang_thai'] == 0 ? 'Xem' : 'Bỏ ẩn' ?>
+                                                            </button>
+                                                       </form>
+                                                  </td>
+                                             </tr>
+                                        <?php endforeach; ?>
+                                   </tbody>
                               </table>
                          </div>
                     </div>

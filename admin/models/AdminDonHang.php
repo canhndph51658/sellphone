@@ -95,4 +95,19 @@ class AdminDonHang
             echo "Lỗi: " . $e->getMessage();
         }
     }
+
+    public function getDonHangFromKhachHang($id)
+    {
+        try {
+            $sql = "SELECT don_hang.*, trang_thai_don_hang.ten_trang_thai
+            FROM don_hang INNER JOIN trang_thai_don_hang ON
+            don_hang.trang_thai_id = trang_thai_don_hang.id
+            WHERE don_hang.tai_khoan_id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':id' => $id]);
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "loi" . $e->getMessage();
+        }
+    }
 }

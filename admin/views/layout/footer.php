@@ -12,7 +12,7 @@
 </aside>
 <!-- /.control-sidebar -->
 <div class="float-right d-none d-sm-block">
-  By <b>THT</b>
+  By <b>ZPhone</b>
 </div>
 <strong>Website bán điện thoại của ZPhone </strong>
 </footer>
