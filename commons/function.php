@@ -49,27 +49,36 @@ function deleteSessionError()
     }
 }
 
-    function uploadFileAlbum($file,$folderUpload,$key){ 
-        $originalName  = basename($file['name'][$key]);
-         $filename  =time() . '_' . $originalName;
-        $folderUpload  =rtrim($folderUpload,'/') . '/';
-        
-        $relativePath = $folderUpload . $filename;
+function uploadFileAlbum($file, $folderUpload, $key)
+{
+    $originalName  = basename($file['name'][$key]);
+    $filename  = time() . '_' . $originalName;
+    $folderUpload  = rtrim($folderUpload, '/') . '/';
 
-        $to = PATH_ROOT . '/' . $relativePath;
+    $relativePath = $folderUpload . $filename;
 
-        if (!is_dir(PATH_ROOT . '/' . $folderUpload))
-         {
-            mkdir(PATH_ROOT . '/' . $folderUpload,0777,true);
-         }
-        if(move_uploaded_file($file['tmp_name'][$key],$to)){
-            return $relativePath;
-        }
-        return null;
+    $to = PATH_ROOT . '/' . $relativePath;
+
+    if (!is_dir(PATH_ROOT . '/' . $folderUpload)) {
+        mkdir(PATH_ROOT . '/' . $folderUpload, 0777, true);
     }
-    function formatDate($date){
-        return date('d-m-Y',strtotime($date));
+    if (move_uploaded_file($file['tmp_name'][$key], $to)) {
+        return $relativePath;
     }
-    function formatNumber($number){
-        return number_format($number, 0,'.','.');
+    return null;
+}
+function formatDate($date)
+{
+    return date('d-m-Y', strtotime($date));
+}
+function formatNumber($number)
+{
+    return number_format($number, 0, '.', '.');
+}
+function checkLoginAdmin()
+{
+    if (!isset($_SESSION['user_admin'])) {
+        header("location:" . BASE_URL_ADMIN . '?act=login-admin');
+        exit();
     }
+}

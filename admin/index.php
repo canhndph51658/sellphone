@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 require_once '../commons/env.php';
 require_once '../commons/function.php';
 
@@ -24,6 +24,10 @@ require_once './models/AdminDonHang.php';
 
 // route
 $act = $_GET['act'] ?? '/';
+
+if ($act !== 'login-admin' && $act !== 'check-login-admin' && $act !== 'logout-admin') {
+    checkLoginAdmin();
+}
 
 
 match ($act) {
@@ -68,9 +72,9 @@ match ($act) {
     'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
     'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
     'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
-    
 
-    
+
+
 
     // ĐĂNG NHẬP / ĐĂNG XUẤT
     'login-admin' => (new AdminTaiKhoanController())->formLogin(),

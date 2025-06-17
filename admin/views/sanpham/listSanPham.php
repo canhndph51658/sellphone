@@ -9,10 +9,10 @@
                     <h1>Quản lý sản phẩm</h1>
                 </div>
                 <div class="col-sm-6">
-                    <ol class="breadcrumb-float-sm-right">
+                    <!-- <ol class="breadcrumb-float-sm-right">
                         <li class="breadcrumb-item">home</li>
                         <li class="breadcrumb-item"></li>
-                    </ol>
+                    </ol> -->
                 </div>
             </div>
         </div>
