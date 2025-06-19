@@ -8,22 +8,21 @@
           <div class="singin-singup">
 
                <form action="<?= BASE_URL . '?act=check-login' ?>" method="post">
-                    <?php if (!empty($_SESSION['error'])) { ?>
+                    <?php if (!empty($_SESSION['error'])): ?>
                          <div class="text-danger">
                               <?php
                               if (is_array($_SESSION['error'])) {
-                                   foreach ($_SESSION['error'] as $arr) {
-                                        echo '<p?>' . htmlspecialchars($arr) . '</p>';
+                                   foreach ($_SESSION['error'] as $error) {
+                                        echo '<p>' . htmlspecialchars((string)$error) . '</p>';
                                    }
                               } else {
-                                   echo '<p?>' . htmlspecialchars($$_SESSION['error']) . '</p>';
+                                   echo '<p>' . htmlspecialchars((string)$_SESSION['error']) . '</p>';
                               }
                               unset($_SESSION['error']);
                               ?>
                          </div>
-                    <?php } else {
-                    ?><p class="login-box-msg text-center">Vui lòng đăng nhập</p>
-                    <?php } ?>
+                    <?php endif; ?>
+
 
                     <h2 class="title">ZPhone | sign in</h2>
 
@@ -55,21 +54,10 @@
                </form>
 
                <form action="<?= BASE_URL . '?act=check-signup' ?> " method="post" class="sign-up-form">
-                    <?php if (!empty($_SESSION['error'])) { ?>
-                         <div class="text-danger">
-                              <?php
-                              if (is_array($_SESSION['error'])) {
-                                   foreach ($_SESSION['error'] as $arr) {
-                                        echo '<p?>' . htmlspecialchars($arr) . '</p>';
-                                   }
-                              } else {
-                                   echo '<p?>' . htmlspecialchars($$_SESSION['error']) . '</p>';
-                              }
-                              unset($_SESSION['error']);
-                              ?>
-                         </div>
+                    <?php if (isset($_SESSION['error'])) { ?>
+                         <p class="text-danger"><?= $_SESSION['error'] ?></p>
                     <?php } else {
-                    ?><p class="login-box-msg text-center">Vui lòng đăng ký</p>
+                    ?><p class="login-box-msg text-center">Vui lòng đăng ký</p>
                     <?php } ?>
 
 
