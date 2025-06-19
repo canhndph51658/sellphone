@@ -63,7 +63,7 @@ class AdminDonHang
         try {
             $sql = "SELECT chi_tiet_don_hang.*, sanpham.ten_sp
                 FROM chi_tiet_don_hang
-                INNER JOIN sanpham ON chi_tiet_don_hang.id = sanpham.id
+                INNER JOIN sanpham ON chi_tiet_don_hang.san_pham_id = sanpham.id
                 WHERE chi_tiet_don_hang.don_hang_id = :id";
 
             $stmt = $this->conn->prepare($sql);

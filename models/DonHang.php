@@ -39,7 +39,7 @@ class DonHang
      {
           try {
                $sql = "INSERT INTO chi_tiet_don_hang (don_hang_id, san_pham_id, don_gia, so_luong, thanh_tien)
-               VALUES (:donHangId, :sanPhamId, :donGia, :soLuong, :thanhTien)";
+               VALUES (:don_hang_id, :san_pham_id, :don_gia, :so_luong, :thanh_tien)";
 
                $stmt = $this->conn->prepare($sql);
                $stmt->execute([
