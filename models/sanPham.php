@@ -2,7 +2,8 @@
 class SanPham
 {
     public $conn;
-
+ 
+    
     public function __construct()
     {
         $this->conn = connectDB();
