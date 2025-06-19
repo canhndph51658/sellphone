@@ -16,22 +16,22 @@
 
                 <div class="single-input-item">
                     <label for="ten_nguoi_nhan" class="required">Tên người nhận: </label>
-                    <input type="text" id="ten_nguoi_nhan" name="ten_nguoi_nhan" value="<?= $user['hoten'] ?>" placeholder="Tên người nhận" required>
+                    <input type="text" id="ten_nguoi_nhan" name="ten_nguoi_nhan" value="<?= isset($user['hoten']) ? htmlspecialchars($user['hoten']) : '' ?>" placeholder="Tên người nhận" required>
                 </div>
 
                 <div class="single-input-item">
                     <label for="email_nguoi_nhan" class="required">Email người nhận: </label>
-                    <input type="text" id="email_nguoi_nhan" name="email_nguoi_nhan" value="<?= $user['email'] ?>" placeholder="Email người nhận" required>
+                    <input type="text" id="email_nguoi_nhan" name="email_nguoi_nhan" value="<?= isset($user['email']) ? htmlspecialchars($user['email']) : '' ?>" placeholder="Email người nhận" required>
                 </div>
 
                 <div class="single-input-item">
                     <label for="sdt_nguoi_nhan" class="required">Số điện thoại người nhận: </label>
-                    <input type="text" id="sdt_nguoi_nhan" name="sdt_nguoi_nhan" value="<?= $user['dienthoai'] ?>" placeholder="SĐT người nhận" required>
+                    <input type="text" id="sdt_nguoi_nhan" name="sdt_nguoi_nhan" value="<?= isset($user['dienthoai']) ? htmlspecialchars($user['dienthoai']) : '' ?>" placeholder="SĐT người nhận" required>
                 </div>
 
                 <div class="single-input-item">
                     <label for="dia_chi_nguoi_nhan" class="required">Địa chỉ người nhận: </label>
-                    <input type="text" id="dia_chi_nguoi_nhan" name="dia_chi_nguoi_nhan" value="<?= $user['diachi'] ?>" placeholder="Địa chỉ người nhận" required>
+                    <input type="text" id="dia_chi_nguoi_nhan" name="dia_chi_nguoi_nhan" value="<?= isset($user['diachi']) ? htmlspecialchars($user['diachi']) : '' ?>" placeholder="Địa chỉ người nhận" required>
                 </div>
                 <div class="single-input-item">
                     <label for="ghi-chu" class="required">Ghi chú: </label>
@@ -77,7 +77,7 @@
                     <div class="item">
                         <img src="<?= BASE_URL  . $sanPham['hinh'] ?>" alt="">
                         <div>
-                            <p><?= $sanPham['ten_sp'] ?><strong>x <?= $sanPham['so_luong'] ?></strong></p>
+                            <p><?= $sanPham['ten_sp'] ?><strong> x <?= $sanPham['so_luong'] ?></strong></p>
                             <span>
                                 <?php
                                 $tongTien = 0;
@@ -93,12 +93,12 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
-                <!-- <hr>
-                <div class="voucher">
+                <hr>
+                <!-- <div class="voucher">
                     <input type="text" placeholder="Nhập mã giảm giá">
                     <button>Áp dụng</button>
                 </div> -->
-                <hr>
+                <!-- <hr> -->
             </div>
 
             <div class="price-summary">
@@ -119,7 +119,7 @@
                     <span class="total"><?= formatNumber($tongGioHang + 10000) . ' đ' ?></span>
                 </div>
 
-                <button type="submit" class="checkout-btn">Tiến hàng đặt hàng</button>
+                <button type="submit" class="checkout-btn">Tiến hành đặt hàng</button>
             </div>
             </form>
         </div>

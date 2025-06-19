@@ -24,7 +24,7 @@
           <div class="container-fluid">
                <div class="row">
                     <div class="col-6">
-                         <img src="<?= BASE_URL . $khachHang['hinh'] ?>" style="width:75%" alt=""
+                         <img src="<?= BASE_URL . $khachHang['hinh'] ?>" style="width:50%" alt=""
                               onerror="this.onerror=null; this.src='https://pluspng.com/img-png/user-png-icon-download-icons-logos-emojis-users-2240.png';">
                     </div>
                     <div class="col-6">

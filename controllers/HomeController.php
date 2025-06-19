@@ -120,15 +120,19 @@ class HomeController
         }
     }
 
+    public function SanPhamTheoDanhMuc()
+    {
+        $idDanhMuc = isset($_GET['id']) ? $_GET['id'] : 0;
+        $listSanPham = $this->modelSanPham->getSanPhamTheoDanhMuc($idDanhMuc);
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+        require_once './views/productSanPham.php';
+    }
+
     public function trangchu()
     {
         require_once './views/home.php';
     }
-    public function getSanPhamHot()
-    {
-        $listSanPhamHot = $this->modelSanPham->getSanPhamHot();
-        return $listSanPhamHot;
-    }
+
 
     public function addGioHang()
     {
@@ -192,22 +196,39 @@ class HomeController
     public function thanhToan()
     {
         if ($_SESSION['user_client']) {
+            // post dữ liệu từ giỏ hàng nếu có 
+            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['chon_san_pham'])) {
+                $_SESSION['gio_hang_chon'] == $_POST['chon_san_pham'];
+                header("Location:" . BASE_URL . "?act=thanh-toan");
+                exit();
+            }
+
             $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
-
             $gioHang = $this->modelGioHang->getGioHangFromUser($user['id']);
+            $chiTietGioHang = [];
 
-            if (!$gioHang) {
-                $gioHangId = $this->modelGioHang->addGioHang($user['id']);
-                $gioHang = ['id' => $gioHangId];
-                $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
-            } else {
-                $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+            if ($gioHang) {
+                $tatCaSanPham = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+                if (isset($_SESSION['gio_hang_chon'])) {
+                    foreach ($tatCaSanPham as $sp) {
+                        if (in_array($sp['san_pham_id'], $_SESSION['gio_hang_chon'])) {
+                            $chiTietGioHang[] = $sp;
+                        }
+                    }
+                } else {
+                    $chiTietGioHang = $tatCaSanPham;
+                }
             }
             require_once './views/thanhToan.php';
         } else {
             var_dump('Bạn chưa đăng nhập');
             die();
         }
+    }
+    public function getSanPhamHot()
+    {
+        $listSanPhamHot = $this->modelSanPham->getSanPhamHot();
+        return $listSanPhamHot;
     }
 
     public function postThanhToan()
