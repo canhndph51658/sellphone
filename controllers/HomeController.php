@@ -8,6 +8,7 @@ class HomeController
     public $modelGioHang;
     public $modelDonHang;
     public $modelBinhLuan;
+    public $modelDanhMuc;
 
     public function __construct()
     {
@@ -16,14 +17,19 @@ class HomeController
         $this->modelGioHang = new GioHang();
         $this->modelDonHang = new DonHang();
         $this->modelBinhLuan = new BinhLuan();
+        $this->modelDanhMuc = new DanhMuc();
     }
+
     public function home()
     {
+        $listSanPhamHot = $this->modelSanPham->getSanPhamHot();
+
         $listSanPham = $this->modelSanPham->getAllSanPham();
         require_once './views/home.php';
     }
     public function SanPham()
     {
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
         $listSanPham = $this->modelSanPham->getAllProduct();
         require_once './views/productSanPham.php';
         return $listSanPham;
@@ -37,6 +43,13 @@ class HomeController
     public function lienHe()
     {
         include_once './views/lienHe.php';
+    }
+    public function SanPhamTheoDanhMuc()
+    {
+        $idDanhMuc = isset($_GET['id']) ? $_GET['id'] : 0;
+        $listSanPham = $this->modelSanPham->getSanPhamTheoDanhMuc($idDanhMuc);
+        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
+        require_once './views/productSanPham.php';
     }
 
 
@@ -110,6 +123,11 @@ class HomeController
     public function trangchu()
     {
         require_once './views/home.php';
+    }
+    public function getSanPhamHot()
+    {
+        $listSanPhamHot = $this->modelSanPham->getSanPhamHot();
+        return $listSanPhamHot;
     }
 
     public function addGioHang()

@@ -75,6 +75,83 @@
         </div>
 
     </div>
+    <div class="container">
+        <h2>sản phẩm Hot </h2>
+        <button class="btn2">
+            view All
+        </button>
+        <div class="product-container-hot">
+            <button class="prev-btn-hot">
+            </button>
+            <div class="product-wrapper-hot">
+                <?php foreach ($listSanPhamHot as $key => $sanPham): ?>
+                    <div class="pro-item hidden">
+                        <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id']; ?>">
+                            <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="">
+                        </a>
+                        <div class="ten"><?= $sanPham['ten_sp'] ?></div>
+                        <div class="giamgia"><?= formatNumber($sanPham['giam_gia'])  ?> đ</div>
+                        <div class="gia"><?= formatNumber($sanPham['gia']) ?> đ</div>
+                        <button class="btn1" onclick="location.href= '<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id']; ?>'">xem chi tiết</button>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <button class="next-btn-hot">></button>
+        </div>
+
+
+    </div>
+    <div class="banner hidden">
+        <img src="./LayoutClient/img/section_banner.webp" alt="">
+    </div>
+    <div class="container">
+        <h2> tin tức</h2>
+        <button class="btn2">
+            view all
+        </button>
+        <div class="product2 hidden">
+            <div class="pro-item">
+                <img src="./LayoutClient/img/news1.png" alt="">
+                <div class="date">
+                    <span><img src="./LayoutClient/img/lich.png.png" alt="">
+                        <p>11/11/2024</p>
+                    </span>
+                </div>
+                <div class="ten">giá iphone tháng 11 </div>
+                <div class="new"><a href="">xem chi tiết <img class="imgicon" src="./LayoutClient/img/muitenred.png" alt=""></a></div>
+            </div>
+            <div class="pro-item">
+                <img src="./LayoutClient/img/news5.png" alt="">
+                <div class="date">
+                    <span><img src="./LayoutClient/img/lich.png.png" alt="">
+                        <p>11/11/2024</p>
+                    </span>
+                </div>
+                <div class="ten">samsung giá chính hãng </div>
+                <div class="new"><a href="">xem chi tiết <img class="imgicon" src="./LayoutClient/img/muitenred.png" alt=""></a></div>
+            </div>
+            <div class="pro-item">
+                <img src="./LayoutClient/img/news3.png" alt="">
+                <div class="date">
+                    <span><img src="./LayoutClient/img/lich.png.png" alt="">
+                        <p>11/11/2024</p>
+                    </span>
+                </div>
+                <div class="ten">sản phẩm giảm giá </div>
+                <div class="new"><a href="">xem chi tiết <img class="imgicon" src="./LayoutClient/img/muitenred.png" alt=""></a></div>
+            </div>
+            <div class="pro-item">
+                <img src="./LayoutClient/img/news4.png" alt="">
+                <div class="date">
+                    <span><img src="./LayoutClient/img/lich.png.png" alt="">
+                        <p>11/11/2024</p>
+                    </span>
+                </div>
+                <div class="ten">ipad giá chính hãng </div>
+                <div class="new"><a href="">xem chi tiết <img class="imgicon" src="./LayoutClient/img/muitenred.png" alt=""></a></div>
+            </div>
+        </div>
+    </div>
 
     <script src="./LayoutClient/js/trangchu.js"></script>
     <?php require_once 'views/layout/footer.php' ?>
