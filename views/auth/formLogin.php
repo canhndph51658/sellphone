@@ -60,7 +60,6 @@
                     ?><p class="login-box-msg text-center">Vui lòng đăng ký</p>
                     <?php } ?>
 
-
                     <h2 class="title">ZPhone | Sign up</h2>
 
                     <div class="input-field">

@@ -2,31 +2,31 @@
 <?php include_once('./views/layout/navbar.php'); ?>
 <?php include_once('./views/layout/sidebar.php'); ?>
 <div class="content-wrapper">
-  <section>
-    <div class="container_fluid">
-      <div class="row mb-2">
-        <div class="col-sm-10">
-          <h1>Quản lý danh sách Đơn Hàng - Đơn hàng: <?= $donHang['ma_don_hang']  ?></h1>
+    <section>
+        <div class="container_fluid">
+            <div class="row mb-2">
+                <div class="col-sm-10">
+                    <h1>Quản lý  danh sách Đơn Hàng - Đơn hàng: <?=$donHang['ma_don_hang']  ?></h1>
+                </div>
+                <div>
+                  <form action="" method="post">
+                    <select name="" id="" class="from-group">
+                      <option value="" disabled></option>
+                      <?php foreach($listTrangThaiDonHang as $key=>$trangThai): ?>
+                      <option 
+                        <?= $trangThai['id'] == $donHang['trang_thai_id'] ? 'selected':'' ?>
+                        <?= $trangThai['id'] < $donHang['trang_thai_id'] ? 'disabled':'' ?>
+                            value="<?= $trangThai['id']; ?>">
+                        <?= $trangThai['ten_trang_thai']; ?>
+                      </option>
+                      <?php endforeach; ?>
+                    </select>
+                  </form>
+                </div>
+            </div>
         </div>
-        <div>
-          <form action="" method="post">
-            <select name="" id="" class="from-group">
-              <option value="" disabled></option>
-              <?php foreach ($listTrangThaiDonHang as $key => $trangThai): ?>
-                <option
-                  <?= $trangThai['id'] == $donHang['trang_thai_id'] ? 'selected' : '' ?>
-                  <?= $trangThai['id'] < $donHang['trang_thai_id'] ? 'disabled' : '' ?>
-                  value="<?= $trangThai['id']; ?>">
-                  <?= $trangThai['ten_trang_thai']; ?>
-                </option>
-              <?php endforeach; ?>
-            </select>
-          </form>
-        </div>
-      </div>
-    </div>
 
-  </section>
+    </section>
 
   <section class="content">
     <div class="container-fluid">

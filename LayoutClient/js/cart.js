@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const decrementBtn = control.querySelector('.decrement');
         const row = control.closest('tr');
         const priceElement = row.querySelector('td:nth-child(2) span'); // Giá sản phẩm
-        const totalElement = row.querySelector('td:nth-child(5)'); // Cột tổng tiền
+        const totalElement = row.querySelector('td:nth-child(4)'); // Cột tổng tiền
 
         // Chuyển đổi giá từ text sang số
         const parsePrice = (priceText) => {
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let totalCart = 0;
 
             allRows.forEach(row => {
-                const rowTotalText = row.querySelector('td:nth-child(5)').textContent;
+                const rowTotalText = row.querySelector('td:nth-child(4)').textContent;
                 const rowTotal = parsePrice(rowTotalText);
                 totalCart += rowTotal;
             });

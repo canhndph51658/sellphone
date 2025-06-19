@@ -7,7 +7,7 @@ require_once '../commons/function.php';
 
 // Khai báo các controller
 require_once './controllers/AdminThongKeController.php';
-require_once './controllers/AdminTaikhoanControllers.php';
+require_once './controllers/AdminTaikhoanController.php';
 require_once './controllers/AdminSanPhamController.php';
 require_once './controllers/AdminDonHangController.php';
 
@@ -24,15 +24,12 @@ require_once './models/AdminDonHang.php';
 
 // route
 $act = $_GET['act'] ?? '/';
-
-if ($act !== 'login-admin' && $act !== 'check-login-admin' && $act !== 'logout-admin') {
-    checkLoginAdmin();
-}
-
+    if  ($act !== 'login-admin' && $act !== 'check-login-admin'&& $act!=='logout-admin'){
+        checkLoginAdmin();
+    }
 
 match ($act) {
-    // Trang chủ
-    '/' => (new AdminThongKeController())->home(),
+      '/' => (new AdminThongKeController())->home(),
 
     // Tài khoản
     'listtaikhoanquantri' => (new AdminTaikhoanController())->danhSachQuanTri(),
@@ -64,6 +61,7 @@ match ($act) {
     'xoasanpham' => (new AdminSanPhamController())->deleteSanPham(),
     'chitietsanpham' => (new AdminSanPhamController())->detailSanPham(),
     'suaalbumanhsanpham' => (new AdminSanPhamController())->postEditAnhSanPham(),
+    
     'updatetrangthaibinhluan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
 
 
@@ -72,9 +70,6 @@ match ($act) {
     'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
     'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
     'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
-
-
-
 
     // ĐĂNG NHẬP / ĐĂNG XUẤT
     'login-admin' => (new AdminTaiKhoanController())->formLogin(),

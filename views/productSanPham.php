@@ -1,5 +1,9 @@
 <head>
+
+  <link rel="stylesheet" href="./LayoutClient/css/products.css">
+
     <link rel="stylesheet" href="./LayoutClient/css/products.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
@@ -47,23 +51,23 @@
         </ul>
     </div>
     <div class="product-list">
-        <?php foreach ($listSanPham as $sanPham): ?>
-            <div class="product">
-                <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>">
-                    <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="<?= $sanPham['ten_sp']; ?>">
-                    <h4><?= $sanPham['ten_sp']; ?></h4>
-                </a>
-                <p class="price">
-                    <?php if ($sanPham['giam_gia'] > 0): ?>
-                        <span class="giamgia"><?= number_format($sanPham['gia'] - $sanPham['giam_gia'], 0, ',', '.') . 'đ' ?></span>
-                        <span class="gia"><?= number_format($sanPham['gia'], 0, ',', '.') . 'đ' ?></span>
-                    <?php else : ?>
-                        <?= number_format($sanPham['gia'], 0, ',', '.') . 'đ' ?>
-                    <?php endif; ?>
-                </p>
-                <button class="btn1" onclick="location.href= '<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>'">xem chi tiết</button>
-            </div>
-        <?php endforeach; ?>
+            <?php foreach ($listSanPham as $sanPham): ?>
+                <div class="product">
+               <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>">
+                 <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="<?= $sanPham['ten_sp']; ?>">
+                 <h4><?= $sanPham['ten_sp']; ?></h4>
+               </a>
+               <p class="price">
+                 <?php if($sanPham['giam_gia']> 0): ?>
+                    <span class="giamgia"><?= number_format($sanPham['gia'] - $sanPham['giam_gia'],0,',','.').'đ' ?></span>
+                    <span class="gia"><?= number_format($sanPham['gia'],0,',','.').'đ' ?></span>
+                    <?php else :?>
+                        <?= number_format($sanPham['gia'],0,',','.').'đ' ?>
+                        <?php endif;?>
+               </p>
+               <button class="btn1" onclick="location.href= '<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>'">xem chi tiết</button>
+                </div>
+            <?php endforeach; ?>
     </div>
 </div>
 <script src="./LayoutClient/js/trangchu.js"></script>
