@@ -29,8 +29,8 @@
                 <?php if (!isset($_SESSION['user_client'])) { ?>
                     <a href="<?= BASE_URL . '?act=login' ?>" class="dropdown-item"> đăng nhập</a>
                 <?php } else { ?>
-                    <a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>" class="dropdown-item">thông tin cá nhân</a>
-                    <a href="<?= BASE_URL . '?act=logout' ?>" class="dropdown-item">lịch sử mua hàng</a>
+                    <a href="" class="dropdown-item">thông tin cá nhân</a>
+                    <a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>" class="dropdown-item">lịch sử mua hàng</a>
                     <a href="<?= BASE_URL . '?act=logout' ?>" class="dropdown-item" onclick="return confirm('bạn có chắc là muốn đăng xuất')"> đăng xuất</a>
                 <?php } ?>
             </div>

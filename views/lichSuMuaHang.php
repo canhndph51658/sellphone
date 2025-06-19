@@ -1,4 +1,4 @@
-<head>Add commentMore actions
+<head>
      <link rel="stylesheet" href="./LayoutClient/css/cart.css">
 </head>
 
@@ -33,6 +33,6 @@
                </tbody>
           </table>
      </div>
-</main>Add commentMore actions
+</main>
 <script src="./LayoutClient/js/cart.js"></script>
 <?php require_once 'views/layout/footer.php' ?>
