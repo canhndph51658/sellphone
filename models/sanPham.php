@@ -52,7 +52,6 @@ class SanPham
              FROM sanpham 
              INNER JOIN danhmuc ON sanpham.danh_muc_id = danhmuc.id
              WHERE sanpham.is_hot=1";
-
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();
