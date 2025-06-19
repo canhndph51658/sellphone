@@ -44,13 +44,6 @@ class HomeController
     {
         include_once './views/lienHe.php';
     }
-    public function SanPhamTheoDanhMuc()
-    {
-        $idDanhMuc = isset($_GET['id']) ? $_GET['id'] : 0;
-        $listSanPham = $this->modelSanPham->getSanPhamTheoDanhMuc($idDanhMuc);
-        $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
-        require_once './views/productSanPham.php';
-    }
 
 
     public function formLogin()

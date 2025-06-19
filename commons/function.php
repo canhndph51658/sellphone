@@ -34,12 +34,6 @@ function uploadFile($file, $folderUpload)
     return null;
 }
 
-function checkLoginAdmin(){
-        if(!isset($_SESSION['user_admin'])){
-            header("location:" . BASE_URL_ADMIN . '?act=login-admin');
-            exit();
-        }
-    }
 function deleteFile($file)
 {
     $pathDelete = PATH_ROOT . $file;
