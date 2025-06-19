@@ -13,6 +13,7 @@ require_once './commons/function.php';
 require_once './controllers/HomeController.php';
 
 //Models
+require_once './models/DanhMuc.php';
 require_once './models/TaiKhoan.php';
 require_once './models/SanPham.php';
 require_once './models/GioHang.php';

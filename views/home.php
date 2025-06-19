@@ -37,7 +37,7 @@
             view All
         </button>
         <div class="product-container">
-            <button class="prev-btn"></button>
+            <button class="prev-btn"><</button>
             <div class="product-wrapper">
                 <?php foreach ($listSanPham as $key => $sanPham): ?>
                     <div class="pro-item hidden">
@@ -81,7 +81,7 @@
             view All
         </button>
         <div class="product-container-hot">
-            <button class="prev-btn-hot">
+            <button class="prev-btn-hot"><
             </button>
             <div class="product-wrapper-hot">
                 <?php foreach ($listSanPhamHot as $key => $sanPham): ?>
