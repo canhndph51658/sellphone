@@ -21,18 +21,18 @@
                <tbody>
                 <?php foreach($donHang as $donHang) : ?>
                     <tr>
-                        <td class="text-center"><?= $donHang['ma_don_hang'] ?></>
+                        <td class="text-center"><?= $donHang['ma_don_hang'] ?></td>
                         <td class="text-center"><?= $donHang['ngay_dat'] ?></td>
                         <td class="text-center"><?= formatNumber($donHang['tong_tien']) ?> đ</td>
                         <td class="text-center"><?= $phuongThucThanhToan[$donHang['phuong_thuc_thanh_toan_id']] ?></td>
                         <td class="text-center"><?= $trangThaiDonHang[$donHang['trang_thai_id']] ?></td>
                         <td>
-                         <a href="<?= BASE_URL ?>?act=chi-tiet-mua-hang&id=<?= $donHang['id'] ?>" class="btn btn-sqr" >
+                         <a href="<?= BASE_URL ?>?act=chi-tiet-mua-hang&id=<?= $donHang['id'] ?>" class="btn btn-detail" >
                               Chi tiết đơn hàng
                          </a>
 
                          <?php if($donHang['trang_thai_id'] == 1) : ?>
-                              <a href="<?= BASE_URL ?>?act=huy-don-hang&id=<?= $donHang['id'] ?>" class="btn btn-sqr"
+                              <a href="<?= BASE_URL ?>?act=huy-don-hang&id=<?= $donHang['id'] ?>" class="btn btn-cancel"
                                    onclick="return confirm ('Xác nhận hủy đơn hàng')">
                                    Hủy
                               </a>
@@ -48,4 +48,4 @@
      </div>
 </main>
 <script src="./LayoutClient/js/cart.js"></script>
-<?php require_once 'views/layout/footer.php' ?>o-=
+<?php require_once 'views/layout/footer.php' ?>

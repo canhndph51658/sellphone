@@ -211,8 +211,9 @@ class HomeController
             $email_nguoi_nhan = $_POST['email_nguoi_nhan'];
             $sdt_nguoi_nhan = $_POST['sdt_nguoi_nhan'];
             $dia_chi_nguoi_nhan = $_POST['dia_chi_nguoi_nhan'];
-            $ghi_chu = $_POST['ghi_chu'];
             $tong_tien = $_POST['tong_tien'];
+            $ghi_chu = $_POST['ghi_chu'];
+            
             $phuong_thuc_thanh_toan_id = $_POST['phuong_thuc_thanh_toan_id'];
 
             $ngay_dat = date('Y-m-d');
@@ -313,7 +314,7 @@ class HomeController
 
     public function huyDonHang()
     {
-        if (isset($_GET['user_client'])) {
+        if (isset($_SESSION['user_client'])) {
             $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
             $tai_khoan_id = $user['id'];
 
@@ -322,13 +323,16 @@ class HomeController
 
             if ($donHang['tai_khoan_id'] != $tai_khoan_id) {
                 echo "Bạn không có quyền hủy đơn này";
-                exit();
+                exit;
             }
 
             if ($donHang['trang_thai_id'] != 1) {
                 echo "Chỉ đơn hàng ở trạng thái 'Chưa xác nhận' mới có thể hủy";
-                exit();
+                exit;
             }
+            $this->modelDonHang->updateTrangThaiDonhang($donHangId, 11);
+             header("Location: " . BASE_URL . "?act=lich-su-mua-hang");
+                exit;
         } else {
             var_dump("Bạn chưa đăng nhập");
             exit();
@@ -358,7 +362,7 @@ class HomeController
         }
     }
     public function chiTietMuaHang(){
-        if (isset($_GET['user_client'])) {
+        if (isset($_SESSION['user_client'])) {
             //lấy ra thông tin tk đăng nhập
             $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
             $tai_khoan_id = $user['id'];

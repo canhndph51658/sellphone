@@ -12,8 +12,7 @@ class AdminDonHang
         try {
             $sql = "SELECT don_hang.*,trang_thai_don_hang.ten_trang_thai
                     FROM don_hang 
-                    INNER JOIN trang_thai_don_hang ON don_hang.trang_thai_id = trang_thai_don_hang.id
-                    ORDER BY don_hang.ngay_dat DESC don_hang.id DESC"; // Thêm dòng này để sắp xếp
+                    INNER JOIN trang_thai_don_hang ON don_hang.trang_thai_id = trang_thai_don_hang.id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll();
@@ -77,8 +76,7 @@ class AdminDonHang
         }
     }
     
-    public function updateDonHang($id, $trang_thai_id)
-{
+    public function updateDonHang($id, $trang_thai_id) {
     try {
         $sql = "UPDATE don_hang 
                 SET trang_thai_id = :trang_thai_id
@@ -93,6 +91,7 @@ class AdminDonHang
         return true;
     } catch (Exception $e) {
         echo "Lỗi: " . $e->getMessage();
+    }
     }
 
     public function getDonHangFromKhachHang($id)
@@ -109,5 +108,4 @@ class AdminDonHang
             echo "loi" . $e->getMessage();
         }
     }
-}
 }
