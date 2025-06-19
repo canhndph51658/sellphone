@@ -1,7 +1,9 @@
-<?php 
-class AdminThongKeController {
-    public function home(){
-        require_once './views/thongke.php';
-    }
+<?php
+
+class AdminThongKeController
+{
+     public function home()
+     {
+          require_once './views/home.php';
+     }
 }
-?>  

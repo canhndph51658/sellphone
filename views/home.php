@@ -32,48 +32,46 @@
         </div>
     </div>
     <div class="container">
-        <h2>sản phẩm mới </h2>
+        <h2>Sản phẩm mới </h2>
         <button class="btn2">
             view All
         </button>
         <div class="product-container">
-            <button class="prev-btn">
-                </button>
-                    <div class="product-wrapper">
-                        <?php foreach ($listSanPham as $key => $sanPham): ?>
-                            <div class="pro-item hidden">
-                                <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>">
-                                    <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="">
-                                </a>
-                                <?php
-                                if (!empty($sanPham['ngay_nhap']) && strtotime($sanPham['ngay_nhap'])) {
-                                    try {
-                                        $ngayNhap = new DateTime($sanPham['ngay_nhap']);
-                                        $ngayHienTai = new DateTime();
-                                        $tinhNgay = $ngayHienTai->diff($ngayNhap);
+            <button class="prev-btn"></button>
+            <div class="product-wrapper">
+                <?php foreach ($listSanPham as $key => $sanPham): ?>
+                    <div class="pro-item hidden">
+                        <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>">
+                            <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="">
+                        </a>
+                        <?php
+                        if (!empty($sanPham['ngay_nhap']) && strtotime($sanPham['ngay_nhap'])) {
+                            try {
+                                $ngayNhap = new DateTime($sanPham['ngay_nhap']);
+                                $ngayHienTai = new DateTime();
+                                $tinhNgay = $ngayHienTai->diff($ngayNhap);
 
-                                        if ($tinhNgay->invert == 0 && $tinhNgay->days <= 7) {
-                                ?>
-                                            <div class="product-label discount">
-                                                <span>new</span>
-                                            </div>
-                                <?php
-                                        }
-                                    } catch (Exception $e) {
-                                        error_log("lỗi định dạng ngày nhập " . $e->getMessage());
-                                    }
-                                } else {
-                                    error_log("ngày nhập sản phẩm không hợp lệ hoặc trống.");
+                                if ($tinhNgay->invert == 0 && $tinhNgay->days <= 7) {
+                        ?>
+                                    <div class="product-label discount">
+                                        <span>new</span>
+                                    </div>
+                        <?php
                                 }
-                                ?>
-                                <div class="ten"><?= $sanPham['ten_sp'] ?></div>
-                                <div class="giamgia"><?= formatNumber($sanPham['giam_gia'])  ?> đ</div>
-                                <div class="gia"><?= formatNumber($sanPham['gia']) ?> đ</div>
-                                <button class="btn1" onclick="location.href= '<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id'] ?>'">xem chi tiết</button>
-                            </div>
-                        <?php endforeach; ?>
+                            } catch (Exception $e) {
+                                error_log("lỗi định dạng ngày nhập " . $e->getMessage());
+                            }
+                        } else {
+                            error_log("ngày nhập sản phẩm không hợp lệ hoặc trống.");
+                        }
+                        ?>
+                        <div class="ten"><?= $sanPham['ten_sp'] ?></div>
+                        <div class="giamgia"><?= formatNumber($sanPham['giam_gia'])  ?> đ</div>
+                        <div class="gia"><?= formatNumber($sanPham['gia']) ?> đ</div>
                     </div>
-                    <button class="next-btn">></button>
+                <?php endforeach; ?>
+            </div>
+            <button class="next-btn">></button>
         </div>
 
     </div>
@@ -84,21 +82,21 @@
         </button>
         <div class="product-container-hot">
             <button class="prev-btn-hot">
-                </button>
-                    <div class="product-wrapper-hot">
-                        <?php foreach ($listSanPhamHot as $key => $sanPham): ?>
-                            <div class="pro-item hidden">
-                                <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id']; ?>">
-                                    <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="">
-                                </a>
-                                <div class="ten"><?= $sanPham['ten_sp'] ?></div>
-                                <div class="giamgia"><?= formatNumber($sanPham['giam_gia'])  ?> đ</div>
-                                <div class="gia"><?= formatNumber($sanPham['gia']) ?> đ</div>
-                                <button class="btn1" onclick="location.href= '<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id']; ?>'">xem chi tiết</button>
-                            </div>
-                        <?php endforeach; ?>
+            </button>
+            <div class="product-wrapper-hot">
+                <?php foreach ($listSanPhamHot as $key => $sanPham): ?>
+                    <div class="pro-item hidden">
+                        <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id']; ?>">
+                            <img src="<?= BASE_URL . $sanPham['hinh'] ?>" alt="">
+                        </a>
+                        <div class="ten"><?= $sanPham['ten_sp'] ?></div>
+                        <div class="giamgia"><?= formatNumber($sanPham['giam_gia'])  ?> đ</div>
+                        <div class="gia"><?= formatNumber($sanPham['gia']) ?> đ</div>
+                        <button class="btn1" onclick="location.href= '<?= BASE_URL . '?act=chi-tiet-san-pham&id_sanpham=' . $sanPham['id']; ?>'">xem chi tiết</button>
                     </div>
-                    <button class="next-btn-hot">></button>
+                <?php endforeach; ?>
+            </div>
+            <button class="next-btn-hot">></button>
         </div>
 
 
@@ -122,7 +120,7 @@
                 <div class="ten">giá iphone tháng 11 </div>
                 <div class="new"><a href="">xem chi tiết <img class="imgicon" src="./LayoutClient/img/muitenred.png" alt=""></a></div>
             </div>
-             <div class="pro-item">
+            <div class="pro-item">
                 <img src="./LayoutClient/img/news5.png" alt="">
                 <div class="date">
                     <span><img src="./LayoutClient/img/lich.png.png" alt="">
@@ -132,7 +130,7 @@
                 <div class="ten">samsung giá chính hãng </div>
                 <div class="new"><a href="">xem chi tiết <img class="imgicon" src="./LayoutClient/img/muitenred.png" alt=""></a></div>
             </div>
-             <div class="pro-item">
+            <div class="pro-item">
                 <img src="./LayoutClient/img/news3.png" alt="">
                 <div class="date">
                     <span><img src="./LayoutClient/img/lich.png.png" alt="">
@@ -142,7 +140,7 @@
                 <div class="ten">sản phẩm giảm giá </div>
                 <div class="new"><a href="">xem chi tiết <img class="imgicon" src="./LayoutClient/img/muitenred.png" alt=""></a></div>
             </div>
-             <div class="pro-item">
+            <div class="pro-item">
                 <img src="./LayoutClient/img/news4.png" alt="">
                 <div class="date">
                     <span><img src="./LayoutClient/img/lich.png.png" alt="">

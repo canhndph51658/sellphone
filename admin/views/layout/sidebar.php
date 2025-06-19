@@ -44,6 +44,29 @@
                     </a>
                 </li>
 
+                <div class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa user"></i>
+                        <p>Quản lý tài khoản</p>
+                        <i class="fas fa-angle-left right"></i>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= BASE_URL_ADMIN . '?act=listtaikhoanquantri' ?>" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Quản trị viên</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?= BASE_URL_ADMIN . '?act=listtaikhoankhachhang' ?>" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Khách hàng</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                 <li class="nav-item">
                     <a href="<?= BASE_URL_ADMIN . '?act=sanpham' ?>" class="nav-link">
                         <i class="nav-icon fas fa-mobile"></i>
@@ -59,6 +82,14 @@
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Danh mục
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= BASE_URL_ADMIN . '?act=don-hang' ?>" class="nav-link">
+                        <i class="nav-icon fas fa-file-invoice-dollar"></i>
+                        <p>
+                            Đơn hàng
                         </p>
                     </a>
                 </li>

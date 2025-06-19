@@ -1,5 +1,9 @@
 <head>
+
   <link rel="stylesheet" href="./LayoutClient/css/products.css">
+
+    <link rel="stylesheet" href="./LayoutClient/css/products.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
@@ -66,7 +70,6 @@
             <?php endforeach; ?>
     </div>
 </div>
-
 <script src="./LayoutClient/js/trangchu.js"></script>
 <script src="./LayoutClient/js/productSanPham.js"></script>
 <?php require_once 'views/layout/footer.php' ?>
