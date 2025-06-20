@@ -79,24 +79,23 @@
                     </tbody>
                </table>
 
-               <div class="cart-summary">
-                    <h3>Tổng đơn hàng</h3>
-                    <div class="summary-item">
-                         <span>Tổng tiền sản phẩm</span>
-                         <span><?= formatNumber($tongGioHang) . ' đ' ?></span>
-                    </div>
-                    <div class="summary-item">
-                         <span>Vận chuyển</span>
-                         <span>10.000 đ</span>
-                    </div>
-                    <div class="summary-item">
-                         <span>Tổng thanh toán</span>
-                         <span class="total"><?= formatNumber($tongGioHang + 10000) . ' đ' ?></span>
-                    </div>
-                    <button class="checkout-btn"> Tiến hành đặt hàng</button>
+          <div class="cart-summary">
+               <h3>Tổng đơn hàng</h3>
+               <div class="summary-item">
+                    <span>Tổng tiền sản phẩm</span>
+                    <span><?= formatNumber($tongGioHang) . ' đ' ?></span>
                </div>
+               <div class="summary-item">
+                    <span>Vận chuyển</span>
+                    <span>10.000 đ</span>
+               </div>
+               <div class="summary-item">
+                    <span>Tổng thanh toán</span>
+                    <span class="total"><?= formatNumber($tongGioHang + 10000) . ' đ' ?></span>
+               </div>
+               <button class="checkout-btn"> Tiến hành đặt hàng</button>
           </div>
-     </form>
+     </div>
 </main>
 
 <script src="./LayoutClient/js/cart.js"></script>

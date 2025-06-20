@@ -33,6 +33,7 @@ function uploadFile($file, $folderUpload)
     }
     return null;
 }
+
 function deleteFile($file)
 {
     $pathDelete = PATH_ROOT . $file;

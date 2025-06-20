@@ -13,11 +13,13 @@ require_once './commons/function.php';
 require_once './controllers/HomeController.php';
 
 //Models
+require_once './models/DanhMuc.php';
 require_once './models/TaiKhoan.php';
 require_once './models/SanPham.php';
 require_once './models/GioHang.php';
 require_once './models/DonHang.php';
 require_once './models/BinhLuan.php';
+require_once './models/DanhMuc.php';
 $act = $_GET['act'] ?? '/';
 
 match ($act) {
@@ -29,6 +31,8 @@ match ($act) {
    'chi-tiet-san-pham' => (new HomeController())->ChiTietSanPham(),
    'gioi-thieu' => (new HomeController())->gioiThieu(),
    'lien-he' => (new HomeController())->lienHe(),
+   'san-pham-theo-danh-muc' => (new HomeController())->SanPhamTheoDanhMuc(),
+   'lich-su-mua-hang' => (new HomeController())->lichSuMuaHang(),
 
    //
    'gio-hang' => (new HomeController())->gioHang(),

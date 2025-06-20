@@ -1,5 +1,7 @@
 <?php
 
+
+ 
 class AdminTaikhoanController
 {
      public $modelTaiKhoan;
@@ -12,7 +14,42 @@ class AdminTaikhoanController
           $this->modelDonHang = new AdminDonHang();
           $this->modelSanPham = new AdminSanPham();
      }
-
+   public function formLogin()
+    {
+        require_once './views/auth/formlogin.php';
+        deleteSessionError();
+        exit();
+    }
+     public function generateHash(){
+          $hash = password_hash('123', PASSWORD_DEFAULT);
+           echo "Hash của mật khẩu '123' là: <br>" . $hash;
+             exit();
+     }
+    public function login()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $user = $this->modelTaiKhoan->checkLogin($email, $password);
+            if ($user == $email) {
+                $_SESSION['user_admin'] = $user;
+                header("Location: " . BASE_URL_ADMIN);
+                exit();
+            } else {
+                $_SESSION['error'] = $user;
+                $_SESSION['flash'] = true;
+                header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+                exit();
+            }
+        }
+    }
+    public function logout()
+    {
+        if (isset($_SESSION['user_admin'])) {
+            unset($_SESSION['user_admin']);
+            header("location: " . BASE_URL_ADMIN . '?act=login-admin');
+        }
+    }
      public function danhSachQuanTri()
      {
           $listQuanTri = $this->modelTaiKhoan->getAllTaiKhoan(1);
@@ -154,42 +191,4 @@ class AdminTaikhoanController
           require_once './views/taikhoan/khachhang/detailKhachHang.php';
      }
 
-     public function formLogin()
-     {
-          require_once './views/auth/formlogin.php';
-          deleteSessionError();
-          exit();
-     }
-     public function login()
-     {
-          if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-               $email = $_POST['email'];
-               $password = $_POST['password'];
-               $user = $this->modelTaiKhoan->checkLogin($email, $password);
-               if ($user == $email) {
-                    $_SESSION['user_admin'] = $user;
-                    header("Location: " . BASE_URL_ADMIN);
-                    exit();
-               } else {
-                    $_SESSION['error'] = $user;
-                    $_SESSION['flash'] = true;
-                    header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
-                    exit();
-               }
-          }
-     }
-     public function logout()
-     {
-          if (isset($_SESSION['user_admin'])) {
-               unset($_SESSION['user_admin']);
-               header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
-          }
-     }
-
-     public function generateHash()
-     {
-          $hash = password_hash('123456789', PASSWORD_DEFAULT);
-          echo "Hash của mật khẩu '123456789' là: <br>" . $hash;
-          exit();
-     }
 }
