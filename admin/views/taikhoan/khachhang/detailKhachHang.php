@@ -84,6 +84,11 @@
 
 
                                    <tbody>
+                                        <?php
+                                        usort($listDonHang, function ($a, $b) {
+                                             return $b['id'] - $a['id'];
+                                        });
+                                        ?>
                                         <?php foreach ($listDonHang as $key => $donHang): ?>
                                              <tr>
                                                   <td><?= $key + 1 ?></td>

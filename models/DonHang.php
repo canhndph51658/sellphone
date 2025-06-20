@@ -39,7 +39,7 @@ class DonHang
      {
           try {
                $sql = "INSERT INTO chi_tiet_don_hang (don_hang_id, san_pham_id, don_gia, so_luong, thanh_tien)
-               VALUES (:donHangId, :sanPhamId, :donGia, :soLuong, :thanhTien)";
+               VALUES (:don_hang_id, :san_pham_id, :don_gia, :so_luong, :thanh_tien)";
 
                $stmt = $this->conn->prepare($sql);
                $stmt->execute([
@@ -69,7 +69,7 @@ class DonHang
           }
      }
 
-      public function getDonHangFromUser($tai_khoan_id)
+     public function getDonHangFromUser($tai_khoan_id)
      {
           try {
                $sql = "SELECT * FROM don_hang WHERE tai_khoan_id =:tai_khoan_id";
@@ -79,7 +79,7 @@ class DonHang
                     ':tai_khoan_id' => $tai_khoan_id
                ]);
 
-               return $stmt-> fetchAll(PDO::FETCH_ASSOC);
+               return $stmt->fetchAll(PDO::FETCH_ASSOC);
           } catch (Exception $e) {
                echo "Lỗi kết nối: " . $e->getMessage();
           }
@@ -92,11 +92,12 @@ class DonHang
                $stmt = $this->conn->prepare($sql);
                $stmt->execute();
 
-               return $stmt-> fetchAll(PDO::FETCH_ASSOC);
+               return $stmt->fetchAll(PDO::FETCH_ASSOC);
           } catch (Exception $e) {
                echo "Lỗi kết nối: " . $e->getMessage();
           }
-     }public function getPhuongThucThanhToan()
+     }
+     public function getPhuongThucThanhToan()
      {
           try {
                $sql = "SELECT * FROM phuong_thuc_thanh_toan ";
@@ -104,7 +105,7 @@ class DonHang
                $stmt = $this->conn->prepare($sql);
                $stmt->execute();
 
-               return $stmt-> fetchAll(PDO::FETCH_ASSOC);
+               return $stmt->fetchAll(PDO::FETCH_ASSOC);
           } catch (Exception $e) {
                echo "Lỗi kết nối: " . $e->getMessage();
           }
